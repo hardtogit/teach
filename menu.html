@@ -1,0 +1,52 @@
+<style type="text/css">
+        @charset "UTF-8";
+
+	
+
+	div.menu ul
+	{
+	    list-style:none; 
+	    margin: 0px; 
+	    padding: 0px;
+	    width: auto; 
+	}
+	div.menu ul li div:hover
+	{
+	    background-color: #bfcbd6; 
+	    color: #465c71; 
+	    text-decoration: none; 
+	}
+
+	div.menu ul li div:active
+	{
+	   
+	}
+</style>
+	<div class="nav">
+		<div style="float:right;">
+			<a href="#/i002">Reset Password</a> <span style="color:white">|</span> <a href="#/main" onclick="logout()">Exit</a>
+		</div>
+	</div>
+    <div class="menu" >
+        <ul>
+            <li class="snav">Brand Name</li>
+			
+            <li><div onclick="ShowHid(this)"><a href="#/i001"><span class="fl">Menu Group 1</span></a><span class="fr">+</span></div>
+              <ul style="clear:both;display:none;">
+              	  <li><a href="#/i002"><span class="fl">Menu Item 1</span></a></li>
+              	  <li><a href=""><span class="fl">Menu Item 2</span></a></li>
+              </ul>
+            </li>
+
+            <li><div  onclick="ShowHid(this)" ><span class="fl">Menu Group 2</span><span class="fr">+</span></div>
+              <ul style="clear:both;display:none;">
+              	  <li><a href="#/i002"><span class="fl">Menu Item 3</span></a></li>
+              	  <li><a href="#/i002"><span class="fl">Menu Item 4</span></a></li>
+              </ul>
+            </li>
+			
+			<li><a href="#/i002"><span class="fl">Menu Item 5</span></a></li>
+        </ul>
+    </div>
+
+<div style="clear:both;"></div>

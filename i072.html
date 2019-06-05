@@ -1,0 +1,42 @@
+     <div class="i072">
+
+        <div class="ContactDetailsFace">
+            <img ng-src="{{headURL}}" id="edit_img"  style="width: 60px;height: 60px;cursor:pointer;" ng-click="updataImg()"/>
+            <div style="height:30px;line-height:30px;">
+            	upload progress<span id="_progressNumber"></span>
+                <input type="file" id="editImg" style="width:200px;display:none" onchange="angular.element(this).scope().editImgChanged()"/>
+            </div>
+
+            <br />
+            <span>
+                {{personData.name}}
+            </span>
+
+        </div>
+<br /><br /><p>
+        <div style="width:350px;">
+            <div class="edit-user-data-item">
+                <img src="img/icon_location.png" />
+                <span>Name</span>
+                <input id="name" type="text" ng-model="personData.name" class="none-border-text" style="height:30px;" />
+            </div>
+            
+            <div class="edit-user-data-item">
+                <img src="img/icon_location.png" />
+                <span>Province</span>
+                <input id="address" type="text" ng-model="personData.province" class="none-border-text" style="height:30px;" />
+            </div>
+            <div class="edit-user-data-item">
+                <img src="img/icon_location.png" />
+                <span>City</span>
+                <input id="address" type="text" ng-model="personData.city" class="none-border-text" style="height:30px;" />
+            </div>
+	    <br>
+	    
+	    <button id="inputButton" ng-click="weixin_pay($event)"> Weixin Pay </button>
+	    <div id="weixin_pay_return"></div>
+	    
+        </div>
+
+    </div>
+
