@@ -37,6 +37,10 @@ iweb.config(['$routeProvider',
                 templateUrl: 'i004.html',
                 controller: 'i004'
             }).
+			when('/i005', {
+				templateUrl: 'i005.html',
+				controller: 'i005'
+			}).
       		otherwise({
     			redirectTo: '/main'
       		});

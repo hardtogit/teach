@@ -1,0 +1,69 @@
+<div class="i005">
+    <div class="breadcrumbs"><a href="#/i001">首页 ></a><a href="#/i002"> 学习中心 ></a><a href="#/i004"> 我的课程 ></a><a > 课程详情</a></div>
+    <div class="content">
+        <ul class="nav">
+            <li ng-class="{'active':tabIndex===1}" ng-click="changeTab(1)">待上的课</li>
+            <li ng-class="{'active':tabIndex===2}" ng-click="changeTab(2)">已上的课</li>
+        </ul>
+        <div class="panel">
+            <div class="subject">
+                <div class="title">
+                    <span class="tag one">{{subject.season}}</span>
+                    <span class="tag two">{{subject.subject}}</span>
+                    <span class="name">{{subject.name}}</span>
+                    <div class="teachers clearfix">
+                        <div class="teacher">
+                            <img class="av" src="http://39.108.219.7/cgi-bin/download.pl?proj=znyx&fid={{subject.mainheadFid}}" alt="">
+                            <div class="info">
+                                <div class="name">{{subject.mainname}}</div>
+                                <div class="type">主讲老师</div>
+                            </div>
+                        </div>
+                        <div class="teacher">
+                            <img class="av"  src="http://39.108.219.7/cgi-bin/download.pl?proj=znyx&fid={{subject.assitheadFid}}" alt="">
+                            <div class="info">
+                                <div class="name">{{subject.assitname}}</div>
+                                <div class="type">辅导老师</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="class" ng-repeat="class in subject.finish" ng-show="tabIndex===1">
+                <div class="left">
+                <div class="title">{{class.title}}</div>
+                <div class="time">{{class.during}}</div>
+                </div>
+                <div class="items clearfix">
+                    <div class="item">
+                        <div class="labels">直播</div>
+                        <div class="status">未开始</div>
+                    </div>
+                    <div class="item">
+                        <div class="labels">练习</div>
+                        <div>{{class.watchexam?'查看':'未布置'}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="class clearfix" ng-repeat="class in subject.wait" ng-show="tabIndex===2">
+                <div class="left">
+                <div class="title">{{class.title}}</div>
+                <div class="time">{{class.during}}</div>
+                </div>
+                <div class="items">
+                    <div class="item">
+                        <div class="labels">直播</div>
+                        <div class="status">未开始</div>
+                    </div>
+                    <div class="item">
+                        <div class="labels">练习</div>
+                        <div class="status">{{class.watchexam?'查看':'未布置'}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

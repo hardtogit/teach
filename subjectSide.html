@@ -1,10 +1,10 @@
-<div class="side">
+<div class="side" ng-controller="subjectSide">
     <img src="" class="header" alt="">
     <div class="name">胡同</div>
     <div class="menus">
-        <div class="menu">我的课表</div>
-        <div class="menu">我的课程</div>
-        <div class="menu">错题本</div>
+        <div ng-class="{'menu':true,'active':path==='/'}">我的课表</div>
+        <div ng-class="{'menu':true,'active':(path==='/i004'||path==='/i005')}">我的课程</div>
+        <div ng-class="{'menu':true,'active':path===''}">错题本</div>
     </div>
 
 </div>
@@ -30,12 +30,16 @@
     .menus{
         border-top:1px solid #F5F5F5;
         padding-top: 20px;
+        padding-bottom: 20px;
         margin-top: 30px;
     }
     .menu{
-        height: 44px;
-        line-height: 44px;
+        height: 60px;
+        line-height: 60px;
         font-size: 16px;
         text-align: center;
+    }
+    .menus .active{
+        border-left: 2px solid #4A81FA;
     }
 </style>

@@ -1,0 +1,127 @@
+.i005 {
+  color: #32404B;
+}
+.i005 .breadcrumbs {
+  font-size: 14px;
+  padding: 15px 0;
+}
+.i005 .breadcrumbs a {
+  text-decoration: none;
+  color: #818A92;
+}
+.i005 .breadcrumbs a:hover {
+  color: #32404B;
+}
+.i005 .content {
+  background-color: #fff;
+  border: 1px solid #EBEBEB;
+  padding: 30px 40px;
+}
+.i005 .nav {
+  border-bottom: 1px solid #EBEBEB;
+}
+.i005 .nav li {
+  display: inline-block;
+  height: 40px;
+  cursor: pointer;
+  font-size: 15px;
+  margin-right: 30px;
+}
+.i005 .nav li.active {
+  color: #4A81FA;
+  border-bottom: 2px solid #4A81FA;
+}
+.i005 .panel {
+  border: none;
+}
+.i005 .panel .title {
+  font-size: 16px;
+}
+.i005 .panel .title .tag {
+  font-size: 14px;
+}
+.i005 .panel .title .tag.one {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  color: #FF9D30;
+  text-align: center;
+  background: #fff6ec;
+  border: 1px solid #ff9d30;
+  border-radius: 2px;
+}
+.i005 .panel .title .tag.two {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  color: #F43737;
+  text-align: center;
+  background: #fff3f3;
+  border: 1px solid #f43737;
+  border-radius: 2px;
+}
+.i005 .panel .title .name {
+  font-size: 16px;
+  color: #32404B;
+}
+.i005 .panel .title .teachers {
+  float: right;
+}
+.i005 .panel .title .teachers .teacher {
+  float: left;
+  font-size: 14px;
+  margin-right: 20px;
+}
+.i005 .panel .title .teachers .teacher .av {
+  float: left;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  margin-top: 4px;
+  border-radius: 50%;
+}
+.i005 .panel .title .teachers .teacher .info {
+  float: left;
+}
+.i005 .panel .title .teachers .teacher .info .name {
+  font-size: 14px;
+  text-align: left;
+}
+.i005 .panel .title .teachers .teacher .info .type {
+  margin-top: 10px;
+}
+.i005 .panel .subject {
+  padding: 20px 0 50px 0;
+  border-bottom: 1px solid #F5F5F5;
+}
+.i005 .panel .class {
+  padding: 30px 0;
+  border-bottom: 1px solid #F5F5F5;
+}
+.i005 .panel .class .left {
+  float: left;
+}
+.i005 .panel .class .title {
+  font-size: 18px;
+}
+.i005 .panel .class .time {
+  font-size: 14px;
+  color: #818A92;
+  margin-top: 10px;
+}
+.i005 .panel .class .items {
+  float: right;
+  font-size: 14px;
+}
+.i005 .panel .class .items .item {
+  width: 78px;
+  height: 50px;
+  background: #f5f5f5;
+  border-radius: 6px 6px 6px 6px;
+  float: left;
+  padding: 8px;
+}
+.i005 .panel .class .items .item:first-child {
+  margin-right: 20px ;
+}
+/*# sourceMappingURL=i005.css.map */

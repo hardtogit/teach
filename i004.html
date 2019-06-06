@@ -1,21 +1,21 @@
 <!--我的资料-->
 <div class="i004">
+    <div class="breadcrumbs"><a href="#/i001">首页 ></a><a href="#/i002"> 学习中心 ></a><a href="#/i004"> 我的课程</a></div>
     <div  ng-include="'subjectSide.html'"></div>
     <div class="content">
         <ul class="nav">
-            <li ng-class="{'active':tabIndex===1}" ng-click="changeTab(1)">全部</li>
-            <li ng-class="{'active':tabIndex===2}" ng-click="changeTab(2)">正在学</li>
-            <li ng-class="{'active':tabIndex===3}" ng-click="changeTab(3)">未开始</li>
-            <li ng-class="{'active':tabIndex===4}" ng-click="changeTab(4)">已结束</li>
-            <li ng-class="{'active':tabIndex===5}" ng-click="changeTab(5)">已退费</li>
+            <li ng-class="{'active':tabIndex==='全部'}" ng-click="changeTab('全部')">全部</li>
+            <li ng-class="{'active':tabIndex==='正在学'}" ng-click="changeTab('正在学')">正在学</li>
+            <li ng-class="{'active':tabIndex==='未开始'}" ng-click="changeTab('未开始')">未开始</li>
+            <li ng-class="{'active':tabIndex==='已结束'}" ng-click="changeTab('已结束')">已结束</li>
         </ul>
         <div class="panel">
-            <div class="subject">
+            <div class="subject" ng-repeat="subject in subjectList">
                 <div class="title">
-                    <span class="tag one">春</span>
-                    <span class="tag two">英</span>
-                    <span class="name">一节课搞定英语单词认读问题</span>
-                    <span class="status">未开始</span>
+                    <span class="tag one">{{subject.season}}</span>
+                    <span class="tag two">{{subject.subject}}</span>
+                    <span class="name">{{subject.name}}</span>
+                    <span class="status">{{subject.watchstatus}}</span>
                 </div>
                 <div class="subTitle">
                     <span class="item">时间：05月28日-05月31日</span>
@@ -24,59 +24,24 @@
                 </div>
                 <div class="teachers clearfix">
                     <div class="teacher">
-                        <img class="av" src="./img/tou.jpg" alt="">
+                        <img class="av" src="http://39.108.219.7/cgi-bin/download.pl?proj=znyx&fid={{subject.mainheadFid}}" alt="">
                         <div class="info">
-                            <div class="name">王</div>
+                            <div class="name">{{subject.mainname}}</div>
                             <div class="type">主讲老师</div>
                         </div>
                     </div>
                     <div class="teacher">
-                        <img class="av"  src="./img/tou.jpg" alt="">
+                        <img class="av"  src="http://39.108.219.7/cgi-bin/download.pl?proj=znyx&fid={{subject.assitheadFid}}" alt="">
                         <div class="info">
-                            <div class="name">礼貌在</div>
+                            <div class="name">{{subject.assitname}}</div>
                             <div class="type">辅导老师</div>
                         </div>
                     </div>
-                    <div class="detail" >
+                    <div class="detail" ng-click="goDetail(subject.course_id)">
                         查看详情
                     </div>
                 </div>
-
             </div>
-            <div class="subject">
-                <div class="title">
-                    <span class="tag one">春</span>
-                    <span class="tag two">英</span>
-                    <span class="name">一节课搞定英语单词认读问题</span>
-                    <span class="status">未开始</span>
-                </div>
-                <div class="subTitle">
-                    <span class="item">时间：05月28日-05月31日</span>
-                    <span class="item">10节</span>
-                    <span class="item">下次开课时间：05月28日-05月31日</span>
-                </div>
-                <div class="teachers clearfix">
-                    <div class="teacher">
-                        <img class="av" src="./img/tou.jpg" alt="">
-                        <div class="info">
-                            <div class="name">王</div>
-                            <div class="type">主讲老师</div>
-                        </div>
-                    </div>
-                    <div class="teacher">
-                        <img class="av"  src="./img/tou.jpg" alt="">
-                        <div class="info">
-                            <div class="name">礼貌在</div>
-                            <div class="type">辅导老师</div>
-                        </div>
-                    </div>
-                    <div class="detail" >
-                        查看详情
-                    </div>
-                </div>
-
-            </div>
-
         </div>
     </div>
 

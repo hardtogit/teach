@@ -1,3 +1,14 @@
+.i004 .breadcrumbs {
+  font-size: 14px;
+  padding: 15px 0;
+}
+.i004 .breadcrumbs a {
+  text-decoration: none;
+  color: #818A92;
+}
+.i004 .breadcrumbs a:hover {
+  color: #32404B;
+}
 .i004 .content {
   width: 940px;
   float: left;
@@ -5,6 +16,9 @@
   border: 1px solid #EBEBEB;
   padding: 30px 40px;
   margin-left: 20px;
+}
+.i004 .content .nav {
+  border-bottom: 1px solid #EBEBEB;
 }
 .i004 .content .nav li {
   display: inline-block;
@@ -19,6 +33,9 @@
 }
 .i004 .content .panel .control-label {
   width: 86px;
+}
+.i004 .panel {
+  border: none;
 }
 .i004 .panel .title {
   font-size: 16px;
