@@ -33,6 +33,10 @@ iweb.config(['$routeProvider',
                 templateUrl: 'i003.html',
                 controller: 'i003'
             }).
+            when('/i004', {
+                templateUrl: 'i004.html',
+                controller: 'i004'
+            }).
       		otherwise({
     			redirectTo: '/main'
       		});
@@ -139,8 +143,8 @@ apiconn.response_received_handler = function(jo) {
 
 apiconn.wsUri = "ws://39.108.219.7:51717/znyx";
 setTimeout(()=>{
-    window.ajax({obj:"user",act:"getcode",phone:"15528059582",type:"login"},function (data) {
-        // apiconn.loginx({"login_name":"15528059582","code":"123456","ctype":"h5"})
+    window.ajax({obj:"user",act:"getcode",phone:"17326103988",type:"login"},function (data) {
+        apiconn.loginx({"login_name":"17326103988","code":"123456","ctype":"h5"})
     })
 },3000)
 
