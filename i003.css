@@ -1,0 +1,17 @@
+.i003 .nav li {
+  display: inline-block;
+  height: 45px;
+  line-height: 45px;
+  cursor: pointer;
+  margin-right: 30px;
+}
+.i003 .nav li.active {
+  border-bottom: 2px solid #0000ff;
+}
+.i003 .panel {
+  padding: 20px 0;
+}
+.i003 .panel .control-label {
+  width: 86px;
+}
+/*# sourceMappingURL=i003.css.map */
