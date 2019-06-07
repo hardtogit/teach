@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>注册</title>
+    <link href="http://39.108.219.7/webapp/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body class="text-center">
+	<div class="container">
+  	  <div class="text-center" style="width: 500px; padding-top: 100px; margin:0 auto">
+        <h3>注册</h3>
+		<form action="#">
+		    <div class="form-group">
+		      <input type="text" class="form-control" placeholder="请输入你的手机号" id="phone_input">
+		    </div>
+		    <div class="form-group">
+		      <div class="row">
+		      	<div class="col-xs-8">
+		      	  <input type="text" class="form-control" placeholder="请输入验证码" id="code_input">
+		      	</div>
+		      	<div class="col-xs-4">
+		      	  <button class="btn btn-default" id="code_btn">获取验证码</button>
+		      	</div>
+		      </div>
+		    </div>
+		    <div class="form-group">
+		      <input type="password" class="form-control" placeholder="请设置6-20位字母与数字密码" id="password_input">
+		    </div>
+		    <div class="form-group">
+		      <input type="text" class="form-control" placeholder="请设置2-8个字的用户昵称" id="nickname_input">
+		    </div>
+			<div class="form-group">
+		    	<button class="btn btn-primary btn-block" id="register_btn">注 册</button>
+		    </div>
+		    <div class="form-group text-left">
+			  <p>点击注册表示已阅读并同意<a href="#" id="service_agreement_link">《121大讲堂客户注册协议》</a></p>
+		    </div>
+	    </form>	
+  		
+  		</div>
+  	</div>
+	
+	<div class="modal fade" id="saModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">服务协议</h4>
+          </div>
+          <div class="modal-body" id="message_body">
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+          </div>
+        </div>
+      </div>
+    </div>
+	
+	<script src="http://39.108.219.7/webapp/jquery.min.js"></script>
+	<script src="http://39.108.219.7/webapp/APIConnection.min.js"></script>
+    <script src="http://39.108.219.7/webapp/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+ 		var ws = new WebSocket("ws://39.108.219.7:51717/znyx");
+ 		ws.onopen = function(e) {
+    		console.log("Connection open...");
+		};
+
+		ws.onmessage = function(e) {
+			if(typeof e.data === "string"){
+		        console.log("String message received", e, e.data);
+		    } else {
+		        console.log("Other message received", e, e.data);
+		    }
+		};
+
+		ws.onerror = function(e){
+    		console.log('websocked error');
+    		handerError();
+		};
+
+
+    	function getCode() {
+    		ws.send('{"obj":"user","act":"getcode","phone":"15528059582","type":"login"}');
+    	}
+
+    	function register() {
+    		send_obj({obj:"user",act:"getcode",phone:"15528059582",type:"login"},function (data) {
+        		console.log(data);
+    		});
+    	}
+
+    	$(function(){
+    		$("#service_agreement_link").on('click', function(e){
+    			$('#saModal').modal({});
+    		});
+
+    		$("#code_btn").on('click', function(e){
+    			getCode();
+    		});
+
+    		$("#register_btn").on("click", function(e){register();});
+    	});
+    </script>
+  </body>
+</html>
