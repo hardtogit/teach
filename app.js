@@ -33,6 +33,14 @@ iweb.config(['$routeProvider',
                 templateUrl: 'i003.html',
                 controller: 'i003'
             }).
+            when("/i100",{
+            	templateUrl: 'i100.html',
+                controller: 'i100'
+            }).
+            when("/i101",{
+            	templateUrl: 'i101.html',
+            	controller: 'i101'
+            }).
       		otherwise({
     			redirectTo: '/main'
       		});
@@ -140,7 +148,7 @@ apiconn.response_received_handler = function(jo) {
 apiconn.wsUri = "ws://39.108.219.7:51717/znyx";
 setTimeout(()=>{
     window.ajax({obj:"user",act:"getcode",phone:"15528059582",type:"login"},function (data) {
-        // apiconn.loginx({"login_name":"15528059582","code":"123456","ctype":"h5"})
+         apiconn.loginx({"login_name":"15528059582","code":"123456","ctype":"h5"})
     })
 },3000)
 

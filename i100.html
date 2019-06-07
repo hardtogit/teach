@@ -1,0 +1,86 @@
+<div id="i100-nav"></div>
+<div id="i100-learn-center">
+	<ul id="i100-breadcrumb">
+		<li>
+			<a href="#">首页</a><span class="allow">></span>
+		</li>
+		<li>
+			<a href="#">学习中心</a><span class="allow">></span>
+		</li>
+		<li class="active">我的课表</li>
+	</ul>
+	<div id="i100-menu">
+		<div class="i100-info">
+			<div class="i100-head-img">
+				<img style="width: 100px;height: 100px;" src="avatarMale.4b528c4.png" />
+			</div>
+			<div class="i100-user-name">小明同学</div>
+		</div>
+		<div id="i100-menu-list">
+			<p class="i100-menu-active"><span class="i100-item">我的课表</span></p>
+			<p><span class="i100-item">错题本</span></p>
+			<p><span class="i100-item">我的课程</span></p>
+		</div>
+	</div>
+	<div id="i100">
+		<div class="i100-calendar">
+			<div class="i100-calendar-week">
+				<div class="i100-week i100-flex">
+					<div class="i100-calendr-item">周一</div>
+					<div class="i100-calendr-item">周二</div>
+					<div class="i100-calendr-item">周三</div>
+					<div class="i100-calendr-item">周四</div>
+					<div class="i100-calendr-item">周五</div>
+					<div class="i100-calendr-item">周六</div>
+					<div class="i100-calendr-item">周日</div>
+				</div>
+				<div class="i100-calendar-content">
+				
+				</div>
+			</div>
+			<div class="i100-days-week">
+				<div class="i100-year_month">
+					<i class="i100-icon i100-icon-left" ng-click="pre()"><</i>
+					<span class="i100-ym"><span class="year">{{daytem.year}}</span>年<span class="month">{{daytem.month}}</span>月</span>
+					<i class="i100-icon i100-icon-right" ng-click="nxt()">></i>
+				</div>
+				<div class="i100-days">
+					<span class="i100-days-day">{{daytem.day}}</span>
+					<span class="i100-days-day-week">{{daytem.week}}</span>
+				</div>
+				<div class="i100-show-week">展开</div>
+			</div>
+		</div>
+		<div class="i100-course-list">	
+			<div class="i100-course-item">
+				<div class="i100-course-item-title">
+					<div class="i100-course-sign"></div>
+					<div class="i100-course-time">20:00 - 21:00</div>
+				</div>
+				<div class="i100-course-item-info">
+					<div class="i100-course-info i100-course-info-more3">
+						<div class="i100-course-info-title">第2讲:单词大联网，发音不死记</div>
+						<div class="i100-course-info-subtitle">英语结构思维法--词句体验班</div>
+					</div>
+				</div>
+				<div class="i100-course-task">
+					<div class="i100-course-live">
+						<div class="i100-course-live-title">直播</div>
+					 <!--开课前10分钟，高亮显示进入课堂，未到时间显示未开始，点击弹出窗口提示开课前10分钟开放课堂-->
+						<div class="i100-course-live-light">进入课堂</div>
+					</div>
+					<div class="i100-course-homework">
+						<div class="i100-course-homework-title">练习</div>
+						<!--未布置显示未布置，点击toast 未布置课后练习，布置课后练习未完成显示开始练习 已做完显示已做完-->
+						<div class="i100-course-homework-status">未布置</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="i100-unselect i100-curs-hide">
+			<div class="i100-uncourse">暂时没有课程</div>
+			<div class="i100-bg-red i100-color-fff i100-to-select">去选课</div>
+		</div>
+	</div>
+</div>
+<div ng-include="'i100footer.html'"></div>
