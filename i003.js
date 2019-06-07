@@ -3,6 +3,16 @@ iweb.controller('i003', function($scope,fileReader) {
     $scope.header=''
     $scope.userInfo={}
     $scope.classList=[]
+    $scope.regionData={
+        areaprovince:undefined,
+        areacity:undefined,
+        areacounty:undefined
+    }
+    $scope.regionList= {
+        province: [],
+        city: [],
+        county: []
+    }
     $scope.submit=function () {
         console.log($scope.formObj)
     }
@@ -17,6 +27,56 @@ iweb.controller('i003', function($scope,fileReader) {
             })
         });
     };
+    $scope.formatRegion=function(type,parameter,action){
+        if(type==='province') {
+            ajax({
+                obj: 'user',
+                act: 'provincecity',
+                type,
+                parameter
+
+            }, function (data) {
+                $scope.regionList.province = data.info
+                $scope.regionList.city=[]
+                $scope.regionList.county=[]
+
+            })
+        }
+        if(type==='city'){
+            ajax({
+                obj: 'user',
+                act: 'provincecity',
+                type,
+                parameter
+            },function (data) {
+                $scope.regionList.city=data.info
+                if(action){
+                    $scope.regionData.areacity=undefined
+                    $scope.regionData.areacounty=undefined
+                }
+
+                $scope.regionList.county=[]
+
+            })
+        }
+         if(type==='county'){
+             ajax({
+                 obj:'user',
+                 act:'provincecity',
+                 type,
+                 parameter
+
+             },function (data) {
+                 $scope.regionList.county=data.info
+                 if(action){
+                     $scope.regionData.areacounty=undefined
+                 }
+             })
+         }
+
+
+
+        }
     $scope.getData=function () {
         if(apiconn.conn_state==='IN_SESSION'){
             ajax({
@@ -24,6 +84,15 @@ iweb.controller('i003', function($scope,fileReader) {
                 act:'readmyinfo',
             },function (data) {
                 $scope.userInfo=data.info
+                if(data.info.areaprovince){
+                    $scope.formatRegion('city',data.info.areaprovince)
+                    $scope.formatRegion('county',data.info.areacity)
+                }
+                $scope.regionData={
+                    areaprovince:data.info.areaprovince,
+                    areacity:data.info.areacity,
+                    areacounty:data.info.areacounty
+                }
             })
             ajax({
                 obj:'user',
@@ -35,11 +104,13 @@ iweb.controller('i003', function($scope,fileReader) {
                 })
                 $scope.classList=arr
             })
+            $scope.formatRegion('province','province')
+
         }
     }
     $scope.setData=function(){
-        ajax(Object.assign({obj:'user',act:'setmyinfo'},$scope.userInfo,{name:$scope.userInfo.realname}),function () {
-            console.log('修改成功')
+        ajax(Object.assign({obj:'user',act:'setmyinfo'},$scope.userInfo,{name:$scope.userInfo.realname,fid:$scope.userInfo.headfid,classid:$scope.userInfo.class_id},$scope.regionData),function () {
+            layer.msg('修改成功',{icon:1})
         })
     }
     $scope.getData()
@@ -48,5 +119,9 @@ iweb.controller('i003', function($scope,fileReader) {
             $scope.getData()
         }
     })
-
+    $scope.$on("RESPONSE_RECEIVED_HANDLER", function(event, jo) {
+        if (jo.obj == "user" && jo.act == "provincecity" && !jo.ustr) {
+            console.log(jo,'sssssssssssssssssssssssssssssssssssssssssss')
+        }
+    });
 })

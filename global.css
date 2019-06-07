@@ -1,7 +1,7 @@
 body {
 	width: 100%;
 }
-ul.pages{height:50px;}
+ul.pages{height:50px;display: inline-block}
 ul.pages li{float:left;line-height:30px;padding:0 10px;border-top:1px solid #ddd;border-right:1px solid #ddd;border-bottom:1px solid #ddd;list-style:none;color:#428bca;cursor:pointer;}
 ul.pages li:hover{color:red;}
 ul.pages li.shen{color:#428bca;width:45px;text-align: center;}

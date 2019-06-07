@@ -15,11 +15,25 @@ iweb.controller('i004', function($scope) {
                 act:'mycourselist',
                 content:content,
                 page_num:0,
-                page_size:5
+                page_size:2
             },function (data) {
                 $scope.subjectList=data.info
+                PageObject({appendId:'i004page',currNum:1,pageCount:3,callback:function (current) {
+                    $scope.openPage(current-1)
+                    }})
             })
         }
+    }
+    $scope.openPage=function(current){
+        ajax({
+            obj:'user',
+            act:'mycourselist',
+            content:$scope.tabIndex,
+            page_num:current,
+            page_size:2
+        },function (data) {
+            $scope.subjectList=data.info
+        })
     }
     $scope.getData('全部')
     $scope.$on("STATE_CHANGED_HANDLER", function() {

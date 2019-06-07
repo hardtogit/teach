@@ -67,8 +67,12 @@ function logout() {
 var apiconn = new APIConnection();
 window.ajax=function(params,cb){
 	if(cb){
-		callBackFn[params.obj+'_'+params.act]=cb
-	}
+	    if(callBackFn[params.obj+'_'+params.act]){
+            callBackFn[params.obj+'_'+params.act].push(cb)
+        }else{
+            callBackFn[params.obj+'_'+params.act]=[cb]
+        }
+        }
     apiconn.send_obj(params)
 }
 apiconn.client_info.clienttype = "web";
@@ -127,8 +131,8 @@ apiconn.response_received_handler = function(jo) {
 		if (jo.ustr != null && jo.ustr != "" && jo.uerr != "ERR_CONNECTION_EXCEPTION"){
             layer.msg(jo.ustr,{icon:2})
 		} else{
-            if(callBackFn[jo.obj+'_'+jo.act]){
-                callBackFn[jo.obj+'_'+jo.act](jo)
+            if(callBackFn[jo.obj+'_'+jo.act]&&callBackFn[jo.obj+'_'+jo.act].length){
+                     callBackFn[jo.obj+'_'+jo.act].shift()(jo)
             }
 		}
 		if (jo.obj == "person" && jo.act == "login" && jo.user_info && jo.server_info) {

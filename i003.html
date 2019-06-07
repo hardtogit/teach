@@ -51,57 +51,33 @@
                 <div class="form-group">
                     <label for="level" class="col-sm-2 control-label">年&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp级</label>
                     <div class="col-sm-4">
-                        <select class="form-control" ng-model="userInfo.classid" id="level">
-                            <option ng-repeat="class in classList" value="class._id">{{class.name}}</option>
+                        <select class="form-control" ng-model="userInfo.class_id" id="level">
+                            <option value="" disabled>请选择</option>
+                            <option ng-selected="userInfo.class_id===class._id" ng-repeat="class in classList" ng-value="class._id">{{class.name}}</option>
                         </select>
                     </div>
                 </div>
-                <!--<div class="form-group">-->
-                    <!--<label for="subject" class="col-sm-2 control-label">学&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp科</label>-->
-                    <!--<div class="col-sm-4">-->
-                        <!--<select class="form-control" ng-model="formObj.subject" id="subject">-->
-                            <!--<option>初一</option>-->
-                            <!--<option>初二</option>-->
-                            <!--<option>初三</option>-->
-                            <!--<option>高一</option>-->
-                            <!--<option>高二</option>-->
-                            <!--<option>高三</option>-->
-                        <!--</select>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="form-group">-->
-                    <!--<label  class="col-sm-2 control-label">区&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp域</label>-->
-                    <!--<div class="col-sm-2">-->
-                        <!--<select class="form-control">-->
-                            <!--<option>初一</option>-->
-                            <!--<option>初二</option>-->
-                            <!--<option>初三</option>-->
-                            <!--<option>高一</option>-->
-                            <!--<option>高二</option>-->
-                            <!--<option>高三</option>-->
-                        <!--</select>-->
-                    <!--</div>-->
-                    <!--<div class="col-sm-2">-->
-                        <!--<select class="form-control">-->
-                            <!--<option>初一</option>-->
-                            <!--<option>初二</option>-->
-                            <!--<option>初三</option>-->
-                            <!--<option>高一</option>-->
-                            <!--<option>高二</option>-->
-                            <!--<option>高三</option>-->
-                        <!--</select>-->
-                    <!--</div>-->
-                    <!--<div class="col-sm-2">-->
-                        <!--<select class="form-control">-->
-                            <!--<option>初一</option>-->
-                            <!--<option>初二</option>-->
-                            <!--<option>初三</option>-->
-                            <!--<option>高一</option>-->
-                            <!--<option>高二</option>-->
-                            <!--<option>高三</option>-->
-                        <!--</select>-->
-                    <!--</div>-->
-                <!--</div>-->
+                <div class="form-group">
+                    <label  class="col-sm-2 control-label">区&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp域</label>
+                    <div class="col-sm-2">
+                        <select placeholder="请选择" class="form-control" ng-change="formatRegion('city',regionData.areaprovince,true)" ng-model="regionData.areaprovince" >
+                            <option value="" disabled>请选择</option>
+                            <option ng-selected="regionData.areaprovince===province.province_ch" ng-repeat="province in regionList.province" ng-value="province.province_ch">{{province.province_ch}}</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-2">
+                        <select placeholder="请选择" class="form-control" ng-change="formatRegion('county',regionData.areacity,true)" ng-model="regionData.areacity">
+                            <option value="" disabled>请选择</option>
+                            <option ng-selected="regionData.areacity===city.city_ch" ng-repeat="city in regionList.city" ng-value="city.city_ch">{{city.city_ch}}</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-2">
+                        <select placeholder="请选择" class="form-control"  ng-model="regionData.areacounty">
+                            <option value="" disabled>请选择</option>
+                            <option ng-selected="regionData.areacounty===city.city_ch" ng-repeat="city in regionList.county" ng-value="city.city_ch">{{city.city_ch}}</option>
+                        </select>
+                    </div>
+                </div>
             </form>
             <div class="submit" ng-click="setData()">
                 保存
