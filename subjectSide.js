@@ -9,6 +9,9 @@ iweb.controller('subjectSide', function($scope,$route) {
                 })
             }
         }
+    $scope.setClass=function(class_id){
+       $scope.userInfo.class_id=class_id
+    }
         $scope.getData()
         $scope.$on("STATE_CHANGED_HANDLER", function() {
             if(apiconn.conn_state==='IN_SESSION'){
@@ -17,7 +20,10 @@ iweb.controller('subjectSide', function($scope,$route) {
         })
     $scope.$on("RESPONSE_RECEIVED_HANDLER", function(event, jo) {
         if (jo.obj == "user" && jo.act == "readmyinfo" && !jo.ustr) {
-            $scope.objInfo=jo.info
+            // setTimeout(function () {
+                $scope.objInfo=jo.info
+            // },2000)
+
         }
     });
 })

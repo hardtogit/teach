@@ -66,7 +66,7 @@ iweb.config(['$routeProvider',
 				controller: 'i005'
 			}).
       		otherwise({
-    			redirectTo: '/main'
+    			redirectTo: '/003'
       		});
 }]);
 

@@ -1,5 +1,9 @@
 <!--我的资料-->
+<div id="i100-nav" style="height: 55px;
+	width: 100%;
+	background-color: #4C84FF;"></div>
 <div class="i003 container" style="width: 1180px;padding: 0">
+    <div class="breadcrumbs"><a href="#/i001">首页 ></a><a href="#/i002"> 学习中心 ></a><a href="#/i003">个人中心</a></div>
     <div  ng-include="'subjectSide.html'"></div>
     <div class="content">
         <ul class="nav">
@@ -51,8 +55,8 @@
                 <div class="form-group">
                     <label for="level" class="col-sm-2 control-label">年&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp级</label>
                     <div class="col-sm-4">
-                        <select class="form-control" ng-model="userInfo.class_id" id="level">
-                            <option value="" disabled>请选择</option>
+                        <select class="form-control" ng-model="userInfo.class_id"  id="level">
+                            <option disabled>请选择</option>
                             <option ng-selected="userInfo.class_id===class._id" ng-repeat="class in classList" ng-value="class._id">{{class.name}}</option>
                         </select>
                     </div>
@@ -85,6 +89,7 @@
         </div>
     </div>
 </div>
+<div ng-include="'i100footer.html'"></div>
 <style>
     .content{
         width: 850px;

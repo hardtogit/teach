@@ -15,10 +15,10 @@ iweb.controller('i004', function($scope) {
                 act:'mycourselist',
                 content:content,
                 page_num:0,
-                page_size:2
+                page_size:5
             },function (data) {
                 $scope.subjectList=data.info
-                PageObject({appendId:'i004page',currNum:1,pageCount:3,callback:function (current) {
+                PageObject({appendId:'i004page',currNum:1,pageCount:Math.ceil(data.count/5),callback:function (current) {
                     $scope.openPage(current-1)
                     }})
             })
@@ -30,7 +30,7 @@ iweb.controller('i004', function($scope) {
             act:'mycourselist',
             content:$scope.tabIndex,
             page_num:current,
-            page_size:2
+            page_size:5
         },function (data) {
             $scope.subjectList=data.info
         })
