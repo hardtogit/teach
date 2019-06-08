@@ -1,4 +1,7 @@
 iweb.controller('i100', function($scope) {
+	$scope.userInfo={}
+	$scope.download_domain = '';
+	$scope.items=[];
 	var isWeek = true;
 	var date = new Date();
 	var week_text = ["周日","周一","周二","周三","周四","周五","周六"];
@@ -9,33 +12,44 @@ iweb.controller('i100', function($scope) {
 		week: week_text[date.getDay()]
 	}
 	var daytem = JSON.parse(JSON.stringify(today));
-		
-	$(function(){
+	 $scope.getData=function () {
+        if(apiconn.conn_state==='IN_SESSION'){
+        	ajax({
+                obj:'user',
+                act:'readmyinfo',
+            },function (data) {
+                $scope.userInfo=data.info
+                $scope.download_domain = apiconn.server_info.download_path
+                $scope.regionData={
+                    areaprovince:data.info.areaprovince,
+                    areacity:data.info.areacity,
+                    areacounty:data.info.areacounty
+                }
+            });
+            var daylist = next_week();
+            showCalendarAndItems(daylist,today);
+        }
+      }
+	$(function(){	
 		panelRightCalendar();
-		let list = next_week();
-		showCalendar(list);
-		showCourseItems(getICourseItems(daytem));	
 	})
+	$scope.toLive =function(url,talk,status){
+	 // var liveUrl = "#/i101?gid="+talk+"&u="+url+"&s="+status;	
+	  var liveUrl = "#/i101?gid=o15598664532377779483&u=rtmp://dev.pull.live.121tongbu.com/live/XtbjfRaUg49D2kWcR2&s=true";
+	 window.open(liveUrl,'_blank');
+	}
 	$("#i100-menu-list p").click(function(){
 		$("#i100-menu-list p").removeClass("i100-menu-active");	
 		$(this).addClass("i100-menu-active");
 	})
 	$(".i100-calendar-content").on("click",".i100-date-item",function(){
-		var isMark = $(this).find(".i100-date").data("isMark");
-		if(isMark){
-			$(".i100-unselect").addClass("i100-curs-hide");
-			$(".i100-course-list").removeClass("i100-curs-hide");
-			//加载数据
-			var daytime = {
-				year : $(this).data("year"),
-				month: $(this).data("month"),
-				day : $(this).data("day")
-			}
-			showCourseItems(getICourseItems(daytime));
-		}else{
-			$(".i100-course-list").addClass("i100-curs-hide");
-			$(".i100-unselect").removeClass("i100-curs-hide");
+		//加载数据
+		var daytime = {
+			year : $(this).data("year"),
+			month: $(this).data("month"),
+			day : $(this).data("day")
 		}
+		getICourseItems(daytime);
 		daytem = daytime;
 		daytem.week = week_text[new Date(daytem.year,daytem.month,daytem.day).getDay()];
 		panelRightCalendar();
@@ -66,41 +80,58 @@ iweb.controller('i100', function($scope) {
 		showCalendar(month_list);
 		
 	});
+	function showCalendarAndItems(daylist,date){
+		var days = []
+            for (var i = 0; i < daylist.length; i++) {
+            	days.push(new Date(daylist[i].year,daylist[i].month-1,daylist[i].day).getTime()/1000);
+            }
+            
+            ajax({
+            	obj:'pc',
+            	act:'coursetable',
+            	dates:days,
+            	day:new Date(date.year,date.month-1,date.day).getTime()/1000
+            },function(data){
+            	showCalendar(daylist,data.info.dates)
+            	var items = data.info.day;
+	        	if(items.length >0){
+	        		$(".i100-unselect").addClass("i100-curs-hide");
+					$(".i100-course-list").removeClass("i100-curs-hide");
+	        		$scope.items = items;
+	        	}else{
+	        		$(".i100-course-list").addClass("i100-curs-hide");
+					$(".i100-unselect").removeClass("i100-curs-hide");
+	        	}
+            })
+	}
 	function getICourseItems(date){
 		//获取课表
-		return [{},{}];
+        ajax({
+        	obj:'pc',
+        	act:'coursetable',
+        	dates:[],
+        	day:new Date(date.year,date.month-1,date.day).getTime()/1000
+        },function(data){
+        	var items = data.info.day;
+        	if(items.length >0){
+        		$(".i100-unselect").addClass("i100-curs-hide");
+				$(".i100-course-list").removeClass("i100-curs-hide");
+        		$scope.items = items;
+        	}else{
+        		$(".i100-course-list").addClass("i100-curs-hide");
+				$(".i100-unselect").removeClass("i100-curs-hide");
+        	}
+        })
 	}
-	
-	function showCourseItems(items){
-		$(".i100-course-list").html("");
-		for (var i = 0; i < items.length; i++) {
-			var item = items[i]
-			var course = '<div class="i100-course-item">'+
-						'<div class="i100-course-item-title">'+
-							'<div class="i100-course-sign"></div>'+
-							'<div class="i100-course-time">20:00 - 21:00</div>'+
-						'</div>'+
-						'<div class="i100-course-item-info">'+
-							'<div class="i100-course-info i100-course-info-more3">'+
-								'<div class="i100-course-info-title">第2讲:单词大联网，发音不死记</div>'+
-								'<div class="i100-course-info-subtitle">英语结构思维法--词句体验班</div>'+
-							'</div>'+
-						'</div>'+
-						'<div class="i100-course-task">'+
-							'<div class="i100-course-live">'+
-								'<div class="i100-course-live-title">直播</div>'+
-						/*开课前10分钟，高亮显示进入课堂，未到时间显示未开始，点击弹出窗口提示开课前10分钟开放课堂*/
-								'<div class="i100-course-live-light">进入课堂</div>'+
-							'</div>'+
-							'<div class="i100-course-homework">'+
-								'<div class="i100-course-homework-title">练习</div>'+
-								/*<!--未布置显示未布置，点击toast 未布置课后练习，布置课后练习未完成显示开始练习 已做完显示已做完-->*/
-								'<div class="i100-course-homework-status">未布置</div>'+
-							'</div></div></div>';
-			$(".i100-course-list").append($(course));
-		}
-	
-	}
+	$(".i100-course-list").on("click",".i100-notstart",function(){
+		alert("课程未开始")
+	});
+	$scope.getData()
+    $scope.$on("STATE_CHANGED_HANDLER", function() {
+        if(apiconn.conn_state==='IN_SESSION'){
+            $scope.getData()
+        }
+    })
 	$scope.pre = function (){
 		var month_list = [];
 		if(isWeek){
@@ -108,12 +139,11 @@ iweb.controller('i100', function($scope) {
 		}else{
 			month_list = getMonthList(prev());
 		}
+		showCalendarAndItems(month_list,daytem);
+		
 		panelRightCalendar();
-		showCalendar(month_list);
-		ajax({obj:"user",act:"homepage",classid:"o14081748217135689258"},function(data){
-			console.log(data)
-			console.log(apiconn.user_info)
-		})
+		
+		
 	}
 	$scope.nxt = function(){
 		var month_list = [];
@@ -123,7 +153,7 @@ iweb.controller('i100', function($scope) {
 			month_list = getMonthList(next());
 		}
 		panelRightCalendar();
-		showCalendar(month_list);
+		showCalendarAndItems(month_list,daytem);
 	}
 	function getMonthList(res){
 		var month_list = (new Array(res.firstweek-1)).fill({});
@@ -141,10 +171,9 @@ iweb.controller('i100', function($scope) {
 		$scope.daytem = daytem;
 		$scope.daytem.day = daytem.day>9?daytem.day:"0"+parseInt(daytem.day)
 	}
-	function showCalendar(list){
+	function showCalendar(list,markObj){
 		$(".i100-calendar-content").html("");
 		//发起请求获取当前月或当前7天有课程的标记
-		var hasCourseDays =[1,2,3,4,5];
 		for (var i = 0; i < list.length; i++) {
 			var item = $("<div class='i100-date-item'><div>");
 			var day = list[i];
@@ -159,14 +188,12 @@ iweb.controller('i100', function($scope) {
 						data = $("<div class='i100-date'>"+day.day+"</div>")
 					}
 				}
-				for (var j = 0; j < hasCourseDays.length; j++) {
-					if(hasCourseDays[j] == day.day){
-						$(data).addClass("i100-is-mark");
-						$(data).data("isMark",true);
-						hasCourseDays.splice(j,1);
-						break;
-					}
+				var timestamp = new Date(day.year,day.month-1,day.day).getTime()/1000;
+				if(markObj[timestamp] === "true"){
+					$(data).addClass("i100-is-mark");
+					$(data).data("isMark",true);
 				}
+				
 				if(day.select){
 					$(data).addClass("i100-select-day");
 				}

@@ -1,0 +1,49 @@
+<!--我的资料-->
+<div class="i004">
+    <div class="breadcrumbs"><a href="#/i001">首页 ></a><a href="#/i002"> 学习中心 ></a><a href="#/i004"> 我的课程</a></div>
+    <div  ng-include="'subjectSide.html'"></div>
+    <div class="content">
+        <ul class="nav">
+            <li ng-class="{'active':tabIndex==='全部'}" ng-click="changeTab('全部')">全部</li>
+            <li ng-class="{'active':tabIndex==='正在学'}" ng-click="changeTab('正在学')">正在学</li>
+            <li ng-class="{'active':tabIndex==='未开始'}" ng-click="changeTab('未开始')">未开始</li>
+            <li ng-class="{'active':tabIndex==='已结束'}" ng-click="changeTab('已结束')">已结束</li>
+        </ul>
+        <div class="panel">
+            <div class="subject" ng-repeat="subject in subjectList">
+                <div class="title">
+                    <span class="tag one">{{subject.season}}</span>
+                    <span class="tag two">{{subject.subject}}</span>
+                    <span class="name">{{subject.name}}</span>
+                    <span class="status">{{subject.watchstatus}}</span>
+                </div>
+                <div class="subTitle">
+                    <span class="item">时间：05月28日-05月31日</span>
+                    <span class="item">10节</span>
+                    <span class="item">下次开课时间：05月28日-05月31日</span>
+                </div>
+                <div class="teachers clearfix">
+                    <div class="teacher">
+                        <img class="av" src="http://39.108.219.7/cgi-bin/download.pl?proj=znyx&fid={{subject.mainheadFid}}" alt="">
+                        <div class="info">
+                            <div class="name">{{subject.mainname}}</div>
+                            <div class="type">主讲老师</div>
+                        </div>
+                    </div>
+                    <div class="teacher">
+                        <img class="av"  src="http://39.108.219.7/cgi-bin/download.pl?proj=znyx&fid={{subject.assitheadFid}}" alt="">
+                        <div class="info">
+                            <div class="name">{{subject.assitname}}</div>
+                            <div class="type">辅导老师</div>
+                        </div>
+                    </div>
+                    <div class="detail" ng-click="goDetail(subject.course_id)">
+                        查看详情
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="i004page" style="text-align: right"></div>
+    </div>
+
+</div>

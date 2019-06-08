@@ -1,0 +1,122 @@
+.i004 .breadcrumbs {
+  font-size: 14px;
+  padding: 15px 0;
+}
+.i004 .breadcrumbs a {
+  text-decoration: none;
+  color: #818A92;
+}
+.i004 .breadcrumbs a:hover {
+  color: #32404B;
+}
+.i004 .content {
+  width: 930px;
+  float: left;
+  background-color: #fff;
+  border: 1px solid #EBEBEB;
+  padding: 30px 40px;
+  margin-left: 20px;
+}
+.i004 .content .nav {
+  border-bottom: 1px solid #EBEBEB;
+}
+.i004 .content .nav li {
+  display: inline-block;
+  height: 40px;
+  cursor: pointer;
+  font-size: 15px;
+  margin-right: 30px;
+}
+.i004 .content .nav li.active {
+  color: #4A81FA;
+  border-bottom: 2px solid #4A81FA;
+}
+.i004 .content .panel .control-label {
+  width: 86px;
+}
+.i004 .panel {
+  border: none;
+}
+.i004 .panel .title {
+  font-size: 16px;
+}
+.i004 .panel .title .tag {
+  font-size: 14px;
+}
+.i004 .panel .title .tag.one {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  color: #FF9D30;
+  text-align: center;
+  background: #fff6ec;
+  border: 1px solid #ff9d30;
+  border-radius: 2px;
+}
+.i004 .panel .title .tag.two {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  color: #F43737;
+  text-align: center;
+  background: #fff3f3;
+  border: 1px solid #f43737;
+  border-radius: 2px;
+}
+.i004 .panel .title .name {
+  font-size: 16px;
+  color: #32404B;
+}
+.i004 .panel .title .status {
+  float: right;
+}
+.i004 .panel .subject {
+  padding: 30px 0;
+  border-bottom: 1px solid #F5F5F5;
+}
+.i004 .panel .subTitle {
+  font-size: 12px;
+  margin-top: 20px;
+}
+.i004 .panel .subTitle .item {
+  margin-right: 10px;
+}
+.i004 .panel .teachers {
+  margin-top: 20px;
+}
+.i004 .panel .teachers .teacher {
+  float: left;
+  font-size: 14px;
+  margin-right: 20px;
+}
+.i004 .panel .teachers .teacher .av {
+  float: left;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  margin-top: 4px;
+  border-radius: 50%;
+}
+.i004 .panel .teachers .teacher .info {
+  float: left;
+}
+.i004 .panel .teachers .teacher .info .name {
+  font-size: 14px;
+  text-align: left;
+}
+.i004 .panel .teachers .teacher .info .type {
+  margin-top: 10px;
+}
+.i004 .panel .teachers .detail {
+  float: right;
+  width: 84px;
+  height: 34px;
+  line-height: 34px;
+  border: 1px solid #4c84ff;
+  border-radius: 3px;
+  color: #4c84ff;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 10px;
+}
+/*# sourceMappingURL=i004.css.map */

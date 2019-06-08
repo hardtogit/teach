@@ -2,7 +2,7 @@ function PageObject(arg){
     var _this = this;
     this.currNum = arg.currNum;
     this.pageCount = arg.pageCount;
-    this.oUl = $("<ul class='pages'><li class='first'>First</li><li class='prev'>Prev</li><li class='next'>Next</li><li class='last'>Last</li></ul>");
+    this.oUl = $("<ul class='pages'><li class='first'>首页</li><li class='prev'>上一页</li><li class='next'>下一页</li><li class='last'>尾页</li></ul>");
     this.init = function(){
         this.initPageNum();
         $("#"+arg.appendId).html("");

@@ -1,109 +1,87 @@
+<!--我的资料-->
 <div class="i003">
-    <div  ng-include="'side.html'"></div>
+    <div  ng-include="'subjectSide.html'"></div>
     <div class="content">
         <ul class="nav">
-            <li>基本信息</li>
-            <li>修改密码</li>
-            <li>收货地址</li>
+            <li ng-class="{'active':tabIndex===1}" ng-click="changeTab(1)">基本信息</li>
+            <!--<li ng-class="{'active':tabIndex===2}" ng-click="changeTab(2)">修改密码</li>-->
+            <!--<li ng-class="{'active':tabIndex===3}" ng-click="changeTab(3)">收货地址</li>-->
         </ul>
         <div class="panel">
             <form class="form-horizontal">
+                <img class="header" src="http://39.108.219.7/cgi-bin/download.pl?proj=znyx&fid={{userInfo.headfid}}" alt="">
+                <div class="upText" ng-click="uploadImage('headfid')">更换头像
+                </div>
+
                 <div class="form-group">
-                    <label for="inputtext3" class="col-sm-2 control-label">手机号码</label>
-                    <div class="col-sm-4">
-                        15528059582
+                    <label  class="col-sm-2 control-label">手机号码</label>
+                    <div class="col-sm-4" style="position: relative;top:7px">
+                        {{userInfo.phone}}
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputtext3" class="col-sm-2 control-label">真实姓名</label>
+                    <label for="realName" class="col-sm-2 control-label">真实姓名</label>
                     <div class="col-sm-4">
-                        <input type="text" ng-model="formObj.name" class="form-control" id="inputtext3" placeholder="请输入真实姓名">
+                        <input type="text" ng-model="userInfo.realname" class="form-control" id="realName" placeholder="请输入真实姓名">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputtext3" class="col-sm-2 control-label">昵&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp称</label>
+                    <label for="display_name" class="col-sm-2 control-label">昵&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp称</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control"  placeholder="请输入昵称">
+                        <input type="text" ng-model="userInfo.display_name" class="form-control" id="display_name"  placeholder="请输入昵称">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputtext3" class="col-sm-2 control-label">性&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp别</label>
+                    <label  class="col-sm-2 control-label">性&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp别</label>
                     <div class="col-sm-4">
                         <label class="radio-inline">
-                            <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 男
+                            <input type="radio" name="inlineRadioOptions" ng-model="userInfo.gender"  value="gentle"> 男
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 女
+                            <input type="radio" name="inlineRadioOptions" ng-model="userInfo.gender"  value="lady"> 女
                         </label>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputtext3" class="col-sm-2 control-label">学&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp校</label>
+                    <label for="school" class="col-sm-2 control-label">学&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp校</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control"  placeholder="请输入昵称">
+                        <input type="text" class="form-control" ng-model="userInfo.school" id="school"  placeholder="请输入学校名称">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputtext3" class="col-sm-2 control-label">年&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp级</label>
+                    <label for="level" class="col-sm-2 control-label">年&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp级</label>
                     <div class="col-sm-4">
-                        <select class="form-control">
-                            <option>初一</option>
-                            <option>初二</option>
-                            <option>初三</option>
-                            <option>高一</option>
-                            <option>高二</option>
-                            <option>高三</option>
+                        <select class="form-control" ng-model="userInfo.class_id" id="level">
+                            <option value="" disabled>请选择</option>
+                            <option ng-selected="userInfo.class_id===class._id" ng-repeat="class in classList" ng-value="class._id">{{class.name}}</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputtext3" class="col-sm-2 control-label">学&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp科</label>
-                    <div class="col-sm-4">
-                        <select class="form-control">
-                            <option>初一</option>
-                            <option>初二</option>
-                            <option>初三</option>
-                            <option>高一</option>
-                            <option>高二</option>
-                            <option>高三</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputtext3" class="col-sm-2 control-label">区&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp域</label>
+                    <label  class="col-sm-2 control-label">区&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp域</label>
                     <div class="col-sm-2">
-                        <select class="form-control">
-                            <option>初一</option>
-                            <option>初二</option>
-                            <option>初三</option>
-                            <option>高一</option>
-                            <option>高二</option>
-                            <option>高三</option>
+                        <select placeholder="请选择" class="form-control" ng-change="formatRegion('city',regionData.areaprovince,true)" ng-model="regionData.areaprovince" >
+                            <option value="" disabled>请选择</option>
+                            <option ng-selected="regionData.areaprovince===province.province_ch" ng-repeat="province in regionList.province" ng-value="province.province_ch">{{province.province_ch}}</option>
                         </select>
                     </div>
                     <div class="col-sm-2">
-                        <select class="form-control">
-                            <option>初一</option>
-                            <option>初二</option>
-                            <option>初三</option>
-                            <option>高一</option>
-                            <option>高二</option>
-                            <option>高三</option>
+                        <select placeholder="请选择" class="form-control" ng-change="formatRegion('county',regionData.areacity,true)" ng-model="regionData.areacity">
+                            <option value="" disabled>请选择</option>
+                            <option ng-selected="regionData.areacity===city.city_ch" ng-repeat="city in regionList.city" ng-value="city.city_ch">{{city.city_ch}}</option>
                         </select>
                     </div>
                     <div class="col-sm-2">
-                        <select class="form-control">
-                            <option>初一</option>
-                            <option>初二</option>
-                            <option>初三</option>
-                            <option>高一</option>
-                            <option>高二</option>
-                            <option>高三</option>
+                        <select placeholder="请选择" class="form-control"  ng-model="regionData.areacounty">
+                            <option value="" disabled>请选择</option>
+                            <option ng-selected="regionData.areacounty===city.city_ch" ng-repeat="city in regionList.county" ng-value="city.city_ch">{{city.city_ch}}</option>
                         </select>
                     </div>
                 </div>
             </form>
-
+            <div class="submit" ng-click="setData()">
+                保存
+            </div>
         </div>
     </div>
 </div>

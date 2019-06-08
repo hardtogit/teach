@@ -1,17 +1,32 @@
 <div style="position: relative;">
 	<div id="i101-video" style="width:100%; height:auto;"></div>
 	<div id="i101-talk">
-		<div class></div>
+		<div class="i101-talk-title">文字讨论</div>
+		<div class="i101-talk-content">
+			<div class="i101-talk-item" ng-repeat="msg in messages">
+				<span>{{msg.from_name}}:</span>
+				<span ng-show="{{msg.mtype == 'text'}}">{{msg.content}}</span>
+				<span ng-show="{{msg.mtype == 'link'}}"><a href="{{msg.content}}" target="_blank">{{msg.content}}</a></span>
+			</div>
+		</div>
+		<div class="i101-input" contenteditable="true" data-text="说点什么吧"></div>
+		<div class="i101-send" ng-click="send()">发送</div>
 	</div>
 	<div id="i101-control">
-		<div id="i101-play" class="i101-control"></div>
-		<div id="i101-volume-up" class="i101-control"></div>
-		<div id="i101-volume-off" class="i101-control"></div>
-		<div id="i101-progress"></div>
-		<div id="i101-qxd" class="i101-control-btn">超清</div>
-		<div id="i101-bs" class="i101-control-btn">1倍</div>
-		<div id="i101-bj" class="i101-control-btn">标记</div>
-		<div id="i101-bjlist" class="i101-control-btn">标记列表</div>
-		<div id="i101-qp" class="i101-control-btn"><i class="i100-icon i100-iconfont">&#xe615;</i></div>
+		<div id="i101-control-title" ng-click="play()">121大讲堂</div>
+		<div id="i101-play" class="i101-control"><i class="i100-icon i100-iconfont">&#xe650;</i></div>
+
+		<div ng-hide="{{live}}" id="i101-progress"></div>
+		<div id="i101-control-list">
+			<div ng-hide="{{live}}"id="i101-qxd" class="i101-control-btn">超清</div>
+			<div ng-hide="{{live}}" id="i101-bs" class="i101-control-btn">1倍</div>
+			<div ng-hide="{{live}}" id="i101-bj" class="i101-control-btn">标记</div>
+			<div ng-hide="{{live}}" id="i101-bjlist" class="i101-control-btn">标记列表</div>
+		</div>
+
+		<div id="i101-volume-up" class="i101-control"><i class="i100-icon i100-iconfont">&#xe604;</i></div>
+		<div id="i101-volume"></div>
+		<div id="i101-qp" ng-click="fullscreen()"><i class="i100-icon i100-iconfont">&#xe615;</i></div>
+			
 	</div>
 </div>
