@@ -34,9 +34,11 @@ iweb.controller('i100', function($scope) {
 		panelRightCalendar();
 	})
 	$scope.toLive =function(url,talk,status){
-	 // var liveUrl = "#/i101?gid="+talk+"&u="+url+"&s="+status;	
-	  var liveUrl = "#/i101?gid=o15598664532377779483&u=rtmp://dev.pull.live.121tongbu.com/live/XtbjfRaUg49D2kWcR2&s=true";
-	 window.open(liveUrl,'_blank');
+	  /*var liveUrl = "#/i101?gid=o15598664532377779483&u=rtmp://dev.pull.live.121tongbu.com/live/XtbjfRaUg49D2kWcR2&s=true";
+*/
+	var liveUrl = "#/i101?gid="+talk+"&u="+url+"&s="+status;
+		
+	window.open(liveUrl,'_blank');
 	}
 	$("#i100-menu-list p").click(function(){
 		$("#i100-menu-list p").removeClass("i100-menu-active");	

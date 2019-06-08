@@ -9,6 +9,22 @@ iweb.config(['$routeProvider',
   	function($routeProvider) {
 
     		$routeProvider.
+            when('/i200', {
+                templateUrl: 'i200.html',
+                controller: 'i200'
+            }).
+            when('/i201', {
+                templateUrl: 'i201.html',
+                controller: 'i201'
+            }).
+            when('/i202', {
+                templateUrl: 'i202.html',
+                controller: 'i202'
+            }).
+            when('/i203', {
+                templateUrl: 'i203.html',
+                controller: 'i203'
+            }).
       		when('/i000', {
     			templateUrl: 'i000.html',
     			controller: 'i000'
