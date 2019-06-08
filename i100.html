@@ -10,19 +10,7 @@
 		<li class="active">我的课表</li>
 	</ul>
 	<div style="height: auto;overflow:hidden">
-		<div id="i100-menu">
-			<div class="i100-info">
-				<div class="i100-head-img">
-					<img style="width: 100px;height: 100px;" src="{{download_domain}}{{userInfo.headfid}}" />
-				</div>
-				<div class="i100-user-name">{{userInfo.display_name}}</div>
-			</div>
-			<div id="i100-menu-list">
-				<p class="i100-menu-active"><span class="i100-item">我的课表</span></p>
-				<p><span class="i100-item">错题本</span></p>
-				<p><span class="i100-item">我的课程</span></p>
-			</div>
-		</div>
+		<div  ng-include="'subjectSide.html'"></div>
 		<div id="i100">
 			<div class="i100-calendar">
 				<div class="i100-calendar-week">
