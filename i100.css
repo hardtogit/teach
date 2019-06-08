@@ -1,0 +1,483 @@
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	font: 400 14px PingFangSC-Regular, Microsoft YaHei, WenQuanYi Micro Hei, Helvetica Neue, Helvetica, Arial, Hiragino Sans GB, Hiragino Sans GB W3, sans-serif;
+}
+
+body {
+	background-color: rgb(245, 245, 245)!important;
+}
+
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1559895840217'); /* IE9 */
+  src: url('iconfont.eot?t=1559895840217#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,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') format('woff2'),
+  url('iconfont.woff?t=1559895840217') format('woff'),
+  url('iconfont.ttf?t=1559895840217') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1559895840217#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.i100-iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.i100-icon {
+	margin-left: 10px;
+	font-size: 28px;
+}
+
+#i100-nav {
+	height: 55px;
+	width: 100%;
+	background-color: #4C84FF;
+}
+
+#i100-learn-center {
+	width: 1182px;
+	min-height: 790px;
+	margin: 0 auto;
+}
+
+#i100-breadcrumb {
+	height: 50px;
+	line-height: 50px;
+	padding: 0;
+	list-style: none;
+	margin: 0;
+}
+
+#i100-breadcrumb li {
+	display: inline-block;
+}
+
+#i100-breadcrumb li,
+#i100-breadcrumb a {
+	font-size: 15px;
+	color: #818a92;
+}
+
+#i100-breadcrumb .active {
+	color: #32404b;
+	cursor: default;
+}
+
+#i100-breadcrumb .allow {
+	padding: 5px;
+	cursor: default;
+}
+
+#i100-menu {
+	float: left;
+	width: 220px;
+	height: 410px;
+	background-color: #fff;
+	border: 1px solid rgb(235, 235, 235);
+}
+
+.i100-info {
+	height: 144px;
+	border-bottom: 1px solid rgb(235, 235, 235);
+}
+
+.i100-info .i100-head-img {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	margin: 20px auto 5px auto;
+}
+
+.i100-user-name {
+	font-weight: bold;
+	font-size: 20px;
+	text-align: center;
+	color: #32404b;
+}
+
+#i100-menu-list p {
+	margin: 0;
+	border-left: 2px solid #FFFFFF;
+}
+
+#i100-menu-list .i100-item {
+	display: block;
+	height: 80px;
+	width: 80px;
+	line-height: 80px;
+	text-align: left;
+	color: #32404b;
+	font-size: 16px;
+	margin-left: 78px;
+	cursor: pointer;
+}
+
+#i100-menu-list p:hover {
+	border-left: 2px solid #4C84FF;
+}
+
+.i100-menu-active {
+	border-left: 2px solid #4C84FF !important;
+}
+
+#i100 {
+	float: right;
+	width: 942px;
+	min-height: 437px;
+	background-color: white;
+	padding-bottom: 30px;
+}
+
+#i100 .i100-calendar {
+	position: relative;
+	min-height: 160px;
+	border-bottom: 1px solid #f5f5f5;
+}
+
+#i100 .i100-calendar-week {
+	display: inline-block;
+	width: 682px;
+	min-height: 160px;
+	border-right: 1px solid #f5f5f5;
+}
+
+#i100 .i100-flex {
+	display: -moz-box;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+
+#i100 .i100-calendar-week .i100-week {
+	padding-top: 39px;
+	border-bottom: 1px solid #f5f5f5;
+	background-color: #fff;
+	font-size: 26px;
+	line-height: 26px;
+	color: #ccc;
+}
+
+#i100 .i100-calendr-item {
+	flex: 14.2%;
+	text-align: center;
+	font-size: 16px;
+	color: #818a92;
+	height: 40px;
+	line-height: 40px;
+}
+
+#i100 .i100-calendar-content {
+	margin-top: 20px;
+}
+
+#i100 .i100-date-item {
+	cursor: pointer;
+	width: 14.2%;
+	float: left;
+	text-align: center;
+	font-size: 16px;
+	color: #818a92;
+	height: 40px;
+	line-height: 40px;
+}
+
+#i100 .i100-date {
+	margin: 0 auto;
+	position: relative;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+
+#i100 .i100-select-day {
+	width: 28px;
+	height: 28px;
+	line-height: 28px;
+	margin-top: 5px;
+	border-radius: 50%;
+	background-color: #4C84FF;
+	color: white;
+}
+
+#i100 .i100-is-mark:after {
+	content: "";
+	height: 6px;
+	width: 6px;
+	border-radius: 3px;
+	background-color: #4C84FF;
+	position: absolute;
+	top: 10px;
+	right: 0px;
+}
+
+#i100 .i100-days-week {
+	display: inline-block;
+	float: right;
+	display: inline-block;
+	width: 260px;
+}
+
+#i100 .i100-year_month {
+	height: 79px;
+	line-height: 79px;
+	color: #000000;
+}
+
+.i100-year_month i {
+	width: 16px;
+	height: 16px;
+}
+
+#i100 .i100-icon {
+	width: 16px;
+	height: 16px;
+	text-align: center;
+	line-height: 16px;
+	font-weight: bold;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+#i100 .i100-icon-left {
+	margin-left: 40px;
+}
+
+#i100 .i100-icon-right {
+	margin-left: 35px;
+}
+
+#i100 .i100-ym {
+	margin-left: 35px;
+	font-size: 16px;
+}
+
+#i100 .i100-days {
+	height: 80px;
+	font-size: 16px;
+	text-align: center;
+	line-height: 80px;
+}
+
+#i100 .i100-days span {
+	margin-right: 5px;
+}
+
+#i100 .i100-show-week-days {
+	margin: 60px;
+}
+
+#i100 .i100-show-days {
+	font-size: 48px;
+}
+
+#i100 .i100-show-days-week {
+	font-size: 20px;
+}
+
+#i100 .i100-show-week {
+	position: absolute;
+	right: 40px;
+	bottom: -30px;
+	width: 60px;
+	height: 30px;
+	text-align: center;
+	border: 1px solid #f5f5f5;
+	border-top: 1px solid #fff;
+	cursor: pointer;
+}
+
+#i100 .i100-course-list {
+	width: 902px;
+	min-height: 186px;
+	margin-top: 60px;
+	margin-left: 40px;
+	padding-right: 55px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	background-color: #fff;
+	border-left: 1px solid #f5f5f5;
+	color: #324048;
+}
+
+#i100 .i100-course-item {
+	margin-bottom: 20px;
+	position: relative;
+}
+
+#i100 .i100-course-item-title {
+	position: relative;
+}
+
+#i100 .i100-course-sign {
+	display: inline-block;
+	position: absolute;
+	left: -5px;
+	width: 10px;
+	height: 10px;
+	border-radius: 5px;
+	background-color: #4C84FF;
+}
+
+#i100 .i100-course-time {
+	display: inline-block;
+	margin-left: 20px;
+	font-size: 20px !important;
+}
+
+#i100 .i100-course-info {
+	position: relative;
+	padding: 36px 0 36px 20px;
+	border: 1px solid #f5f5f5;
+	margin-top: 20px;
+	margin-left: 30px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#i100 .i100-course-info-title,
+#i100 .i100-course-info-subtitle {
+	font-size: 20px;
+}
+
+#i100 .i100-course-info-subtitle {
+	margin-top: 10px;
+}
+
+#i100 .i100-course-task {
+	width: 200px;
+	position: absolute;
+	bottom: 35px;
+	right: 30px;
+}
+
+#i100 .i100-course-homework,
+#i100 .i100-course-live {
+	display: inline-block;
+	min-width: 82px;
+	height: 53px;
+	margin-left: 10px;
+	border-radius: 5px;
+	background-color: #f5f5f5;
+	padding: 10px 30px 10px 10px;
+	cursor: pointer;
+}
+
+#i100 .i100-course-live-light {
+	color: #4C84FF;
+}
+
+#i100 .i100-unselect {
+	text-align: center;
+	width: 50%;
+	margin: 60px auto;
+}
+
+.i100-bg-blue{
+	background-color: #4C84FF;
+}
+#i100 .i100-uncourse {
+	font-size: 20px;
+	color: #e5e5e5;
+	width: 175px;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.i100-color-fff {
+	color: #fff;
+}
+
+.i100-to-select {
+	border-radius: 5px;
+	text-align: center;
+	width: 175px;
+	height: 55px;
+	line-height: 55px;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.i100-curs-hide {
+	display: none;
+}
+#i100-fix {
+	width: 50px;
+	position: fixed;
+	bottom: 156px;
+	right: 21px;
+	border: 1px solid #EBEBEB;
+	border-radius: 5px;
+}
+
+#i100-fix p {
+	text-align: center;
+	margin-top: 9px;
+}
+
+.i100-dr {
+	margin-top: 15px;
+	border-top: 1px solid #EBEBEB;
+}
+
+.i100-fix-con {
+	padding-top: 10px;
+	height: 78px;
+	border-bottom: 1px solid #EBEBEB;
+	cursor: pointer;
+}
+
+.i100-fix-con:nth-last-child {
+	border-bottom: 0px;
+}
+#i100-footer {
+	border-top: 2px solid #4C84FF;
+	width: 100%;
+	height: 346px;
+	background-color: white;
+	margin-top: 20px;
+}
+
+#i100-footer-content {
+	font-family: "微软雅黑";
+	width: 1182px;
+	height: 272px;
+	margin: 0 auto;
+	border-bottom: 1px solid #EBEBEB;
+}
+
+.i100-footer-title {
+	color: #32404B;
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 25px;
+}
+
+.i100-footer-content {
+	font-size: 14px;
+	margin-bottom: 25px;
+}
+
+.i100-qr-div {
+	float: left;
+	width: 77px;
+}
+
+.i100-qr-div p {
+	font-size: 14px;
+	color: #32404B;
+}
+
+
+#i100-beian {
+	font-size: 12px;
+	color: #818A92;
+	margin-top: 25px;
+	text-align: center;
+}

@@ -33,6 +33,14 @@ iweb.config(['$routeProvider',
                 templateUrl: 'i003.html',
                 controller: 'i003'
             }).
+            when("/i100",{
+            	templateUrl: 'i100.html',
+                controller: 'i100'
+            }).
+            when("/i101",{
+            	templateUrl: 'i101.html',
+            	controller: 'i101'
+            }).
             when('/i004', {
                 templateUrl: 'i004.html',
                 controller: 'i004'

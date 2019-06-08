@@ -1,0 +1,151 @@
+.m {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 100px;
+	width: 100%;
+}
+
+#i101-video .vcp-controls-panel {
+	display: none !important;
+}
+
+#i101-video .vcp-player {
+	width: 100% !important;
+}
+
+#i101-talk {
+	width: 410px;
+	height: 670px;
+	background-color: #282828;
+	/*background-color: white;*/
+	position: absolute;
+	bottom: 44px;
+	right: 0;
+}
+
+#i101-control {
+	cursor: pointer;
+	width: 100%;
+	height: 44px;
+	border-bottom: 1px solid #eee;
+	background-color: rgb(40, 44, 54);
+}
+
+#i101-control .i101-control {
+	display: inline-block;
+	width: 40px;
+	height: 20px;
+	color: #FFFFFF;
+	margin-top: 10px;
+	cursor: pointer;
+}
+
+.i101-now-time,
+.i101-time-length {
+	width: 50px !important;
+	margin-left: 5px;
+}
+
+.i101-control-btn {
+	background-color: #4C84FF;
+	display: inline-block;
+	color: white;
+	height: 20px;
+	text-align: center;
+	padding: 0 5px;
+	border-radius: 3px;
+	margin-left: 10px;
+	cursor: pointer;
+}
+
+#i101-progress {
+	width: 825px;
+	height: 20px;
+	display: inline-block;
+	cursor: pointer;
+	position: absolute;
+	left: 150px;
+	bottom: 13px;
+}
+#i101-qp{
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
+	color: white;
+}
+#i101-volume-up{
+	position: absolute;
+	right: 150px;
+	bottom: 18px;
+	color: white;
+}
+#i101-control-list{
+	width: 235px;
+	display: inline-block;
+	position: absolute;
+	right: 375px;
+	bottom: 12px;
+	color: white;
+}
+#i101-play{
+	position: absolute;
+	left: 85px;
+	bottom: 17px;
+}
+#i101-control-title{
+	position: absolute;
+	left: 9px;
+	bottom: 14px;
+	display: inline-block;
+	color: white;
+	width: 75px;
+	text-align: center;
+}
+.i101-hide{
+	display: none;
+}
+#i101-volume{
+	width: 150px;
+}
+.i101-talk-title{
+	height: 35px;
+	line-height: 35px;
+	color: white;
+	text-align: center;
+}
+.i101-talk-content{
+	padding: 1px !important;
+	height: 540px;
+	background-color: rgb(40, 44, 54);
+	overflow-y: auto;
+}
+.i101-talk-item{
+	width: 380px;
+	min-height: 24px;
+	line-height: 24px;
+	margin-left: 10px;
+	margin-top: 13px;
+	background-color: #1F232A ;
+	color: white;
+	text-indent: 5px;
+}
+.i101-input{
+	width: 390px;
+	height: 61px;
+	margin: 5px 10px 0 9px;
+	border: 1px solid #818A92;
+	border-radius: 3px;
+	background-color: #282C36;
+	color: #818A92;
+	padding: 10px;	
+	overflow-y: auto;
+}
+[contentEditable=true]:empty:not(:focus):before{
+    content:attr(data-text);
+}
+.i101-send{
+	text-align: right;
+	color: white;
+	padding: 5px 20px 0 0;
+	cursor: pointer;
+}
