@@ -176,7 +176,6 @@ iweb.controller('i100', function($scope) {
 		$scope.daytem.day = daytem.day>9?daytem.day:"0"+parseInt(daytem.day)
 	}
 	function showCalendar(list,markObj){
-		console.log(list,markObj)
 		$(".i100-calendar-content").html("");
 		//发起请求获取当前月或当前7天有课程的标记
 		for (var i = 0; i < list.length; i++) {
