@@ -79,15 +79,17 @@ iweb.controller('i100', function($scope) {
 			$(".i100-days-day-week").removeClass("i100-show-days-week");
 			$(".i100-days").removeClass("i100-show-week-days");
 		}
-		showCalendar(month_list);
+		
+		showCalendarAndItems(month_list,daytem);
 		
 	});
 	function showCalendarAndItems(daylist,date){
 		var days = []
             for (var i = 0; i < daylist.length; i++) {
-            	days.push(new Date(daylist[i].year,daylist[i].month-1,daylist[i].day).getTime()/1000);
+            	if(daylist[i].day){
+	            	days.push(new Date(daylist[i].year,daylist[i].month-1,daylist[i].day).getTime()/1000);
+            	}
             }
-            
             ajax({
             	obj:'pc',
             	act:'coursetable',
@@ -174,6 +176,7 @@ iweb.controller('i100', function($scope) {
 		$scope.daytem.day = daytem.day>9?daytem.day:"0"+parseInt(daytem.day)
 	}
 	function showCalendar(list,markObj){
+		console.log(list,markObj)
 		$(".i100-calendar-content").html("");
 		//发起请求获取当前月或当前7天有课程的标记
 		for (var i = 0; i < list.length; i++) {
@@ -191,7 +194,7 @@ iweb.controller('i100', function($scope) {
 					}
 				}
 				var timestamp = new Date(day.year,day.month-1,day.day).getTime()/1000;
-				if(markObj[timestamp] === "true"){
+				if(markObj && markObj[timestamp] === "true"){
 					$(data).addClass("i100-is-mark");
 					$(data).data("isMark",true);
 				}
@@ -384,7 +387,7 @@ iweb.controller('i100', function($scope) {
 
 		result.total = new Date(opt.year, opt.month, 0).getDate();
 		result.firstweek = new Date(opt.year, opt.month - 1, 1).getDay() == 0 ? 7 : new Date(opt.year, opt.month - 1, 1).getDay();
-		result.select = opt.day ? opt.day : 1;
+		result.select = daytem.day;
 
 		return result;
 	}
