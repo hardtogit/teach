@@ -109,6 +109,9 @@
   color: #818A92;
   margin-top: 10px;
 }
+.i005 .panel .class .time .status {
+  cursor: pointer;
+}
 .i005 .panel .class .items {
   float: right;
   font-size: 14px;
