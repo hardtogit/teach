@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>登录</title>
+    <link href="http://39.108.219.7/webapp/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      .p10 {
+        padding-top: 10px;
+      }
+    </style>
+  </head>
+  <body style="text-align:center">
+    <div class="container">
+      
+      <div class="text-center" style="width: 500px; padding-top: 100px; margin:0 auto">
+        <div>
+          <div>
+            <ul id="myTab" class="nav nav-pills text-center" role="tablist" style="padding-left: 150px">
+              <li class="active"><a href="#t1" role="tab">密码登录</a></li>
+              <li><a href="#t2" role="tab" >验证码登录</a></li>
+            </ul>  
+          </div>
+          
+          <!-- 选项卡面板 -->
+          <div id="myTabContent" class="tab-content">
+
+            <div class="tab-pane fade in active" id="t1">
+              <div class="p10">
+                <form action="#">
+                  <div class="input-group">
+                    <span class="input-group-addon glyphicon glyphicon-phone" id="basic-addon1"></span>
+                    <input type="text" class="form-control" placeholder="手机号" aria-describedby="basic-addon1" id="phone_input">
+                  </div>
+                  <div class="input-group" style="padding-top: 10px">
+                    <span class="input-group-addon glyphicon glyphicon-eye-close" id="basic-addon2"></span>
+                    <input type="password" class="form-control" placeholder="密码" aria-describedby="basic-addon2" id="password_input">
+                  </div>
+                </form>
+                <div class="p10">
+                  <button class="btn btn-primary btn-block btn-login" login-type="1">登录</button>  
+                </div>
+                <div class="p10 text-left">
+                   <a class="f_a" href="#">忘记密码</a>&nbsp;&nbsp;<a class="zc" href="#">注册账号</a>
+                </div>                                
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="t2">
+              <div class="p10">
+                <form action="#">
+                  <div class="input-group">
+                    <span class="input-group-addon glyphicon glyphicon-phone" id="basic-addon3"></span>
+                    <input type="text" class="form-control" placeholder="手机号" aria-describedby="basic-addon3" id="phone_input2">
+                  </div>
+                  <div class="input-group" style="padding-top: 10px; width: 100%">
+                    <div class="row">
+                      <div class="col-xs-8">
+                        <input type="password" class="form-control" placeholder="验证码" id="code_input">    
+                      </div>
+                      <div class="col-xs-4">
+                        <button class="btn btn-default" id="btn-code">获取验证码</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <div class="p10">
+                  <button class="btn btn-primary btn-block btn-login" login-type="2">登录</button>  
+                </div>
+                <div class="p10 text-left">
+                   <a class="zc" href="#">注册账号</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="http://39.108.219.7/webapp/jquery.min.js"></script>
+    <script src="http://39.108.219.7/webapp/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      var phoneReg=/^1(3|4|5|7|8)\d{9}$/;
+      var wait_time = 59;
+
+      function getCode() {
+        var phone = $("#phone_input2").val();
+        var phoneReg=/^1(3|4|5|7|8)\d{9}$/;
+        if(!phoneReg.test(phone)){ 
+          alert("手机号码格式不正确。");  
+          return false; 
+        }         
+        
+        $("#btn-code").attr("disabled", "disabled");
+        $("#btn-code").html("60秒后重新获取");
+
+        ref = setInterval(function(){countdown();}, 1000);
+      }
+
+      function countdown() {
+        if (wait_time > 0) {
+          $("#btn-code").html(wait_time + "秒后重新获取");
+          wait_time--;
+        } else {
+          $("#btn-code").removeAttr("disabled");
+          $("#btn-code").html("获取验证码");
+          wait_time = 59;
+          clearInterval(ref);
+        }
+      }
+
+      function login(e) {
+        var phone = $("#phone_input").val();
+        if(!phoneReg.test(phone)){ 
+          alert("手机号码格式不正确。");  
+          return false; 
+        }
+        var loginType = $(e.target).attr("login-type");
+        if (loginType == 1) {
+          var password = $("#password_input").val();
+          if (password == null || password.length < 6 || password.length > 20) {
+            alert("格式不正确，密码为6-20位的数字。");  
+            return false; 
+          }
+        } else {
+          var code = $("#code_input").val();
+          if (code == null || code.length == 0) {
+            alert("验证码不可为空。");  
+            return false; 
+          }
+        }    
+        window.location.href = "http://39.108.219.7/index_home.html";
+      }
+
+      function register() {
+        window.location.href = "http://39.108.219.7/register.html";
+      }
+
+      function forgetPassword() {
+        window.location.href = "http://39.108.219.7/resite.html";
+      }
+
+      function eventBind() {
+        $("#service_agreement_link").on('click', function(e){openServiceAgreement()});
+        $("#btn-code").on('click', function(e){getCode()});
+        $(".zc").on('click', function(e){register()});
+        $(".btn-login").on('click', function(e){login(e)});
+        $(".f_a").on('click', function(e){forgetPassword()});
+      }
+
+      $(function(){
+        eventBind();
+        $("#myTab a").click(function(e){
+          e.preventDefault();
+          $(this).tab("show");
+        });
+      });
+    </script>
+  </body>
+</html>
