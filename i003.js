@@ -77,8 +77,11 @@ iweb.controller('i003', function($scope,fileReader) {
 
 
         }
+    $scope.setClass=function(id){
+        $scope.userInfo.class_id=id
+    }
     $scope.getData=function () {
-        if(apiconn.conn_state==='IN_SESSION'){
+        // if(apiconn.conn_state==='IN_SESSION'){
             ajax({
                 obj:'user',
                 act:'readmyinfo',
@@ -96,24 +99,21 @@ iweb.controller('i003', function($scope,fileReader) {
             })
             ajax({
                 obj:'user',
-                act:'organizelist',
+                act:'classlist',
             },function (data) {
-                let arr=[]
-                data.info.forEach(function (item) {
-                   arr=arr.concat(item.datas)
-                })
-                $scope.classList=arr
+                $scope.classList=data.info
             })
             $scope.formatRegion('province','province')
-
-        }
+        // }
     }
     $scope.setData=function(){
-        ajax(Object.assign({obj:'user',act:'setmyinfo'},$scope.userInfo,{name:$scope.userInfo.realname,fid:$scope.userInfo.headfid,classid:$scope.userInfo.class_id},$scope.regionData),function () {
+        ajax(Object.assign({obj:'user',act:'setmyinfo'},$scope.userInfo,{name:$scope.userInfo.realname,fid:$scope.userInfo.headfid,classid:$('#level').val()},$scope.regionData),function () {
             layer.msg('修改成功',{icon:1})
         })
     }
-    $scope.getData()
+    setTimeout(function () {
+        $scope.getData()
+    },500)
     $scope.$on("STATE_CHANGED_HANDLER", function() {
         if(apiconn.conn_state==='IN_SESSION'){
             $scope.getData()

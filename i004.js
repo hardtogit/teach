@@ -9,7 +9,7 @@ iweb.controller('i004', function($scope) {
         goto_view("i005?id="+id);
     }
     $scope.getData=function (content) {
-        if(apiconn.conn_state==='IN_SESSION'){
+        // if(apiconn.conn_state==='IN_SESSION'){
             ajax({
                 obj:'user',
                 act:'mycourselist',
@@ -17,12 +17,13 @@ iweb.controller('i004', function($scope) {
                 page_num:0,
                 page_size:5
             },function (data) {
+                console.log(data.info,'sssssssssssssssssssssssssssssssssss')
                 $scope.subjectList=data.info
                 PageObject({appendId:'i004page',currNum:1,pageCount:Math.ceil(data.count/5),callback:function (current) {
                     $scope.openPage(current-1)
                     }})
             })
-        }
+        // }
     }
     $scope.openPage=function(current){
         ajax({
@@ -35,9 +36,12 @@ iweb.controller('i004', function($scope) {
             $scope.subjectList=data.info
         })
     }
-    $scope.getData('全部')
-    $scope.$on("STATE_CHANGED_HANDLER", function() {
+    setTimeout(()=>{
         $scope.getData('全部')
+    },500)
+    $scope.$on("STATE_CHANGED_HANDLER", function() {
+        if(apiconn.conn_state==='IN_SESSION'){
+            $scope.getData('全部')
+        }
     })
-
 })

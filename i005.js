@@ -13,9 +13,12 @@ iweb.controller('i005', function($scope,$routeParams) {
         ajax({obj:'user',act:'mycoursedetail',course_id:$routeParams.id},function (data) {
             $scope.subject=data.info
         })
-
-
     }
+    setTimeout(function () {
+        ajax({obj:'user',act:'mycoursedetail',course_id:$routeParams.id},function (data) {
+            $scope.subject=data.info
+        })
+    },500)
     $scope.$on("STATE_CHANGED_HANDLER", function() {
         if(apiconn.conn_state==='IN_SESSION'){
             ajax({obj:'user',act:'mycoursedetail',course_id:$routeParams.id},function (data) {

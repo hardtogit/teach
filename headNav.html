@@ -1,0 +1,48 @@
+<div class="blog-masthead" ng-controller="subjectSide">
+    <nav class="blog-nav">
+        <a class="blog-nav-item blank" href="#/i203">121大讲堂</a>
+        <span class="blog-nav-item">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+        <a class="blog-nav-item" href="#">选课中心</a>
+        <a class="blog-nav-item" href="#/i004">学习中心</a>
+        <a class="blog-nav-item" href="#">121大讲堂</a>
+        <a class="blog-nav-item" href="#">APP下载</a>
+
+        <form class="navbar-form navbar-right" style="margin-bottom: 0px;">
+            <input type="text"  class="form-control input-sm input" >
+            <div class="login" ng-if="!objInfo.phone">
+            <a class="btns left" ng-click="showLogin()">登录</a><a class="btns" ng-click="showLogin()">注册</a>
+            </div>
+            <div class="dropdown" ng-if="objInfo.phone">
+                <span  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <img src="http://39.108.219.7/cgi-bin/download.pl?proj=znyx&fid={{objInfo.headfid}}" class="aaa" alt="">
+                    <span class="caret"></span></span>
+                <ul class="dropdown-menu">
+                    <li><a href="#/i003"><i class="fa fa-user-o"></i> 我的账户</a></li>
+                    <li><a href="#/i003"><i class="fa fa-laptop"></i> 我的订单</a></li>
+                    <li><a ng-click="logOut()"><i class="fa fa-sign-out"></i> 退出</a></li>
+                </ul>
+            </div>
+        </form>
+    </nav>
+    <div class="i002" ng-if="loginFlag">
+        <div class="bg"></div>
+        <div class="login">
+            <div class="relative">
+                <img class="close" ng-click="hiddenLogin()" src="img/close.png" alt="">
+            <div class="title">登陆/注册</div>
+            <input type="text" id="loginName" class="input">
+            <div>
+                <input type="text" id="code" class="code">
+                <div class="accept" ng-click="sendCode()" id="sendCode">发送验证码</div>
+            </div>
+            <div class="submit" ng-click="login()">
+                登陆
+            </div>
+            <div class="tip">
+                首次登陆将自动注册，且代表您已同意<a href="">《服务协议》</a>
+            </div>
+            </div>
+        </div>
+    </div>
+
+</div>

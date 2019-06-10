@@ -66,7 +66,7 @@ iweb.config(['$routeProvider',
 				controller: 'i005'
 			}).
       		otherwise({
-    			redirectTo: '/i003'
+    			redirectTo: '/i203'
       		});
 }]);
 
@@ -108,12 +108,9 @@ apiconn.state_changed_handler = function() {
 
 
 		if (apiconn.conn_state == "IN_SESSION") {
-
 			sessionStorage.setItem("login_name", apiconn.login_name);
 			sessionStorage.setItem("login_passwd", apiconn.login_passwd);
-
-
-
+            sessionStorage.setItem("credential_data",JSON.stringify(apiconn.credential_data))
 		} else if (apiconn.conn_state == "LOGIN_SCREEN_ENABLED") {
 
 			// auto re login after page refresh
@@ -125,8 +122,9 @@ apiconn.state_changed_handler = function() {
 
 				var cred = sessionStorage.getItem("credential_data");
 				var cred_obj = null;
+				console.log(cred,'sssssssssssssssssssssssssssss')
 				if (cred !== "") cred_obj = JSON.parse(cred);
-
+                // alert('s')
 				// reset stored cred to prevent infinite loop in case of failure
 				sessionStorage.setItem("login_name", "");
 				sessionStorage.setItem("login_passwd", "");
@@ -163,7 +161,7 @@ apiconn.response_received_handler = function(jo) {
 			// goto_view("i001");
 		}
 		if (jo.obj == "person" && jo.act == "logout") {
-			goto_view("main");
+			goto_view("/i203");
 			return;
 		}
 
@@ -177,9 +175,10 @@ apiconn.response_received_handler = function(jo) {
 };
 
 apiconn.wsUri = "ws://39.108.219.7:51717/znyx";
+apiconn.connect();
 setTimeout(()=>{
     // window.ajax({obj:"user",act:"getcode",phone:"17326103988",type:"login"},function (data) {
-    apiconn.loginx({"login_name":"17326103988","code":"123456","ctype":"h5"})
+    // apiconn.loginx({"login_name":"17326103988","code":"123456","ctype":"h5"})
     // })
 },500)
 
@@ -307,8 +306,6 @@ iweb.run(['$rootScope', function ($rootScope) {
 	 });
 
 	rootScope = $rootScope;
-	apiconn.connect();
-
 }]);
 
 

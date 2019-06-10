@@ -1,42 +1,79 @@
-
-
-.i002  p{
-    padding: 0px;
-    margin: 0px;
+.i002 .bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000;
+  opacity: 0.4;
+  z-index: 99;
 }
-
-.i002 .title{
-    background-color: #eeeeee;
-    border-bottom: 1px solid #CCCCCC;
-    line-height: 30px;
-    height: 30px;
+.i002 .login {
+  width: 538px;
+  z-index: 100;
+  position: fixed;
+  padding: 0 46px 40px 46px;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  background-color: #fff;
+  border: 1px solid #ddd;
 }
-.i002 .ibox{
-    margin-top: 5px;
-    position: absolute;
-    left: 210px;
+.i002 .login .relative {
+  position: relative;
 }
-.i002 .ibox div{
-    margin-top: 5px;
-    height: 29px;
+.i002 .login .relative .close {
+  position: absolute;
+  cursor: pointer;
+  right: -30px;
+  top: -30px;
+  width: 44px;
+  height: 44px;
 }
-.i002 .ibox input{
-    width: 160px;
+.i002 .login .title {
+  text-align: center;
+  font-size: 30px;
+  margin-top: 40px;
 }
-.i002 .ibox label{
-    width: 100px;
-    text-align: left;
-    color:#555555;
+.i002 .login .input {
+  width: 444px;
+  height: 54px;
+  padding: 0 10px;
+  border: 1px solid #ededed;
+  border-radius: 3px 3px 3px 3px;
+  display: block;
+  margin: 50px auto 0 auto;
 }
-.i002 .isubmit{
-    margin-top: 20px!important;
+.i002 .login .code {
+  width: 314px;
+  height: 54px;
+  border: 1px solid #ededed;
+  margin-top: 30px;
+  padding: 0 10px;
 }
-.i002 .isubmit button{
-    width: 100px;
-    border: 1px solid #aaaaaa;
-    border-radius: 5px;
-    margin-left: 20px;
+.i002 .login .accept {
+  width: 104px;
+  height: 54px;
+  float: right;
+  margin-top: 30px;
+  cursor: pointer;
+  line-height: 54px;
+  text-align: center;
+  border: 1px solid #ededed;
 }
-.i002 .isubmit button:hover{
-    color: #888;
+.i002 .login .tip {
+  padding: 10px 0;
 }
+.i002 .login .submit {
+  width: 444px;
+  height: 54px;
+  cursor: pointer;
+  line-height: 54px;
+  background: #4c84ff;
+  border-radius: 3px 3px 3px 3px;
+  margin-top: 30px;
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+}
+/*# sourceMappingURL=i002.css.map */
