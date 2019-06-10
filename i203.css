@@ -1,0 +1,120 @@
+.i203 .header {
+  background-color: #fff;
+  padding-bottom: 30px;
+}
+.i203 .inner {
+  width: 1180px;
+  margin: 0 auto;
+}
+.i203 .inner #carousel-example-generic {
+  height: 360px;
+}
+.i203 .inner #carousel-example-generic .carousel-inner {
+  height: 100%;
+}
+.i203 .inner #carousel-example-generic .carousel-inner .item {
+  height: 100%;
+}
+.i203 .inner #carousel-example-generic .carousel-inner .item img {
+  width: 100%;
+  height: 100%;
+}
+.i203 .list-inline .title {
+  color: #818A92;
+}
+.i203 .list-inline .item {
+  cursor: pointer;
+  margin: 0 6px;
+}
+.i203 .list-inline .item.active,
+.i203 .list-inline .item:hover {
+  color: #4C84FF;
+}
+.i203 .class-filter {
+  margin-top: 40px;
+}
+.i203 .subject-filter {
+  margin-top: 25px;
+}
+.i203 .bar {
+  margin-top: 30px ;
+}
+.i203 .bar .title {
+  font-size: 26px;
+  font-weight: bold;
+}
+.i203 .bar .subTitle {
+  font-size: 14px;
+}
+.i203 .bar .more {
+  float: right;
+  cursor: pointer;
+  position: relative;
+  top: 14px;
+}
+.i203 .class-container .class {
+  margin-top: 30px;
+  width: 380px;
+  height: 262px;
+  background-color: #fff;
+  float: left;
+  padding: 15px;
+  margin-right: 20px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+.i203 .class-container .class:hover {
+  box-shadow: 4px 4px 10px #ddd;
+  border-top: 3px solid #4C84FF;
+}
+.i203 .class-container .class.last {
+  margin-right: 0;
+}
+.i203 .class-container .class h4 {
+  font-size: 20px;
+  height: 50px;
+  overflow: hidden;
+}
+.i203 .class-container .class h4 .tag {
+  font-size: 14px;
+  margin-right: 10px;
+}
+.i203 .class-container .class h4 .tag.one {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  color: #FF9D30;
+  text-align: center;
+  background: #fff6ec;
+  border: 1px solid #ff9d30;
+  border-radius: 2px;
+}
+.i203 .class-container .class h4 .tag.two {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  color: #F43737;
+  text-align: center;
+  background: #fff3f3;
+  border: 1px solid #f43737;
+  border-radius: 2px;
+}
+.i203 .class-container .class .teacher {
+  width: 40px;
+  margin-top: 20px;
+}
+.i203 .class-container .class .teacher .tou {
+  width: 40px;
+  height: 40px;
+  display: block;
+  border-radius: 50%;
+}
+.i203 .class-container .class .teacher .name {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 4px;
+}
+.i203 .class-container .class .describe {
+  margin-top: 40px;
+}
+/*# sourceMappingURL=i203.css.map */
