@@ -38,6 +38,17 @@ iweb.controller('i203', function($scope) {
             $scope.chargeList=data.info
         })
     }
+    $scope.goDetail=function(item){
+        if(item.number>1){
+            goto_view('i009?name='+item.name+'&classid='+$scope.classCurrent+'&id='+item.id)
+        }else{
+            goto_view('i010?id='+item.course_id)
+        }
+
+    }
+    $scope.goSelect=function(){
+        goto_view('i002?classCurrent='+$scope.classCurrent+'&subjectCurrent='+$scope.subjectCurrent)
+    }
     $scope.getData=function(){
         ajax({
             obj:'user',

@@ -1,0 +1,33 @@
+<div ng-include="'headNav.html'"></div>
+<div class="i012 container" style="width: 1180px;padding: 0">
+    <div class="breadcrumbs"><a href="#/i203">首页 ></a><a>立即报名</a></div>
+    <div class="content">
+        <div class="item">
+            <div class="title">订单号：{{order.order_number}}</div>
+            <div style="font-size: 20px;padding-left: 20px">课程名称：{{order.name}}</div>
+            <div class="acmoney text-right"><span >支付金额：</span><span  class="num"><span style="font-size: 14px">￥</span>{{order.pay_amount}}</span></div>
+        </div>
+        <div class="codes clearfix">
+         <ul class="nav">
+            <li ng-class="{'active':tabIndex==='wechatpay'}" ng-click="changeTab('wechatpay')"><img width="32" height="32" src="./img/weixin.png" alt="">微信支付</li>
+            <!--<li ng-class="{'active':tabIndex==='alipay'}" ng-click="changeTab('alipay')">支付宝支付</li>-->
+        </ul>
+            <div class="pay">
+                <div class="title">微信支付 </div>
+                <div class="tip">打开微信扫一扫，扫描下方二维码完成支付,如果二维码过期。<br>
+                    <span style="margin-top: 10px;display: block"><span class="btn btn-default btn-sm" ng-click="getCode()" style="margin-right: 10px">刷新二维码</span>试试！</span></div>
+                <div class="codeContainer clearfix">
+                    <div class="border">
+                        <div id="code">
+
+                        </div>
+                    </div>
+                    <img class="wepay" src="./img/wepay.png" alt="">
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-include="'i100footer.html'"></div>

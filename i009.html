@@ -1,0 +1,50 @@
+<div ng-include="'headNav.html'"></div>
+<div class="i009 container" style="width: 1180px;padding: 0">
+    <div class="breadcrumbs"><a href="#/i001">首页 ></a><a> 班级列表</a></div>
+    <div class="title">{{name}} <span class="num">共{{classList.length}}个班级</span></div>
+    <div class="classContainer">
+        <div class="class" ng-repeat="(i,class) in classList" ng-click="goDetail(class)">
+            <div class="left">
+                <div class="date" style="margin-top: 30px;padding: 0 34px">{{class.during}}</div>
+                <!--<div class="time">16:00-18:00</div>-->
+            </div>
+            <div class="center">
+                <div class="className">
+                    <span class="tag one">{{class.season}}</span>
+                    <span class="tag two">{{class.subject}}</span>
+                    <span class="name">{{class.name}}</span>
+                </div>
+                <div class="teachers clearfix">
+                    <div class="teacher">
+                        <img class="av" src="http://39.108.219.7/cgi-bin/download.pl?proj=znyx&fid={{class.mainheadFid}}" alt="">
+                        <div class="info">
+                            <div class="name">{{class.mainname}}</div>
+                            <div class="type">主讲老师</div>
+                        </div>
+                    </div>
+                    <div class="teacher" ng-if="class.assitname">
+                        <img class="av"  src="http://39.108.219.7/cgi-bin/download.pl?proj=znyx&fid={{class.assitheadFid}}" alt="">
+                        <div class="info">
+                            <div class="name">{{class.assitname}}</div>
+                            <div class="type">辅导老师</div>
+                        </div>
+                    </div>
+                    <div class="detail" >
+                        余{{class.remain}}名额
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="price">
+                    <span class="unit">￥</span>
+                    <span class="num">{{class.price}}</span>
+                </div>
+                <div class="dis">{{class.disaccount}}</div>
+                <div class="classNum">共{{class.number}}节课</div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<div ng-include="'i100footer.html'"></div>

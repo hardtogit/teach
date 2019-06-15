@@ -3,8 +3,6 @@
     <div class="name">{{objInfo.display_name}}</div>
     <div class="phone">手机号 {{objInfo.phone}}</div>
     <div class="menus">
-        <a href="#/i003" ng-class="{'menu':true,'active':path==='/i003'}">个人中心</a>
-        <a ng-class="{'menu':true,'active':path==='/'}">我的订单</a>
         <a href="#/i100" ng-class="{'menu':true,'active':path==='/i100'}">我的课表</a>
         <a href="#/i004" ng-class="{'menu':true,'active':(path==='/i004'||path==='/i005')}">我的课程</a>
         <a href="#/i004" ng-class="{'menu':true,'active':path===''}">错题本</a>
@@ -51,7 +49,7 @@
         text-decoration: none;
         color:#32404B ;
     }
-    .menus .active{
+    .menus .active, .menus .activeTwo{
         border-left: 2px solid #4A81FA;
         color: #4A81FA;
     }

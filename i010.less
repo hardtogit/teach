@@ -1,0 +1,309 @@
+.i010{
+  .breadcrumbs{
+    font-size: 14px;
+    padding: 15px 0;
+    a{
+      text-decoration: none;
+      color: #818A92;
+      &:hover{
+        color: #32404B;
+      }
+    }
+  }
+  .content {
+    width: 830px;
+    float: left;
+    //border: 1px solid #EBEBEB;
+    padding:0;
+    .card {
+      background-color: #fff;
+      padding: 30px;
+      .inner{
+        height: 172px;
+        .left {
+          width: 300px;
+          height: 172px;
+          float: left;
+          .img {
+            width: 100%;
+            height: 100%;
+            display: block;
+          }
+        }
+        .right {
+          float: left;
+          padding-left: 20px;
+          .className {
+            font-size: 16px;
+            .tag {
+              font-size: 14px;
+              &.one {
+                width: 20px;
+                height: 20px;
+                line-height: 20px;
+                color: #FF9D30;
+                text-align: center;
+                background: rgba(255, 246, 236, 1);
+                border: 1px solid rgba(255, 157, 48, 1);
+                border-radius: 2px;
+              }
+            ;
+              &.two {
+                width: 20px;
+                height: 20px;
+                line-height: 20px;
+                color: #F43737;
+                text-align: center;
+                background: rgba(255, 243, 243, 1);
+                border: 1px solid rgba(244, 55, 55, 1);
+                border-radius: 2px;
+              }
+            }
+            .name {
+              font-size: 18px;
+            }
+          }
+          .dis {
+            margin-top: 15px;
+            font-size: 16px;
+            color: #818A92;
+          }
+          .teachers {
+            margin-top: 20px;
+            .teacher {
+              float: left;
+              font-size: 14px;
+              margin-right: 20px;
+              .av {
+                float: left;
+                width: 40px;
+                height: 40px;
+                margin-right: 10px;
+                margin-top: 4px;
+                border-radius: 50%;
+              }
+              .info {
+                float: left;
+                .name {
+                  font-size: 14px;
+                  text-align: left;
+                }
+                .type {
+                  margin-top: 10px;
+                }
+              }
+            }
+            .detail {
+              padding: 0 10px;
+              line-height: 24px;
+              color: #fff;
+              font-size: 12px;
+              height: 24px;
+              float: left;
+              margin-left: 20px;
+              background: rgba(255, 119, 124, 1);
+              border-radius: 12px;
+            }
+          }
+        }
+      }
+    }
+    .detail{
+      background-color: #fff;
+      margin-top: 20px;
+      .tabs{
+        height: 60px;
+        background-color: #FBFBFB;
+        .tab{
+          width: 140px;
+          height: 60px;
+          font-size: 20px;
+          line-height: 60px;
+          text-align: center;
+          display: inline-block;
+          cursor: pointer;
+          &.active{
+            border-top: 2px solid #363EFB;
+            background-color: #fff;
+            color: #363EFB;
+          }
+        }
+      }
+      .classList{
+        padding: 0 30px;
+        ul{
+          li{
+            height: 75px;
+            font-size: 16px;
+            line-height: 75px;
+            border-bottom:1px solid #EBEBEB;
+            .time{
+              margin-right: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .side{
+    background-color: #fff;
+    float: left;
+    padding: 30px;
+    width: 320px;
+    margin-left: 30px;
+    .unit{
+      font-size: 14px;
+      color:#F43737;
+    }
+    .price{
+      color: #F43737;
+      font-size: 24px;
+    }
+    .disaccount{
+      margin-left: 10px;
+      text-decoration: line-through;
+    }
+    .request{
+      font-size: 12px;
+      color: #818A92;
+      margin-bottom: 15px;
+    }
+    .coupons{
+      position: relative;
+      .coupon{
+        display: inline-block;
+        height: 22px;
+        font-size: 12px;
+        line-height: 22px;
+        padding: 0 8px;
+        background-image: url("./img/couponBg.png");
+        background-size: 100% 100%;
+        color: #fff;
+        margin-right: 6px;
+        cursor: pointer;
+      }
+      .more{
+        color: #818A92;
+        cursor: pointer;
+      }
+      .modalList{
+        width: 296px;
+        padding-bottom: 20px;
+        position: absolute;
+        top:-92px;
+        left: -100px;
+        background-color: #fff;
+        border:1px solid rgba(235, 235, 235, 1);
+        box-shadow:0px 5px 5px 0px rgba(235,235,235,0.75);
+        .close{
+          img{
+            width: 28px;
+            margin-top: 10px;
+            margin-right: 10px;
+          }
+        }
+        .title{
+          font-size: 18px;
+          padding: 18px 12px;
+        }
+        .items{
+          max-height: 660px;
+          padding: 20px 0;
+          overflow-y:scroll;
+        }
+        .item{
+          width: 250px;
+          height: 192px;
+          background-image: url("./img/couBg.png");
+          background-size: 100% 100%;
+          margin: 0 auto;
+          margin-bottom: 30px;
+          position: relative;
+          &.lingqu{
+            background-image: url("./img/couponUse.jpg");
+          }
+          img{
+            position: absolute;
+            right:10px;
+            top:10px;
+            width: 66px;
+            height: 66px;
+          }
+          .accept{
+            position: absolute;
+            width:67px;
+            cursor: pointer;
+            height:30px;
+            background:rgba(246,249,255,1);
+            border:1px solid rgba(76,132,255,1);
+            border-radius:15px;
+            text-align: center;
+            line-height: 30px;
+            color: #4C84FF;
+            top:50px;
+            right:10px
+          }
+          .header{
+            height: 142px;
+            color: #fff;
+            padding: 0 15px;
+            padding-top: 22px;
+            .one{
+              font-size: 32px;
+            }
+            .two{
+              margin-top: 10px;
+              font-size: 16px;
+            }
+            .three{
+              margin-top: 10px;
+              font-size: 14px;
+            }
+          }
+          .footer{
+            font-size: 12px;
+            color: #A0A9B2;
+            padding: 6px 15px;
+          }
+
+        }
+      }
+    }
+    .serivers{
+      padding: 30px 0;
+      margin-top: 10px;
+      border-top: 1px solid #ebebeb;
+    }
+    .btns{
+      padding-top: 20px;
+      border-top: 1px solid #ebebeb;
+      .consult{
+        width:102px;
+        height:44px;
+        font-size: 20px;
+        line-height: 44px;
+        text-align: center;
+        background:rgba(246,249,255,1);
+        border:1px solid rgba(76,132,255,1);
+        color:rgba(76,132,255,1);
+        border-radius:4px;
+        float: left;
+        cursor: pointer;
+      }
+      .apply{
+        width:130px;
+        height:44px;
+        cursor: pointer;
+        font-size: 20px;
+        line-height: 44px;
+        text-align: center;
+        background:rgba(76,132,255,1);
+        border:1px solid rgba(76,132,255,1);
+        border-radius:4px;
+        float: left;
+        color: #fff;
+        margin-left: 20px;
+      }
+    }
+  }
+}

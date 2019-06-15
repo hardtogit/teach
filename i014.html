@@ -1,0 +1,50 @@
+<div ng-include="'headNav.html'"></div>
+<div class="i014 container" style="width: 1180px;padding: 0">
+    <div class="breadcrumbs"><a href="#/i203">首页 ></a><a> 老师详情</a></div>
+    <div class="content">
+        <div class="card">
+            <img src="http://39.108.219.7/cgi-bin/download.pl?proj=znyx&fid={{teacherDetail.headFid}}" alt="">
+            <div class="dis"><span class="name">{{teacherDetail.display_name}}</span> <span>{{teacherDetail.content}}</span></div>
+        </div>
+        <div class="detail">
+            <ul class="nav">
+                <li ng-class="{'active':tabIndex===1}" ng-click="changeTab(1)">主讲课程</li>
+                <li ng-class="{'active':tabIndex===2}" ng-click="changeTab(2)">老师介绍</li>
+            </ul>
+            <div class="dis" ng-if="tabIndex===1">
+                <div class="class-container clearfix">
+                    <div ng-if="i<6" ng-class="{'class':true,'last':i%3===2,'dou':class.number>1}" ng-repeat="(i,class) in teacherDetail.datas" ng-click="goDetail(class)">
+                        <h4><span class="tag one">{{class.season}}</span><span class="tag two">{{class.subject}}</span>{{class.name}}</h4>
+                        <div class="teacher">
+                            <image class="tou" src='http://39.108.219.7/cgi-bin/download.pl?proj=znyx&fid={{class.mainheadFid}}'/>
+                            <div class="name">{{class.mainname}}</div>
+                        </div>
+                        <div class="describe">
+                            <div class="col-xs-6" style="padding: 0">
+                                <small>共{{class.contentnumber}}节课 {{class.number}}个班级可选</small>
+                                <p><small>{{class.request}}人已报名</small></p>
+                            </div>
+                            <div class="col-xs-6">
+                                <span class="default-money">¥{{class.disaccount}}</span>
+                                <span class="real-money">&nbsp;¥{{class.price}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="teacherDis" ng-if="tabIndex===2">
+                <div class="title">
+                    教师资格证：
+                </div>
+                <div class="sub">{{teacherDetail.certify}}</div>
+                <div class="title">
+                    教师简介：
+                </div>
+                <div class="sub">
+                    {{teacherDetail.description}}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,140 @@
+<div ng-include="'headNav.html'"></div>
+<div class="i011 container" style="width: 1180px;padding: 0">
+    <div class="breadcrumbs"><a href="#/i203">首页 ></a><a>立即报名</a></div>
+    <div class="content">
+        <div class="item" ng-if="class.material" ng-if="class.material==='true'">
+            <div class="title">地址详情</div>
+            <div class="address" ng-if="class.address.phone">
+                <div class="acepter">{{class.address.name}} {{class.address.phone}} <span class="pull-right" style="cursor: pointer" ng-click="show()">修改</span></div>
+                <div class="detail">{{class.address.province}} {{class.address.city}} {{class.address.county}} {{class.address.address}}</div>
+            </div>
+            <div class="no" ng-if="!class.address.phone">
+                <img src="./img/noaddress.png" ng-click="show()"  alt="">
+                <div class="text-center">添加收货地址</div>
+
+            </div>
+        </div>
+
+       <div class="item">
+        <div class="title">课程详情</div>
+        <div class="class">
+            <div class="center">
+                <div class="className">
+                    <span class="tag one">{{class.season}}</span>
+                    <span class="tag two">{{class.subject}}</span>
+                    <span class="name">{{class.name}}</span>
+                </div>
+                <div>{{class.duration}}</div>
+                <div class="teachers clearfix">
+                    <div class="teacher">
+                        <img class="av" src="http://39.108.219.7/cgi-bin/download.pl?proj=znyx&fid={{class.mainheadFid}}" alt="">
+                        <div class="info">
+                            <div class="name">{{class.mainname}}</div>
+                            <div class="type">主讲老师</div>
+                        </div>
+                    </div>
+                    <div class="teacher" ng-if="class.assitname">
+                        <img class="av"  src="http://39.108.219.7/cgi-bin/download.pl?proj=znyx&fid={{class.assitheadFid}}" alt="">
+                        <div class="info">
+                            <div class="name">{{class.assitname}}</div>
+                            <div class="type">辅导老师</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="price">
+                    <span class="unit">￥</span>
+                    <span class="num">{{class.price}}</span>
+                </div>
+                <div class="dis">{{class.disaccount}}</div>
+                <div class="classNum">共{{class.number}}节课</div>
+            </div>
+
+        </div>
+       </div>
+        <div class="item">
+            <div class="title">优惠券</div>
+            <div ng-if="couponList.length==0" style="color: #A0A9B2;font-size: 26px">
+                暂无优惠券
+            </div>
+            <div class="coupons">
+                <div  ng-click="choice(item)" ng-class="{'coupon':true,'last':index%4===3,'bukeyong':item.status==='false'}" ng-repeat="(index,item) in couponList">
+                    <img ng-if="item.discoupon_id===selectCoupon.discoupon_id" src="./img/choice.png"  alt="">
+                    <div class="header">
+                        <div class="one"><span>￥</span>{{item.money}}</div>
+                        <div class="two">{{item.limit}}</div>
+                        <div class="three">{{item.avai_end}}</div>
+                    </div>
+                    <div class="footer">
+                        <div class="">优惠券：{{item.name}}</div>
+                        <div class="">使用说明：{{item.description}}</div>
+                    </div>
+                </div>
+                <div style="text-align: center;margin: 100px 0;color: #818A92" ng-if="couponList.length===0">
+                    暂无优惠券...
+                </div>
+            </div>
+        </div>
+        <div class="money text-right"><span >课程价格：</span><span  class="num">{{class.price}}</span></div>
+        <div class="acmoney text-right"><span >应付价格：</span><span  class="num">{{money}}</span></div>
+        <div class="bottom">
+            <div class="submit" ng-click="submit()">提交订单</div>
+        </div>
+    </div>
+    <div class="addAddress" ng-if="visible">
+        <div class="bg"></div>
+        <div class="adModal">
+            <div class="close" ng-click="hidden()"><img src="./img/close.png" alt=""></div>
+            <div class="title">收货地址</div>
+            <form class="form-horizontal body">
+                <div class="form-group">
+                    <label  class="col-sm-2 control-label">收货人</label>
+                    <div class="col-sm-6" >
+                        <input class="form-control" ng-model="address.name" type="text">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label  class="col-sm-2 control-label">手机号码</label>
+                    <div class="col-sm-6">
+                        <input type="text" ng-model="address.phone" class="form-control" >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label  class="col-sm-2 control-label">所在区域</label>
+                    <div class="col-sm-3">
+                        <select placeholder="请选择" class="form-control" ng-change="formatRegion('city',regionData.areaprovince,true)" ng-model="regionData.areaprovince" >
+                            <option value="" disabled>请选择</option>
+                            <option ng-selected="regionData.areaprovince===province.province_ch" ng-repeat="province in regionList.province" ng-value="province.province_ch">{{province.province_ch}}</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-3">
+                        <select placeholder="请选择" class="form-control" ng-change="formatRegion('county',regionData.areacity,true)" ng-model="regionData.areacity">
+                            <option value="" disabled>请选择</option>
+                            <option ng-selected="regionData.areacity===city.city_ch" ng-repeat="city in regionList.city" ng-value="city.city_ch">{{city.city_ch}}</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-3">
+                        <select placeholder="请选择" class="form-control"  ng-model="regionData.areacounty">
+                            <option value="" disabled>请选择</option>
+                            <option ng-selected="regionData.areacounty===city.city_ch" ng-repeat="city in regionList.county" ng-value="city.city_ch">{{city.city_ch}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                <label  class="col-sm-2 control-label">详细地址</label>
+                <div class="col-sm-9">
+                    <textarea class="form-control" ng-model="address.address"  rows="3"></textarea>
+                </div>
+            </div>
+                <div class="save" ng-click="save()">保存</div>
+
+            </form>
+
+
+        </div>
+    </div>
+
+
+</div>
+<div ng-include="'i100footer.html'"></div>

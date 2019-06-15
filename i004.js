@@ -1,6 +1,6 @@
 iweb.controller('i004', function($scope) {
     $scope.tabIndex='全部'
-    $scope.subjectList=[]
+    $scope.subjectListAll=[]
     $scope.changeTab=function (tabIndex) {
         this.tabIndex=tabIndex
         $scope.getData(tabIndex)
@@ -17,8 +17,7 @@ iweb.controller('i004', function($scope) {
                 page_num:0,
                 page_size:5
             },function (data) {
-                console.log(data.info,'sssssssssssssssssssssssssssssssssss')
-                $scope.subjectList=data.info
+                $scope.subjectListAll=data.info
                 PageObject({appendId:'i004page',currNum:1,pageCount:Math.ceil(data.count/5),callback:function (current) {
                     $scope.openPage(current-1)
                     }})
@@ -33,10 +32,10 @@ iweb.controller('i004', function($scope) {
             page_num:current,
             page_size:5
         },function (data) {
-            $scope.subjectList=data.info
+            $scope.subjectListAll=data.info
         })
     }
-    setTimeout(()=>{
+    setTimeout(function(){
         $scope.getData('全部')
     },500)
     $scope.$on("STATE_CHANGED_HANDLER", function() {

@@ -1,0 +1,69 @@
+<div ng-include="'headNav.html'"></div>
+<div class="i007 container" style="width: 1180px;padding: 0">
+    <div class="breadcrumbs"><a href="#/i203">首页 ></a><a> 个人中心 ></a><a > 我的订单</a></div>
+    <div  ng-include="'side.html'"></div>
+    <div class="inner">
+    <div class="item">
+    <div class="title">订单详情    <span class="status">{{order.status}}</span></div>
+     <div class="content">
+         <div class="orderNo">订单号：{{order.order_number}}</div>
+         <div>下单时间：{{order.time}}</div>
+         <div ng-if="order.paytime">支付时间：{{order.paytime}}</div>
+         <div>支付渠道：{{order.payway}}</div>
+     </div>
+    </div>
+    <div class="item" ng-if="order.address.phone">
+        <div class="title">收货地址</div>
+        <div class="content">
+            <div>收货人：{{order.address.name}}</div>
+            <div>手机号码：{{order.address.phone}}</div>
+            <div>收货地址：{{order.address.address}}</div>
+            <div>物流信息：{{order.transfername+ '' +order.transferid}}</div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="title">购买课程</div>
+    </div>
+        <div class="subject panel" >
+            <div class="title">
+                <span class="tag one">{{order.season}}</span>
+                <span class="tag two">{{order.subject}}</span>
+                <span class="name">{{order.name}}</span>
+                <span class="status">{{order.watchstatus}}</span>
+                <span class="pull-right"><span class="unit">￥</span><span class="price">{{order.price}}</span>
+                    <p class="text-right">￥{{order.disaccount}}</p></span>
+            </div>
+            <div class="subTitle">
+                <span class="item">时间：05月28日-05月31日</span>
+            </div>
+            <div class="teachers clearfix">
+                <div class="teacher">
+                    <img class="av" src="http://39.108.219.7/cgi-bin/download.pl?proj=znyx&fid={{order.mainheadFid}}" alt="">
+                    <div class="info">
+                        <div class="name">{{order.mainname}}</div>
+                        <div class="type">主讲老师</div>
+                    </div>
+                </div>
+                <div class="teacher" ng-if="order.assitname">
+                    <img class="av"  src="http://39.108.219.7/cgi-bin/download.pl?proj=znyx&fid={{order.assitheadFid}}" alt="">
+                    <div class="info">
+                        <div class="name">{{order.assitname}}</div>
+                        <div class="type">辅导老师</div>
+                    </div>
+                </div>
+                <div class="count">共{{order.disaccount}}节课</div>
+            </div>
+        </div>
+        <div class="classPrice text-right">
+            课程价格：￥{{order.price}}
+            <p ng-if="order.discoupon">优惠价格：￥{{order.discoupon}}</p>
+        </div>
+        <div class="text-right cprice">
+            实际价格：<span class="num">￥{{order.pay_amount}}</span>
+        </div>
+        <div class="submit" ng-click="goPay()" ng-if="order.status==='待支付'">
+            继续支付
+        </div>
+    </div>
+</div>
+<div ng-include="'i100footer.html'"></div>

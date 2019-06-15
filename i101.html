@@ -1,5 +1,7 @@
-<div style="position: relative;">
-	<div id="i101-video" style="width:100%; height:auto;"></div>
+<div ng-include="'headNav.html'"></div>
+<div class="i101 container" style="width: 1180px;padding: 0;">
+	<div class="breadcrumbs"><a href="#/i203">首页 ></a><a> 学习中心</a></div>
+	<div id="video-container"></div>
 	<div id="i101-talk">
 		<div class="i101-talk-title">文字讨论</div>
 		<div class="i101-talk-content">
@@ -9,24 +11,12 @@
 				<span ng-show="{{msg.mtype == 'link'}}"><a href="{{msg.content}}" target="_blank">{{msg.content}}</a></span>
 			</div>
 		</div>
-		<div class="i101-input" contenteditable="true" data-text="说点什么吧"></div>
-		<div class="i101-send" ng-click="send()">发送</div>
-	</div>
-	<div id="i101-control">
-		<div id="i101-control-title" ng-click="play()">121大讲堂</div>
-		<div id="i101-play" class="i101-control"><i class="i100-icon i100-iconfont">&#xe650;</i></div>
-
-		<div ng-hide="{{live}}" id="i101-progress"></div>
-		<div id="i101-control-list">
-			<div ng-hide="{{live}}"id="i101-qxd" class="i101-control-btn">超清</div>
-			<div ng-hide="{{live}}" id="i101-bs" class="i101-control-btn">1倍</div>
-			<div ng-hide="{{live}}" id="i101-bj" class="i101-control-btn">标记</div>
-			<div ng-hide="{{live}}" id="i101-bjlist" class="i101-control-btn">标记列表</div>
+		<div class="input-group">
+			<input type="text" class="input" ng-model="ctrlScope.message" ng-if="live" placeholder="说点什么吧"/>
+			<input class="input" ng-if="!live" disabled  placeholder="回放期间不能发言"/>
+			<div class="send" ng-click="send()">发送</div>
 		</div>
-
-		<div id="i101-volume-up" class="i101-control"><i class="i100-icon i100-iconfont">&#xe604;</i></div>
-		<div id="i101-volume"></div>
-		<div id="i101-qp" ng-click="fullscreen()"><i class="i100-icon i100-iconfont">&#xe615;</i></div>
-			
 	</div>
+
 </div>
+<div ng-include="'i100footer.html'"></div>

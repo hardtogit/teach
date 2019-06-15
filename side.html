@@ -1,28 +1,56 @@
-<div class="side">
-    <img src="" class="header" alt="">
-    <div class="name">胡同</div>
-    <div class="phone">手机号：15524787463</div>
+<div class="side" ng-controller="subjectSide">
+    <img src="http://39.108.219.7/cgi-bin/download.pl?proj=znyx&fid={{objInfo.headfid}}" class="headerImg" alt="">
+    <div class="name">{{objInfo.display_name}}</div>
+    <div class="phone">手机号 {{objInfo.phone}}</div>
     <div class="menus">
-        <div class="menu">个人信息</div>
-        <div class="menu">我的订单</div>
+        <a href="#/i003" ng-class="{'menu':true,'active':path==='/i003'}">个人中心</a>
+        <a href="#/i006" ng-class="{'menu':true,'activeTwo':path==='/i006','active':path==='/i007'}">我的订单</a>
+        <a href="#/i013" ng-class="{'menu':true,'active':path==='/i013'}">优惠券</a>
     </div>
 
 </div>
 <style>
     .side{
-        width: 200px;
+        width: 220px;
         float: left;
         text-align: center;
         background-color: #fff;
+        border: 1px solid #EBEBEB;
+    }
+    .headerImg{
+        width: 76px;
+        height: 76px;
+        border-radius: 50%;
+        display: block;
+        margin: 26px auto 6px auto;
+    }
+    .name{
+        font-size: 20px;
+        color: #32404B;
+        text-align: center;
+    }
+    .phone{
+        margin-top: 10px;
+        font-size: 14px;
+        color: #818A92;
     }
     .menus{
-        border-top:1px solid #ddd;
+        border-top:1px solid #F5F5F5;
         padding-top: 20px;
+        padding-bottom: 20px;
         margin-top: 30px;
     }
     .menu{
-        height: 44px;
-        line-height: 44px;
+        height: 60px;
+        line-height: 60px;
+        font-size: 16px;
         text-align: center;
+        display: block;
+        text-decoration: none;
+        color:#32404B ;
+    }
+    .menus .active, .menus .activeTwo{
+        border-left: 2px solid #4A81FA;
+        color: #4A81FA;
     }
 </style>

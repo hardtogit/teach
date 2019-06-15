@@ -1,4 +1,4 @@
-<div id="i100-nav"></div>
+<div ng-include="'headNav.html'"></div>
 <div id="i100-learn-center">
 	<ul id="i100-breadcrumb">
 		<li>
@@ -24,7 +24,7 @@
 						<div class="i100-calendr-item">周日</div>
 					</div>
 					<div class="i100-calendar-content">
-					
+
 					</div>
 				</div>
 				<div class="i100-days-week">
@@ -40,7 +40,7 @@
 					<div class="i100-show-week">展开</div>
 				</div>
 			</div>
-			<div class="i100-course-list">	
+			<div class="i100-course-list">
 				<div class="i100-course-item" ng-repeat="item in items">
 					<div class="i100-course-item-title">
 						<div class="i100-course-sign"></div>
@@ -64,7 +64,7 @@
 							<!--未布置显示未布置，点击toast 未布置课后练习，布置课后练习未完成显示开始练习 已做完显示已做完-->
 							<div class="i100-course-homework-status" ng-hide="{{item.watchexam}}">未布置</div>
 							<div class="i100-course-homework-status i100-course-live-light" ng-show="{{item.watchexam}}">开始练习</div>
-							 
+
 						</div>
 					</div>
 				</div>

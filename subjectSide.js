@@ -27,7 +27,7 @@ iweb.controller('subjectSide', function($scope,$route) {
             var time=60
             var sub=function () {
                 if(time>0){
-                    setTimeout(()=>{
+                    setTimeout(function(){
                         time=time-1
                         $('#sendCode').html(time+'s')
                         sub()

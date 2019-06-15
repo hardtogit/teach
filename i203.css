@@ -67,6 +67,15 @@
   box-shadow: 4px 4px 10px #ddd;
   border-top: 3px solid #4C84FF;
 }
+.i203 .class-container .class.dou {
+  background-image: url("./img/bg.png");
+  background-size: 100% 100%;
+  border: none;
+  background-color: transparent;
+}
+.i203 .class-container .class.dou:hover {
+  border-top: 3px solid #4C84FF;
+}
 .i203 .class-container .class.last {
   margin-right: 0;
 }

@@ -4,6 +4,7 @@ var IWEB_ACCOUNT    = "test2";
 var TOOLBOX_ACCOUNT = "test1";
 
 var iweb = angular.module('iweb', ['ngRoute']);
+window.iweb=iweb
 
 iweb.config(['$routeProvider',
   	function($routeProvider) {
@@ -42,11 +43,11 @@ iweb.config(['$routeProvider',
     			controller: 'main'
       		}).
 			when('/i002', {
-				templateUrl: 'i002.html',
+				templateUrl: 'i002.html',//选课中心
 				controller: 'i002'
 			}).
             when('/i003', {
-                templateUrl: 'i003.html',
+                templateUrl: 'i003.html',//个人资料
                 controller: 'i003'
             }).
             when("/i100",{
@@ -58,13 +59,49 @@ iweb.config(['$routeProvider',
             	controller: 'i101'
             }).
             when('/i004', {
-                templateUrl: 'i004.html',
+                templateUrl: 'i004.html',//课程列表
                 controller: 'i004'
             }).
 			when('/i005', {
-				templateUrl: 'i005.html',
+				templateUrl: 'i005.html',//课程详情
 				controller: 'i005'
 			}).
+            when('/i006', {
+                templateUrl: 'i006.html',//订单列表
+                controller: 'i006'
+            }).
+            when('/i007', {
+                templateUrl: 'i007.html',//订单详情
+                controller: 'i007'
+            }).
+            when('/i008', {
+                templateUrl: 'i008.html',//习题
+                controller: 'i008'
+            }).
+            when('/i009', {
+                templateUrl: 'i009.html',//班级列表
+                controller: 'i009'
+            }).
+            when('/i010', {
+                templateUrl: 'i010.html',//班级详情
+                controller: 'i010'
+            }).
+            when('/i011', {
+                templateUrl: 'i011.html',//立即报名
+                controller: 'i011'
+            }).
+            when('/i012', {
+                templateUrl: 'i012.html',//立即报名
+                controller: 'i012'
+            }).
+            when('/i013', {
+                templateUrl: 'i013.html',//我的优惠券
+                controller: 'i013'
+            }).
+            when('/i014', {
+                templateUrl: 'i014.html',//我的优惠券
+                controller: 'i014'
+            }).
       		otherwise({
     			redirectTo: '/i203'
       		});
@@ -111,6 +148,7 @@ apiconn.state_changed_handler = function() {
 			sessionStorage.setItem("login_name", apiconn.login_name);
 			sessionStorage.setItem("login_passwd", apiconn.login_passwd);
             sessionStorage.setItem("credential_data",JSON.stringify(apiconn.credential_data))
+            // window.location.reload()
 		} else if (apiconn.conn_state == "LOGIN_SCREEN_ENABLED") {
 
 			// auto re login after page refresh
@@ -152,6 +190,7 @@ apiconn.response_received_handler = function(jo) {
 
 		if (jo.ustr != null && jo.ustr != "" && jo.uerr != "ERR_CONNECTION_EXCEPTION"){
             layer.msg(jo.ustr,{icon:2})
+            callBackFn[jo.obj+'_'+jo.act].shift()
 		} else{
             if(callBackFn[jo.obj+'_'+jo.act]&&callBackFn[jo.obj+'_'+jo.act].length){
                      callBackFn[jo.obj+'_'+jo.act].shift()(jo)
@@ -159,6 +198,8 @@ apiconn.response_received_handler = function(jo) {
 		}
 		if (jo.obj == "person" && jo.act == "login" && jo.user_info && jo.server_info) {
 			// goto_view("i001");
+            // window.location.reload()
+            // goto_view("/i203");
 		}
 		if (jo.obj == "person" && jo.act == "logout") {
 			goto_view("/i203");
@@ -175,13 +216,6 @@ apiconn.response_received_handler = function(jo) {
 };
 
 apiconn.wsUri = "ws://39.108.219.7:51717/znyx";
-apiconn.connect();
-setTimeout(()=>{
-    // window.ajax({obj:"user",act:"getcode",phone:"17326103988",type:"login"},function (data) {
-    // apiconn.loginx({"login_name":"17326103988","code":"123456","ctype":"h5"})
-    // })
-},500)
-
 angular.module("iweb")
     .factory('fileReader', function($q, $log) {
 
@@ -306,6 +340,7 @@ iweb.run(['$rootScope', function ($rootScope) {
 	 });
 
 	rootScope = $rootScope;
+    apiconn.connect();
 }]);
 
 

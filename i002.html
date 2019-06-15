@@ -1,1 +1,61 @@
+<div ng-include="'headNav.html'"></div>
+<div class="i002 container" style="width: 1180px;padding: 0">
+    <div class="breadcrumbs"><a href="#/i203">首页 ></a><a> 选课中心</a></div>
+    <div class="filters">
+        <div class="filter">
+            <ul class="list-inline">
+                <li class="title">年级:</li>
+                <li ng-class="{'item':true,'active':classCurrent===class._id}" ng-repeat="class in classList" ng-click="getSubject(class._id)">{{class.name}}</li>
+            </ul>
+        </div>
+    <div class="filter">
+        <ul class="list-inline">
+            <li class="title">学科:</li>
+            <li ng-class="{'item':true,'active':subjectCurrent==='全部'}" ng-click="selectSubject('全部')">全部</li>
+            <li ng-class="{'item':true,'active':subjectCurrent===subject._id}" ng-repeat="subject in subjectList" ng-click="selectSubject(subject._id)">{{subject.name}}</li>
+        </ul>
+    </div>
+        <div class="filter">
+            <ul class="list-inline">
+                <li class="title">季节:</li>
+                <li ng-class="{'item':true,'active':seasonCurrent==='全部'}" ng-click="selectSeason('全部')">全部</li>
+                <li ng-class="{'item':true,'active':seasonCurrent===season._id}" ng-repeat="season in seasonList" ng-click="selectSeason(season._id)">{{season.name}}</li>
+            </ul>
+        </div>
 
+    <div class="filter">
+        <ul class="list-inline">
+            <li class="title">时间:</li>
+            <li ng-class="{'item':true,'active':timeCurrent==='全部'}" ng-click="selectTime('全部')">全部</li>
+            <li ng-class="{'item':true,'active':timeCurrent===time}" ng-repeat="time in timeList" ng-click="selectTime(time)">{{time}}</li>
+        </ul>
+    </div>
+    <div class="filter">
+        <ul class="list-inline">
+            <li class="title">时段:</li>
+            <li ng-class="{'item':true,'active':durCurrent==='全部'}" ng-click="selectDur('全部')">全部</li>
+            <li ng-class="{'item':true,'active':durCurrent===dur}" ng-repeat="dur in durList" ng-click="selectDur(dur)">{{dur}}</li>
+        </ul>
+    </div>
+    </div>
+
+    <div class="class-container clearfix">
+        <div ng-class="{'class':true,'last':i%3===2}" ng-repeat="(i,class) in classData" ng-click="goDetail(class)" >
+            <h4><span class="tag one">{{class.season}}</span><span class="tag two">{{class.subject}}</span>{{class.name}}</h4>
+            <div class="teacher">
+                <image class="tou" src='http://39.108.219.7/cgi-bin/download.pl?proj=znyx&fid={{class.headFid}}'/>
+                <div class="name">{{class.mainname}}</div>
+            </div>
+            <div class="describe">
+                <div class="col-xs-6" style="padding: 0">
+                    <small>共{{class.contentnumber}}节课 {{class.number}}个班级可选</small>
+                    <p><small>{{class.request}}人已报名</small></p>
+                </div>
+                <div class="col-xs-6">
+                    <span class="default-money">¥{{class.disaccount}}</span>
+                    <span class="real-money">&nbsp;¥{{class.price}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

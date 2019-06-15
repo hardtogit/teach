@@ -1,0 +1,58 @@
+<!--我的资料-->
+<div ng-include="'headNav.html'"></div>
+<div class="i006 container" style="width: 1180px;padding: 0">
+    <div class="breadcrumbs"><a href="#/i203">首页 ></a><a> 个人中心 ></a><a> 我的订单</a></div>
+    <div  ng-include="'side.html'"></div>
+    <div class="content">
+        <ul class="nav">
+            <li ng-class="{'active':tabIndex==='全部'}" ng-click="changeTab('全部')">全部</li>
+            <li ng-class="{'active':tabIndex==='待支付'}" ng-click="changeTab('待支付')">待支付</li>
+            <li ng-class="{'active':tabIndex==='已支付'}" ng-click="changeTab('已支付')">已支付</li>
+            <li ng-class="{'active':tabIndex==='已取消'}" ng-click="changeTab('已取消')">已取消</li>
+        </ul>
+        <div class="panel">
+            <div class="subject" ng-repeat="subject in subjectOrderList">
+                <div class="tou"><span>{{subject.time}}</span> <span class="status">{{subject.status}}</span></div>
+                <div class="body clearfix">
+                <div class="title">
+                    <span class="tag one">{{subject.season}}</span>
+                    <span class="tag two">{{subject.subject}}</span>
+                    <span class="name">{{subject.name}}</span>
+                    <span class="pull-right"><span class="unit">￥</span><span class="price">{{subject.price}}</span>
+                    <p class="text-right">￥{{subject.disaccount}}</p></span>
+                </div>
+                <div class="subTitle">
+                    <span class="item">时间：{{subject.during}}</span>
+                </div>
+                <div class="teachers clearfix">
+                    <div class="teacher">
+                        <img class="av" src="http://39.108.219.7/cgi-bin/download.pl?proj=znyx&fid={{subject.mainheadFid}}" alt="">
+                        <div class="info">
+                            <div class="name">{{subject.mainname}}</div>
+                            <div class="type">主讲老师</div>
+                        </div>
+                    </div>
+                    <div class="teacher" ng-if="subject.assitname">
+                        <img class="av"  src="http://39.108.219.7/cgi-bin/download.pl?proj=znyx&fid={{subject.assitheadFid}}" alt="">
+                        <div class="info">
+                            <div class="name">{{subject.assitname}}</div>
+                            <div class="type">辅导老师</div>
+                        </div>
+                    </div>
+                    <div class="pull-right">
+                        共{{subject.number}}节课
+                    </div>
+                </div>
+                    <hr>
+                    <div>共{{subject.number}}个课程
+                        <div class="pull-right">实付款：<span class="unit">￥</span><span class="price">{{subject.pay_amount}}</span></div>
+                    </div>
+                </div>
+                <div class="detail" ng-click="goDetail(subject.order_id)">查看详情</div>
+            </div>
+        </div>
+        <div id="i004page" style="text-align: right"></div>
+    </div>
+
+</div>
+<div ng-include="'i100footer.html'"></div>

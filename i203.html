@@ -39,21 +39,21 @@
 			<span class="subTitle">
 				重点难点全面辅导 快速提分不二选择
 			</span>
-			<span class="more">
+			<span class="more" ng-click="goSelect()">
 				更多课程 <i>></i>
 			</span>
 		</div>
 
 		<div class="class-container clearfix">
-			<div ng-class="{'class':true,'last':i%3===2}" ng-repeat="(i,class) in chargeList">
+			<div ng-if="i<6" ng-class="{'class':true,'last':i%3===2,'dou':class.number>1}" ng-repeat="(i,class) in chargeList" ng-click="goDetail(class)">
 				<h4><span class="tag one">{{class.season}}</span><span class="tag two">{{class.subject}}</span>{{class.name}}</h4>
 				<div class="teacher">
 					<image class="tou" src='http://39.108.219.7/cgi-bin/download.pl?proj=znyx&fid={{class.headFid}}'/>
-					<div class="name">王冰</div>
+					<div class="name">{{class.mainname}}</div>
 				</div>
 				<div class="describe">
 					<div class="col-xs-6" style="padding: 0">
-						<small>共10节课 {{class.number}}个班级可选</small>
+						<small>共{{class.contentnumber}}节课 {{class.number}}个班级可选</small>
 						<p><small>{{class.request}}人已报名</small></p>
 					</div>
 					<div class="col-xs-6">
@@ -70,20 +70,20 @@
 			<span class="subTitle">
 				兴趣培养 养成习惯 免费体验
 			</span>
-			<span class="more">
+			<span class="more" ng-click="goSelect()">
 				更多课程 <i>></i>
 			</span>
 		   </div>
 		   <div class="class-container clearfix">
-			   <div ng-class="{'class':true,'last':i%3===2}" ng-repeat="(i,class) in publicList">
+			   <div ng-if="i<6" ng-class="{'class':true,'last':i%3===2}" ng-repeat="(i,class) in publicList" ng-click="goDetail(class)">
 				   <h4><span class="tag one">{{class.season}}</span><span class="tag two">{{class.subject}}</span>{{class.name}}</h4>
 				   <div class="teacher">
-					   <image class="tou" src='http://39.108.219.7/cgi-bin/download.pl?proj=znyx&fid={{class.headFid}}'/>
-					   <div class="name">王冰</div>
+					    <image class="tou" src='http://39.108.219.7/cgi-bin/download.pl?proj=znyx&fid={{class.headFid}}'/>
+					   <div class="name">{{class.mainname}}</div>
 				   </div>
 				   <div class="describe">
 					   <div class="col-xs-6" style="padding: 0">
-						   <small>共10节课 {{class.number}}个班级可选</small>
+						   <small>共{{class.contentnumber}}节课 {{class.number}}个班级可选</small>
 						   <p><small>{{class.request}}人已报名</small></p>
 					   </div>
 					   <!--<div class="col-xs-6">-->

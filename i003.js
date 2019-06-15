@@ -32,8 +32,8 @@ iweb.controller('i003', function($scope,fileReader) {
             ajax({
                 obj: 'user',
                 act: 'provincecity',
-                type,
-                parameter
+                type:type,
+                parameter:parameter
 
             }, function (data) {
                 $scope.regionList.province = data.info
@@ -46,8 +46,8 @@ iweb.controller('i003', function($scope,fileReader) {
             ajax({
                 obj: 'user',
                 act: 'provincecity',
-                type,
-                parameter
+                type:type,
+                parameter:parameter
             },function (data) {
                 $scope.regionList.city=data.info
                 if(action){
@@ -63,8 +63,8 @@ iweb.controller('i003', function($scope,fileReader) {
              ajax({
                  obj:'user',
                  act:'provincecity',
-                 type,
-                 parameter
+                 type:type,
+                 parameter:parameter
 
              },function (data) {
                  $scope.regionList.county=data.info

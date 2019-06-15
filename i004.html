@@ -11,7 +11,7 @@
             <li ng-class="{'active':tabIndex==='已结束'}" ng-click="changeTab('已结束')">已结束</li>
         </ul>
         <div class="panel">
-            <div class="subject" ng-repeat="subject in subjectList">
+            <div class="subject" ng-repeat="subject in subjectListAll">
                 <div class="title">
                     <span class="tag one">{{subject.season}}</span>
                     <span class="tag two">{{subject.subject}}</span>
@@ -19,9 +19,9 @@
                     <span class="status">{{subject.watchstatus}}</span>
                 </div>
                 <div class="subTitle">
-                    <span class="item">时间：05月28日-05月31日</span>
-                    <span class="item">10节</span>
-                    <span class="item">下次开课时间：05月28日-05月31日</span>
+                    <span class="item">时间：{{subject.during}}</span>
+                    <span class="item">{{subject.number}}节</span>
+                    <!--<span class="item">下次开课时间：05月28日-05月31日</span>-->
                 </div>
                 <div class="teachers clearfix">
                     <div class="teacher">

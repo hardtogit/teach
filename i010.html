@@ -1,0 +1,110 @@
+<div ng-include="'headNav.html'"></div>
+<div class="i010 container" style="width: 1180px;padding: 0">
+    <div class="breadcrumbs"><a href="#/i203">首页 ></a><a> 课程详情</a></div>
+    <div class="content">
+        <div class="card">
+        <div class="inner">
+            <div class="left">
+                <img src="http://39.108.219.7/cgi-bin/download.pl?proj=znyx&fid={{courseDetail.picture}}" class="img" alt="">
+            </div>
+            <div class="right">
+                <div class="className">
+                    <span class="tag one">{{courseDetail.season}}</span>
+                    <span class="tag two">{{courseDetail.subject}}</span>
+                    <span class="name">{{courseDetail.name}}</span>
+                </div>
+                <div class="dis">
+                    {{courseDetail.during}}  |  {{courseDetail.number}}课节
+                </div>
+                <div class="teachers clearfix">
+                    <div class="teacher" style="cursor: pointer" ng-click="goTeacherDetail(courseDetail.mainid)">
+                        <img class="av" src="http://39.108.219.7/cgi-bin/download.pl?proj=znyx&fid={{courseDetail.mainheadFid}}" alt="">
+                        <div class="info">
+                            <div class="name">{{courseDetail.mainname}}</div>
+                            <div class="type">主讲老师</div>
+                        </div>
+                    </div>
+                    <div class="teacher" ng-if="courseDetail.assitname">
+                        <img class="av"  src="http://39.108.219.7/cgi-bin/download.pl?proj=znyx&fid={{courseDetail.assitheadFid}}" alt="">
+                        <div class="info">
+                            <div class="name">{{courseDetail.assitname}}</div>
+                            <div class="type">辅导老师</div>
+                        </div>
+                    </div>
+                    <div class="detail" ng-click="goDetail(subject.course_id)">
+                        余{{courseDetail.remain}}个名额
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="detail">
+            <div class="tabs">
+                <div ng-class={'tab':true,'active':tabIndex===1} ng-click="changeTab(1)">
+                    课程详情
+                </div>
+                <div  ng-class={'tab':true,'active':tabIndex===2} ng-click="changeTab(2)">
+                    课程列表
+                </div>
+            </div>
+            <div class="dis" ng-if="tabIndex===1">
+                <div ng-bind-html="courseDetail.description|showAsHtml"></div>
+
+            </div>
+            <div class="classList" ng-if="tabIndex===2">
+                <ul class="list-unstyled">
+                    <li ng-repeat="(i,class) in courseDetail.content"><span class="time">{{class.during}}</span><span class="name">{{class.title}}</span></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <div class="side">
+        <div><span class="unit">￥</span><span class="price">{{courseDetail.price}}</span><span class="disaccount">￥{{courseDetail.disaccount}}</span></div>
+        <div class="request">已报名{{courseDetail.request}}</div>
+        <div class="coupons" >优惠卷：
+            <div class="coupon" ng-repeat="(i,coupon) in couponlist" ng-if="i<2" ng-click="acceptCoupon(coupon.discoupon_id)">满90减5</div>
+            <div class="pull-right more" ng-if="couponlist.length>2" ng-click="show()">更多</div>
+            <div class="modalList" ng-if="visible">
+                <div class="close" ng-click="hidden()"><img src="./img/close.png" alt=""></div>
+                <div class="title">优惠券</div>
+                <div class="items">
+                <div ng-class="{'item':true,'lingqu':item.status==='已领取'}" ng-repeat="(index,item) in couponlist">
+                    <img ng-if="item.status==='已领取'" src="./img/lingqu.png"  alt="">
+                    <div class="header">
+                        <div class="one"><span>￥</span>{{item.money}}</div>
+                        <div class="two">{{item.limit}}</div>
+                        <div class="three">{{item.avai_end}}</div>
+                    </div>
+                    <div class="footer">
+                        <div class="">优惠券：{{item.name}}</div>
+                        <div class="">使用说明：{{item.description}}</div>
+                    </div>
+                    <div class="accept" ng-if="item.status==='领取'" ng-click="acceptCoupon(item.discoupon_id)">
+                        领取
+                    </div>
+
+                </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="serivers">
+            服务：
+            <span class="serive" ng-repeat="item in courseDetail.service">
+                {{item}}
+            </span>
+
+        </div>
+        <div class="btns">
+            <div class="consult">
+                <i class="fa "></i>咨询
+            </div>
+            <div class="apply" ng-click="apply()">
+                立即报名
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-include="'i100footer.html'"></div>
