@@ -1,0 +1,301 @@
+.i010 .breadcrumbs {
+  font-size: 14px;
+  padding: 15px 0;
+}
+.i010 .breadcrumbs a {
+  text-decoration: none;
+  color: #818A92;
+}
+.i010 .breadcrumbs a:hover {
+  color: #32404B;
+}
+.i010 .content {
+  width: 830px;
+  float: left;
+  padding: 0;
+}
+.i010 .content .card {
+  background-color: #fff;
+  padding: 30px;
+}
+.i010 .content .card .inner {
+  height: 172px;
+}
+.i010 .content .card .inner .left {
+  width: 300px;
+  height: 172px;
+  float: left;
+}
+.i010 .content .card .inner .left .img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.i010 .content .card .inner .right {
+  float: left;
+  padding-left: 20px;
+}
+.i010 .content .card .inner .right .className {
+  font-size: 16px;
+}
+.i010 .content .card .inner .right .className .tag {
+  font-size: 14px;
+}
+.i010 .content .card .inner .right .className .tag.one {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  color: #FF9D30;
+  text-align: center;
+  background: #fff6ec;
+  border: 1px solid #ff9d30;
+  border-radius: 2px;
+}
+.i010 .content .card .inner .right .className .tag.two {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  color: #F43737;
+  text-align: center;
+  background: #fff3f3;
+  border: 1px solid #f43737;
+  border-radius: 2px;
+}
+.i010 .content .card .inner .right .className .name {
+  font-size: 18px;
+}
+.i010 .content .card .inner .right .dis {
+  margin-top: 15px;
+  font-size: 16px;
+  color: #818A92;
+}
+.i010 .content .card .inner .right .teachers {
+  margin-top: 20px;
+}
+.i010 .content .card .inner .right .teachers .teacher {
+  float: left;
+  font-size: 14px;
+  margin-right: 20px;
+}
+.i010 .content .card .inner .right .teachers .teacher .av {
+  float: left;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  margin-top: 4px;
+  border-radius: 50%;
+}
+.i010 .content .card .inner .right .teachers .teacher .info {
+  float: left;
+}
+.i010 .content .card .inner .right .teachers .teacher .info .name {
+  font-size: 14px;
+  text-align: left;
+}
+.i010 .content .card .inner .right .teachers .teacher .info .type {
+  margin-top: 10px;
+}
+.i010 .content .card .inner .right .teachers .detail {
+  padding: 0 10px;
+  line-height: 24px;
+  color: #fff;
+  font-size: 12px;
+  height: 24px;
+  float: left;
+  margin-left: 20px;
+  background: #ff777c;
+  border-radius: 12px;
+}
+.i010 .content .detail {
+  background-color: #fff;
+  margin-top: 20px;
+}
+.i010 .content .detail .tabs {
+  height: 60px;
+  background-color: #FBFBFB;
+}
+.i010 .content .detail .tabs .tab {
+  width: 140px;
+  height: 60px;
+  font-size: 20px;
+  line-height: 60px;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+}
+.i010 .content .detail .tabs .tab.active {
+  border-top: 2px solid #363EFB;
+  background-color: #fff;
+  color: #363EFB;
+}
+.i010 .content .detail .classList {
+  padding: 0 30px;
+}
+.i010 .content .detail .classList ul li {
+  height: 75px;
+  font-size: 16px;
+  line-height: 75px;
+  border-bottom: 1px solid #EBEBEB;
+}
+.i010 .content .detail .classList ul li .time {
+  margin-right: 20px;
+}
+.i010 .side {
+  background-color: #fff;
+  float: left;
+  padding: 30px;
+  width: 320px;
+  margin-left: 30px;
+}
+.i010 .side .unit {
+  font-size: 14px;
+  color: #F43737;
+}
+.i010 .side .price {
+  color: #F43737;
+  font-size: 24px;
+}
+.i010 .side .disaccount {
+  margin-left: 10px;
+  text-decoration: line-through;
+}
+.i010 .side .request {
+  font-size: 12px;
+  color: #818A92;
+  margin-bottom: 15px;
+}
+.i010 .side .coupons {
+  position: relative;
+}
+.i010 .side .coupons .coupon {
+  display: inline-block;
+  height: 22px;
+  font-size: 12px;
+  line-height: 22px;
+  padding: 0 8px;
+  background-image: url("./img/couponBg.png");
+  background-size: 100% 100%;
+  color: #fff;
+  margin-right: 6px;
+  cursor: pointer;
+}
+.i010 .side .coupons .more {
+  color: #818A92;
+  cursor: pointer;
+}
+.i010 .side .coupons .modalList {
+  width: 296px;
+  padding-bottom: 20px;
+  position: absolute;
+  top: -92px;
+  left: -100px;
+  background-color: #fff;
+  border: 1px solid #ebebeb;
+  box-shadow: 0px 5px 5px 0px rgba(235, 235, 235, 0.75);
+}
+.i010 .side .coupons .modalList .close img {
+  width: 28px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+.i010 .side .coupons .modalList .title {
+  font-size: 18px;
+  padding: 18px 12px;
+}
+.i010 .side .coupons .modalList .items {
+  max-height: 660px;
+  padding: 20px 0;
+  overflow-y: scroll;
+}
+.i010 .side .coupons .modalList .item {
+  width: 250px;
+  height: 192px;
+  background-image: url("./img/couBg.png");
+  background-size: 100% 100%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  position: relative;
+}
+.i010 .side .coupons .modalList .item.lingqu {
+  background-image: url("./img/couponUse.jpg");
+}
+.i010 .side .coupons .modalList .item img {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 66px;
+  height: 66px;
+}
+.i010 .side .coupons .modalList .item .accept {
+  position: absolute;
+  width: 67px;
+  cursor: pointer;
+  height: 30px;
+  background: #f6f9ff;
+  border: 1px solid #4c84ff;
+  border-radius: 15px;
+  text-align: center;
+  line-height: 30px;
+  color: #4C84FF;
+  top: 50px;
+  right: 10px;
+}
+.i010 .side .coupons .modalList .item .header {
+  height: 142px;
+  color: #fff;
+  padding: 0 15px;
+  padding-top: 22px;
+}
+.i010 .side .coupons .modalList .item .header .one {
+  font-size: 32px;
+}
+.i010 .side .coupons .modalList .item .header .two {
+  margin-top: 10px;
+  font-size: 16px;
+}
+.i010 .side .coupons .modalList .item .header .three {
+  margin-top: 10px;
+  font-size: 14px;
+}
+.i010 .side .coupons .modalList .item .footer {
+  font-size: 12px;
+  color: #A0A9B2;
+  padding: 6px 15px;
+}
+.i010 .side .serivers {
+  padding: 30px 0;
+  margin-top: 10px;
+  border-top: 1px solid #ebebeb;
+}
+.i010 .side .btns {
+  padding-top: 20px;
+  border-top: 1px solid #ebebeb;
+}
+.i010 .side .btns .consult {
+  width: 102px;
+  height: 44px;
+  font-size: 20px;
+  line-height: 44px;
+  text-align: center;
+  background: #f6f9ff;
+  border: 1px solid #4c84ff;
+  color: #4c84ff;
+  border-radius: 4px;
+  float: left;
+  cursor: pointer;
+}
+.i010 .side .btns .apply {
+  width: 130px;
+  height: 44px;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 44px;
+  text-align: center;
+  background: #4c84ff;
+  border: 1px solid #4c84ff;
+  border-radius: 4px;
+  float: left;
+  color: #fff;
+  margin-left: 20px;
+}
+/*# sourceMappingURL=i010.css.map */

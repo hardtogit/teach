@@ -1,0 +1,85 @@
+.i013 .breadcrumbs {
+  font-size: 14px;
+  padding: 15px 0;
+}
+.i013 .breadcrumbs a {
+  text-decoration: none;
+  color: #818A92;
+}
+.i013 .breadcrumbs a:hover {
+  color: #32404B;
+}
+.i013 .content {
+  width: 940px;
+  float: left;
+  margin-left: 20px;
+  background-color: #fff;
+  padding: 40px;
+}
+.i013 .content .nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.i013 .content .nav li {
+  display: inline-block;
+  height: 45px;
+  line-height: 45px;
+  cursor: pointer;
+  margin-right: 30px;
+}
+.i013 .content .nav li.active {
+  border-bottom: 2px solid #0000ff;
+}
+.i013 .coupons {
+  padding: 30px 0;
+}
+.i013 .coupons .coupon {
+  width: 206px;
+  height: 158px;
+  margin-right: 10px;
+  display: inline-block;
+  background-image: url("./img/couBg.png");
+  background-size: 100% 100%;
+  margin-bottom: 30px;
+  position: relative;
+}
+.i013 .coupons .coupon img {
+  position: absolute;
+  display: block;
+  width: 54px;
+  height: 54px;
+  top: 15px;
+  right: 15px;
+}
+.i013 .coupons .coupon.last {
+  margin-right: 0;
+}
+.i013 .coupons .coupon.guoqi {
+  background-image: url("./img/couponUse.jpg");
+}
+.i013 .coupons .coupon .header {
+  height: 114px;
+  color: #fff;
+  padding: 0 10px;
+  padding-top: 16px;
+}
+.i013 .coupons .coupon .header .one {
+  font-size: 32px;
+}
+.i013 .coupons .coupon .header .two {
+  margin-top: 8px;
+  font-size: 13px;
+}
+.i013 .coupons .coupon .header .three {
+  margin-top: 6px;
+  font-size: 12px;
+}
+.i013 .coupons .coupon .footer {
+  color: #A0A9B2;
+  padding: 4px 10px;
+}
+.i013 .coupons .coupon .footer div {
+  font-size: 12px!important;
+}
+/*# sourceMappingURL=i013.css.map */

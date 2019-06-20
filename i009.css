@@ -1,0 +1,147 @@
+.i009 .breadcrumbs {
+  font-size: 14px;
+  padding: 15px 0;
+}
+.i009 .breadcrumbs a {
+  text-decoration: none;
+  color: #818A92;
+}
+.i009 .breadcrumbs a:hover {
+  color: #32404B;
+}
+.i009 .title {
+  font-size: 26px;
+}
+.i009 .title .num {
+  color: #818A92;
+  font-size: 24px;
+}
+.i009 .classContainer {
+  margin-top: 20px;
+}
+.i009 .classContainer .class {
+  height: 170px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  background-color: #fff;
+  border: 1px solid #ebebeb;
+  border-radius: 4px;
+  padding: 30px 0;
+}
+.i009 .classContainer .class:hover,
+.i009 .classContainer .class.active {
+  box-shadow: 4px 4px 10px #ddd;
+  border-top: 3px solid #4C84FF;
+}
+.i009 .classContainer .class .left {
+  width: 250px;
+  height: 100%;
+  float: left;
+  text-align: center;
+  color: #32404B;
+}
+.i009 .classContainer .class .left .date {
+  font-size: 18px;
+}
+.i009 .classContainer .class .left .time {
+  margin-top: 25px;
+  font-size: 18px;
+}
+.i009 .classContainer .class .center {
+  width: 760px;
+  float: left;
+  height: 100%;
+  border-left: 1px solid #EBEBEB;
+  border-right: 1px solid #EBEBEB;
+  padding-left: 40px;
+}
+.i009 .classContainer .class .center .className {
+  font-size: 16px;
+}
+.i009 .classContainer .class .center .className .tag {
+  font-size: 14px;
+}
+.i009 .classContainer .class .center .className .tag.one {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  color: #FF9D30;
+  text-align: center;
+  background: #fff6ec;
+  border: 1px solid #ff9d30;
+  border-radius: 2px;
+}
+.i009 .classContainer .class .center .className .tag.two {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  color: #F43737;
+  text-align: center;
+  background: #fff3f3;
+  border: 1px solid #f43737;
+  border-radius: 2px;
+}
+.i009 .classContainer .class .center .name {
+  font-size: 20px;
+}
+.i009 .classContainer .class .center .teachers {
+  margin-top: 20px;
+}
+.i009 .classContainer .class .center .teachers .teacher {
+  float: left;
+  font-size: 14px;
+  margin-right: 20px;
+}
+.i009 .classContainer .class .center .teachers .teacher .av {
+  float: left;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  margin-top: 4px;
+  border-radius: 50%;
+}
+.i009 .classContainer .class .center .teachers .teacher .info {
+  float: left;
+}
+.i009 .classContainer .class .center .teachers .teacher .info .name {
+  font-size: 14px;
+  text-align: left;
+}
+.i009 .classContainer .class .center .teachers .teacher .info .type {
+  margin-top: 10px;
+}
+.i009 .classContainer .class .center .teachers .detail {
+  padding: 0 10px;
+  line-height: 24px;
+  color: #fff;
+  font-size: 12px;
+  height: 24px;
+  float: left;
+  margin-left: 20px;
+  background: #ff777c;
+  border-radius: 12px;
+}
+.i009 .classContainer .class .right {
+  float: left;
+  width: 164px;
+  height: 100%;
+  color: #F43737;
+  padding-right: 30px;
+  text-align: right;
+}
+.i009 .classContainer .class .right .price .unit {
+  font-size: 14px;
+}
+.i009 .classContainer .class .right .price .num {
+  font-size: 20px;
+}
+.i009 .classContainer .class .right .dis {
+  font-size: 14px;
+  color: #818A92;
+  text-decoration: line-through;
+}
+.i009 .classContainer .class .right .classNum {
+  margin-top: 40px;
+  color: #818A92;
+}
+/*# sourceMappingURL=i009.css.map */

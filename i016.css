@@ -1,0 +1,94 @@
+.i016 .inner {
+  width: 1180px;
+  margin: 0 auto;
+}
+.i016 .inner #carousel-example-generic {
+  height: 360px;
+}
+.i016 .inner #carousel-example-generic .carousel-inner {
+  height: 100%;
+}
+.i016 .inner #carousel-example-generic .carousel-inner .item {
+  height: 100%;
+}
+.i016 .inner #carousel-example-generic .carousel-inner .item img {
+  width: 100%;
+  height: 100%;
+}
+.i016 .class-container .class {
+  margin-top: 30px;
+  width: 380px;
+  height: 262px;
+  background-color: #fff;
+  float: left;
+  padding: 15px;
+  margin-right: 20px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+.i016 .class-container .class:hover {
+  box-shadow: 4px 4px 10px #ddd;
+  border-top: 2px solid #4C84FF;
+}
+.i016 .class-container .class.dou {
+  background-image: url("./img/bg.png");
+  background-size: 100% 100%;
+  border: none;
+  background-color: transparent;
+}
+.i016 .class-container .class.dou:hover {
+  border-bottom-right-radius: 18px;
+  border-bottom-left-radius: 18px;
+  background-image: url("./img/bgAct.png");
+}
+.i016 .class-container .class.last {
+  margin-right: 0;
+}
+.i016 .class-container .class h4 {
+  font-size: 20px;
+  height: 50px;
+  overflow: hidden;
+}
+.i016 .class-container .class h4 .tag {
+  font-size: 14px;
+  margin-right: 10px;
+}
+.i016 .class-container .class h4 .tag.one {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  color: #FF9D30;
+  text-align: center;
+  background: #fff6ec;
+  border: 1px solid #ff9d30;
+  border-radius: 2px;
+}
+.i016 .class-container .class h4 .tag.two {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  color: #F43737;
+  text-align: center;
+  background: #fff3f3;
+  border: 1px solid #f43737;
+  border-radius: 2px;
+}
+.i016 .class-container .class .teacher {
+  width: 40px;
+  margin-top: 20px;
+}
+.i016 .class-container .class .teacher .tou {
+  width: 40px;
+  height: 40px;
+  display: block;
+  border-radius: 50%;
+}
+.i016 .class-container .class .teacher .name {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 4px;
+}
+.i016 .class-container .class .describe {
+  margin-top: 40px;
+}
+/*# sourceMappingURL=i016.css.map */

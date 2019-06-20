@@ -1,0 +1,167 @@
+.i007 .breadcrumbs {
+  font-size: 14px;
+  padding: 15px 0;
+}
+.i007 .breadcrumbs a {
+  text-decoration: none;
+  color: #818A92;
+}
+.i007 .breadcrumbs a:hover {
+  color: #32404B;
+}
+.i007 .inner {
+  width: 930px;
+  float: left;
+  background-color: #fff;
+  border: 1px solid #EBEBEB;
+  padding: 30px 40px;
+  margin-left: 20px;
+}
+.i007 .inner .item {
+  margin-bottom: 20px;
+}
+.i007 .inner .item .title {
+  height: 28px;
+  font-size: 22px;
+  font-weight: 400;
+  color: #32404b;
+  line-height: 28px;
+  border-left: 2px solid #4C84FF;
+  padding-left: 10px;
+}
+.i007 .inner .item .status {
+  float: right;
+  color: #F53739;
+}
+.i007 .inner .item .content {
+  font-size: 14px;
+  padding-left: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #EBEBEB;
+  color: #818A92;
+}
+.i007 .inner .item .content .orderNo {
+  color: #32404B;
+}
+.i007 .inner .item .content div {
+  margin-top: 10px;
+}
+.i007 .panel {
+  height: 180px;
+  margin-top: 20px;
+  padding: 30px 26px;
+  border: 1px solid #ebebeb;
+}
+.i007 .panel .title {
+  font-size: 16px;
+}
+.i007 .panel .title .tag {
+  font-size: 14px;
+}
+.i007 .panel .title .tag.one {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  color: #FF9D30;
+  text-align: center;
+  background: #fff6ec;
+  border: 1px solid #ff9d30;
+  border-radius: 2px;
+}
+.i007 .panel .title .tag.two {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  color: #F43737;
+  text-align: center;
+  background: #fff3f3;
+  border: 1px solid #f43737;
+  border-radius: 2px;
+}
+.i007 .panel .title .name {
+  font-size: 16px;
+  color: #32404B;
+}
+.i007 .panel .title .status {
+  float: right;
+}
+.i007 .panel .title .unit {
+  font-size: 14px;
+  color: #F43737;
+}
+.i007 .panel .title .price {
+  font-size: 28px;
+  color: #F43737;
+}
+.i007 .panel .title .text-right {
+  text-decoration: line-through;
+  font-size: 14px;
+  color: #818A92;
+}
+.i007 .panel .subject {
+  padding: 30px 0;
+  border-bottom: 1px solid #F5F5F5;
+}
+.i007 .panel .subTitle {
+  font-size: 12px;
+  margin-top: 20px;
+}
+.i007 .panel .subTitle .item {
+  margin-right: 10px;
+}
+.i007 .panel .teachers {
+  margin-top: 20px;
+}
+.i007 .panel .teachers .teacher {
+  float: left;
+  font-size: 14px;
+  margin-right: 20px;
+}
+.i007 .panel .teachers .teacher .av {
+  float: left;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  margin-top: 4px;
+  border-radius: 50%;
+}
+.i007 .panel .teachers .teacher .info {
+  float: left;
+}
+.i007 .panel .teachers .teacher .info .name {
+  font-size: 14px;
+  text-align: left;
+}
+.i007 .panel .teachers .teacher .info .type {
+  margin-top: 10px;
+}
+.i007 .panel .teachers .count {
+  width: 200px;
+  float: right;
+  text-align: right;
+  margin-top: 30px;
+}
+.i007 .classPrice {
+  margin-top: 30px;
+}
+.i007 .cprice {
+  margin-top: 10px;
+}
+.i007 .cprice .num {
+  font-size: 24px;
+  color: #F43737;
+}
+.i007 .submit {
+  width: 128px;
+  height: 43px;
+  line-height: 43px;
+  color: #fff;
+  text-align: center;
+  float: right;
+  margin-top: 20px;
+  cursor: pointer;
+  font-size: 18px;
+  background: #4c84ff;
+  border-radius: 3px;
+}
+/*# sourceMappingURL=i007.css.map */
