@@ -10,7 +10,7 @@
 
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
-				<div class="item" ng-class="{'active':key===0}" ng-repeat="(key, value) in bannerList">
+				<div class="item" ng-class="{'active':key===0}" ng-click="bannerGo(value)" ng-repeat="(key, value) in bannerList">
 					<img src="http://39.108.219.7/cgi-bin/download.pl?proj=znyx&fid={{value.fid}}" alt="...">
 				</div>
 			</div>

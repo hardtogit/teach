@@ -28,6 +28,11 @@ iweb.controller('i011', function($scope,$routeParams) {
         $scope.visible=false
     }
     $scope.save=function(){
+        var mobileReg = /^1[0-9]\d{9}$/; // 手机号
+        if(!mobileReg.test($scope.address.phone)){
+            layer.msg('请输入正确的手机号',{icon:0})
+            return
+        }
         ajax(Object.assign($scope.address,{
             province:$scope.regionData.areaprovince,
             city:$scope.regionData.areacity,
@@ -63,7 +68,7 @@ iweb.controller('i011', function($scope,$routeParams) {
             course_id:$routeParams.id
         },function (data) {
             $scope.class=data.info
-            $scope.money=data.info.price
+            $scope.money=data.info.price.toFixed(2)
             if(data.info.address.phone){
                 $scope.address=angular.copy(data.info.address);
                 $scope.formatRegion('city',data.info.address.province)
@@ -88,7 +93,7 @@ iweb.controller('i011', function($scope,$routeParams) {
     }
     $scope.choice=function(item){
         if(item.status==='false'){
-            layer.msg(item.description,{icon:5})
+            layer.msg(item.description,{icon:0})
             return
         }else{
             if($scope.selectCoupon.discoupon_id===item.discoupon_id){
@@ -154,13 +159,18 @@ iweb.controller('i011', function($scope,$routeParams) {
            paytype:'wechatpay',
            recordtype:$scope.class.recordtype,
            recordid:$routeParams.id,
-           money:$scope.money,
+           money:parseFloat($scope.money).toFixed(2),
            discouponid:$scope.selectCoupon.discoupon_id?$scope.selectCoupon.discoupon_id:'',
            discoupon:$scope.selectCoupon.money?$scope.selectCoupon.money:'',
 	       payport:'pc'
 
        },function (data) {
-           goto_view('i012?id='+data.info.order_id)
+           if(data.info.flag===0){
+               goto_view('i006')
+           }else{
+               goto_view('i012?id='+data.info.order_id)
+           }
+
        })
     }
     setTimeout(function () {

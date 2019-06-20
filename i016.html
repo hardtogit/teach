@@ -1,0 +1,24 @@
+<div ng-include="'headNav.html'"></div>
+<div class="i016">
+    <div class="inner">
+    <div class="class-container clearfix">
+        <div ng-if="i<6" ng-class="{'class':true,'last':i%3===2}" ng-repeat="(i,class) in classList" ng-click="goDetail(class)">
+            <h4><span class="tag one">{{class.season}}</span><span class="tag two">{{class.subject}}</span>{{class.name}}</h4>
+            <div class="teacher">
+                <image class="tou" src='http://39.108.219.7/cgi-bin/download.pl?proj=znyx&fid={{class.headFid}}'/>
+                <div class="name">{{class.mainname}}</div>
+            </div>
+            <div class="describe">
+                <div class="col-xs-6" style="padding: 0">
+                    <small>共{{class.contentnumber}}节课 {{class.number}}个班级可选</small>
+                    <p><small>{{class.request}}人已报名</small></p>
+                </div>
+            </div>
+        </div>
+        <div ng-if="classList.length===0" style="height: 300px;text-align: center;line-height: 300px;font-size: 20px;color: #666">
+            暂无您搜索的课程~
+        </div>
+    </div>
+    </div>
+</div>
+<div ng-include="'i100footer.html'"></div>

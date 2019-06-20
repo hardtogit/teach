@@ -41,37 +41,63 @@
 				</div>
 			</div>
 			<div class="i100-course-list">
-				<div class="i100-course-item" ng-repeat="item in items">
+				<div class="i100-course-item clearfix" ng-repeat="item in items">
 					<div class="i100-course-item-title">
 						<div class="i100-course-sign"></div>
 						<div class="i100-course-time">{{item.watchduring.split(" ")[1]}}</div>
 					</div>
 					<div class="i100-course-item-info">
-						<div class="i100-course-info i100-course-info-more3">
+						<div class="i100-course-info i100-course-info-more3" style="width: 790px">
 							<div class="i100-course-info-title">{{item.watchtitle}}</div>
-							<div class="i100-course-info-subtitle">{{item.watchdescription}}</div>
+							<div class="i100-course-info-subtitle">{{item.watchname}}</div>
 						</div>
 					</div>
-					<div class="i100-course-task">
-						<div class="i100-course-live">
+					<div class="i100-course-task" ng-if="item.finish==='false'" style="width: 220px;float: right">
+						<div class="i100-course-live" style="display: inline-block">
 							<div class="i100-course-live-title">直播</div>
 						 <!--开课前10分钟，高亮显示进入课堂，未到时间显示未开始，点击弹出窗口提示开课前10分钟开放课堂-->
-							<div class="i100-course-live-light" ng-show="{{item.watchjoin}}"><span ng-click="toLive(item.watchpullurl,item.watchgroupid,true)">进入课堂</span></div>
-							<div class="i100-notstart" ng-hide="{{item.watchjoin}}" ng-click="toLive()">未开始</div>
+							<div class="i100-course-live-light" ng-click="toLive(item.watchpullurl,item.watchgroupid,item.watchjoin,true,item)">
+								<!--<span ng-click="toLive(item.watchpullurl,item.watchgroupid)">进入课堂</span></div>-->
+							<!--<div class="i100-notstart" ng-hide="{{item.watchjoin}}">未开始</div>-->
+							<span ng-if="item.watchjoin!=='true'" style="color:#aaa">进入课堂</span>
+							<span ng-if="item.watchjoin==='true'">进入课堂</span>
+							</div>
 						</div>
-						<div class="i100-course-homework">
+						<div class="i100-course-homework"  style="display: inline-block">
 							<div class="i100-course-homework-title">练习</div>
 							<!--未布置显示未布置，点击toast 未布置课后练习，布置课后练习未完成显示开始练习 已做完显示已做完-->
-							<div class="i100-course-homework-status" ng-hide="{{item.watchexam}}">未布置</div>
-							<div class="i100-course-homework-status i100-course-live-light" ng-show="{{item.watchexam}}">开始练习</div>
+							<span ng-click="toExam(item)" >
+							<span ng-if="item.watchexam!=='true'" style="color:#aaa">未布置</span>
+							<span ng-if="item.watchexam==='true'" style="color:#4C84FF">开始练习</span>
+							</span>
 
+						</div>
+					</div>
+					<div class="i100-course-task" ng-if="item.finish==='true'" style="width: 220px;float: right">
+						<div class="i100-course-live" style="display: inline-block">
+							<div class="i100-course-live-title">视频</div>
+							<!--开课前10分钟，高亮显示进入课堂，未到时间显示未开始，点击弹出窗口提示开课前10分钟开放课堂-->
+							<div class="i100-course-live-light" ng-click="toLive(item.watchpullurl,item.watchgroupid,item.watchjoin,false)">
+								<!--<span ng-click="toLive(item.watchpullurl,item.watchgroupid)">进入课堂</span></div>-->
+								<!--<div class="i100-notstart" ng-hide="{{item.watchjoin}}">未开始</div>-->
+								<span ng-if="item.watchjoin!=='true'" style="color:#aaa">未上传</span>
+								<span ng-if="item.watchjoin==='true'"  style="color:#4C84FF">看回放</span>
+							</div>
+						</div>
+						<div class="i100-course-homework"  style="display: inline-block">
+							<div class="i100-course-homework-title">练习</div>
+							<!--未布置显示未布置，点击toast 未布置课后练习，布置课后练习未完成显示开始练习 已做完显示已做完-->
+							<span ng-click="toExam(item)" >
+							<span ng-if="item.watchexam!=='true'" style="color:#aaa">未布置</span>
+							<span ng-if="item.watchexam==='true'" style="color:#4C84FF">开始练习</span>
+							</span>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="i100-unselect i100-curs-hide">
 				<div class="i100-uncourse">暂时没有课程</div>
-				<div class="i100-bg-blue i100-color-fff i100-to-select">去选课</div>
+				<div class="i100-bg-blue i100-color-fff i100-to-select" ng-click="goSelectClass()">去选课</div>
 			</div>
 		</div>
 	</div>

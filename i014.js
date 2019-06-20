@@ -5,13 +5,13 @@ iweb.controller('i014', function($scope,$routeParams) {
         $scope.tabIndex=tabIndex
 
     }
-    // $scope.goDetail=function(item){
-    //     if(item.number>1){
-    //         goto_view('i009?name='+item.name+'&classid='+$scope.classCurrent+'&id='+item.id)
-    //     }else{
-    //         goto_view('i010?id='+item.course_id)
-    //     }
-    // }
+    $scope.goDetail=function(item){
+        // if(item.number>1){
+        //     goto_view('i009?name='+item.name+'&classid='+item.classid+'&id='+item.id)
+        // }else{
+            goto_view('i010?id='+item.course_id)
+        // }
+    }
 
     $scope.getData=function(){
         ajax({

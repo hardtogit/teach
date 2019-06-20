@@ -3,7 +3,7 @@ iweb.controller('i009', function($scope,$routeParams) {
     $scope.classList=[];
       $scope.getData=function () {
           ajax({
-              obj:'user',
+              obj:'pc',
               act:'courselist',
               classid:$routeParams.classid,
               id:$routeParams.id?$routeParams.id:'',

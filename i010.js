@@ -1,4 +1,4 @@
-iweb.controller('i010', function($scope,$routeParams) {
+iweb.controller('i010', function($scope,$rootScope,$routeParams) {
     $scope.courseDetail={}
     $scope.visible=false
     $scope.couponlist=[]
@@ -15,28 +15,37 @@ iweb.controller('i010', function($scope,$routeParams) {
         },function (data) {
             $scope.courseDetail=data.info
         })
+    }
+    $scope.getCoupon=function(){
         //获取优惠卷
         ajax({
             obj:'user',
             act:'discouponlist',
-            course_id:$routeParams.id
+            course_id:$routeParams.id,
+            page_num:0,
+            page_size:100
         },function (data) {
             console.log(data)
             $scope.couponlist=data.info
         })
-
     }
     $scope.goTeacherDetail=function(id){
         goto_view('i014?id='+id)
     }
     $scope.show=function(){
-        $scope.visible=true
+        $rootScope.validateLogin(function () {
+            $scope.visible=true
+            $scope.getCoupon()
+        })
     }
     $scope.hidden=function(){
         $scope.visible=false
     }
     $scope.apply=function(){
-        goto_view('i011?id='+$routeParams.id)
+        $rootScope.validateLogin(function () {
+            goto_view('i011?id='+$routeParams.id)
+        })
+
     }
     $scope.acceptCoupon=function(id){
          ajax({

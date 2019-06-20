@@ -10,7 +10,7 @@ iweb.controller('i101',function($scope,$routeParams){
 		ajax({
 			obj: "message",
 			act: "group_send",
-			header_id : $scope.header_id,
+			header_id : $routeParams.talk,
 			mtype : "text",
 			content : $scope.message
 		},function(data){
@@ -43,7 +43,7 @@ iweb.controller('i101',function($scope,$routeParams){
 
         var rtmp = $routeParams.rtmp,
             flv = $routeParams.flv,
-            m3u8 = $routeParams.m3u8,
+            m3u8 = $routeParams.m3u8+'?txSecret='+$routeParams.txSecret+'&txTime='+$routeParams.txTime,
             mp4 =  $routeParams.mp4,
             live = ($routeParams.live=='true')?true:false ,
             coverpic = $routeParams.coverpic,
@@ -63,7 +63,7 @@ iweb.controller('i101',function($scope,$routeParams){
             })()
             // log = getParams('log');
 
-        console.log(live,'aaaaaaaaaaaaaaaaaaaaaaaa')
+        console.log(m3u8,'aaaaaaaaaaaaaaaaaaaaaaaa')
         /**
          * 视频类型播放优先级
          * mobile ：m3u8>mp4
@@ -71,12 +71,12 @@ iweb.controller('i101',function($scope,$routeParams){
          */
 
         var options = {
-            // rtmp:'rtmp://dev.pull.live.121tongbu.com/live/LNqsiWkiKS6epPd1lt',
-            m3u8:'http://dev.pull.live.121tongbu.com/live/LNqsiWkiKS6epPd1lt.m3u8',
-            // m3u8: m3u8 || 'https://1256993030.vod2.myqcloud.com/d520582dvodtransgzp1256993030/cc9f922c5285890781386012275/v.f220.m3u8',
-            // mp4: mp4 || 'https://1256993030.vod2.myqcloud.com/d520582dvodtransgzp1256993030/7732bd367447398157015849771/v.f30.mp4',
+            // rtmp:'rtmp://play.live.121tongbu.com/live/EkDZ8JiUrx80YjGVeW',
+            // m3u8:m3u8 ||'http://play.live.121tongbu.com/live/EkDZ8JiUrx80YjGVeW.m3u8',
+            m3u8: m3u8,
+            mp4: mp4,
             autoplay: true,
-            live: true,
+            live: $scope.live,
             width:  '860',
             height:  '572',
             volume:  0.5,
@@ -87,7 +87,8 @@ iweb.controller('i101',function($scope,$routeParams){
             // h5_flv: h5_flv,
             wording: {
                 2032: '请求视频失败，请检查网络',
-                2048: '请求m3u8文件失败，可能是网络错误或者跨域问题'
+                2048: '请求m3u8文件失败，可能是网络错误或者跨域问题',
+                2:'直播还未开始，稍后刷新试试'
             },
             listener: function (msg) {
 
@@ -141,7 +142,7 @@ iweb.controller('i101',function($scope,$routeParams){
     		ajax({
             	obj:'message',
             	act:'group_get',
-            	header_id:$scope.header_id
+            	header_id:$routeParams.talk
            },function(data){
             	if (data.info.entries.length > 0){
             		$scope.messages=data.info.entries;

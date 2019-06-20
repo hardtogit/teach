@@ -1,35 +1,67 @@
 <!--习题-->
 <div ng-include="'headNav.html'"></div>
 <div class="i008 container" style="width: 1180px;padding: 0">
-    <div class="breadcrumbs"><a href="#/i203">首页 ></a><a> 学习中心 ></a><a > 我的课程</a></div>
-    <div class="content">
-        <div class="title">广发卡广发卡-课后作业</div>
+    <div class="breadcrumbs"><a href="#/i203">首页 ></a><a href="#/i100"> 学习中心 ></a><a > 我的课程</a></div>
+    <div class="content" ng-if="!doing">
+        <div class="title">{{name}}</div>
+        <div class="count">完成{{history.finish}}/{{history.all}}
+            <div ng-if="history.finish<history.all"
+                 ng-click="startAnswer()"
+                 class="btn btn-default" style="margin-left: 20px">{{history.finish===0?'开始答题':'继续答题'}}</div>
+        </div>
+        <div ng-repeat="item in history.exams" style="margin-top: 30px">
         <div class="question">
-            <div class="name">43、这个标志是什么含义</div>
-            <div class="choice">
-                A、告诉共公路下一个出口预告
-            </div>
-            <div class="choice">
-                b、告诉共公路下一个出口预告
-            </div>
-            <div class="choice">
-                c、告诉共公路下一个出口预告
-            </div>
-            <div class="choice">
-                D、告诉共公路下一个出口预告
-            </div>
+            <div ng-bind-html="item.stem|showAsHtml"></div>
         </div>
-        <div class="answer">
-            <div class="item">A</div>
-            <div class="item">B</div>
-            <div class="item">C</div>
-            <div class="item">D</div>
-            <div class="item">不会</div>
+        <div class="analysis">
+            <div ng-bind-html="item.analysis|showAsHtml"></div>
         </div>
-        <div class="submit">
-            提交
+            <div class="right">正确答案：{{item.answer}} &nbsp;&nbsp;&nbsp;&nbsp; 我的答案：{{item.input}}
+                <img style="margin-left: 16px" ng-if="item.answer===item.input" src="./img/dui.png" alt="">
+                <img style="margin-left: 16px" ng-if="item.answer!==item.input" src="./img/cuo.png" alt="">
+            </div>
         </div>
 
+    </div>
+    <div ng-if="doing" class="content">
+        <div class="title">{{name}}</div>
+        <div class="count">当前{{number}}/{{history.all}}</div>
+        <div class="question">
+            <div ng-bind-html="question.stem|showAsHtml"></div>
+            <!--<div class="name">43、这个标志是什么含义</div>-->
+            <!--<div class="choice">-->
+            <!--A、告诉共公路下一个出口预告-->
+            <!--</div>-->
+            <!--<div class="choice">-->
+            <!--b、告诉共公路下一个出口预告-->
+            <!--</div>-->
+            <!--<div class="choice">-->
+            <!--c、告诉共公路下一个出口预告-->
+            <!--</div>-->
+            <!--<div class="choice">-->
+            <!--D、告诉共公路下一个出口预告-->
+            <!--</div>-->
+        </div>
+        <div class="answer">
+            <div ng-class="{'item':true,'active':answer.A}" ng-click="choice('A')">A</div>
+            <div ng-class="{'item':true,'active':answer.B}" ng-click="choice('B')">B</div>
+            <div ng-class="{'item':true,'active':answer.C}" ng-click="choice('C')">C</div>
+            <div ng-class="{'item':true,'active':answer.D}" ng-click="choice('D')">D</div>
+            <!--<div ng-class="{'item':true,'active':answer.E}" ng-click="choice('不会')">不会</div>-->
+        </div>
+        <div class='analysis' ng-if="showAnswer">
+            <div ng-bind-html="question.analysis|showAsHtml"></div>
+        </div>
+        <div class="right" ng-if="showAnswer">正确答案：{{question.answer}}
+            <img style="margin-left: 16px" ng-if="flag" src="./img/dui.png" alt="">
+            <img style="margin-left: 16px" ng-if="!flag" src="./img/cuo.png" alt="">
+        </div>
+        <div class="submit" ng-if="!showAnswer" ng-click="submit()">
+            提交
+        </div>
+        <div class="submit" ng-if="showAnswer" ng-click="getQuestion()">
+            {{number===0?'完成习题':'下一题'}}
+        </div>
     </div>
 
 </div>

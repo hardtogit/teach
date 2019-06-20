@@ -67,7 +67,7 @@
       cursor: pointer;
       &:hover{
         box-shadow: 4px 4px 10px #ddd;
-        border-top:3px solid #4C84FF;
+        border-top:2px solid #4C84FF;
       }
       &.dou{
         background-image: url("./img/bg.png");
@@ -75,8 +75,13 @@
         border: none;
         background-color: transparent;
         &:hover{
-          //box-shadow: 4px 4px 10px #ddd;
-          border-top:3px solid #4C84FF;
+          //box-shadow: none;
+          //border-top:3px solid #4C84FF;
+          border-bottom-right-radius: 18px;
+          border-bottom-left-radius: 18px;
+          background-image: url("./img/bgAct.png");
+          //background-size: 390px  auto;
+          //background-position: -10px -20px;
         }
       }
       &.last{

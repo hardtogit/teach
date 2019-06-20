@@ -69,4 +69,69 @@
   .form-group{
     margin-bottom: 20px;
   }
+
+
+  .addAddress{
+    .bg{
+      position: fixed;
+      top:0;
+      left: 0;
+      right:0;
+      bottom: 0;
+      background-color: #000;
+      opacity: .4;
+      z-index: 99;
+    }
+    .adModal{
+      width: 616px;
+      position: fixed;
+      left: 50%;
+      top:50%;
+      z-index: 100;
+      transform: translate3d(-50%,-50%,0);
+      background-color: #fff;
+      border: 1px solid #ddd;
+      color: #818A92;
+      .form-group{
+        margin-bottom: 20px;
+      }
+      label{
+        font-weight: normal;
+      }
+
+      .close{
+        img{
+          width: 32px;
+          height: 32px;
+          position: relative;
+          right: 6px;
+          top:6px
+        }
+      }
+      .title{
+        font-size: 18px;
+        color: #000;
+        text-align: center;
+        height: 57px;
+        line-height: 57px;
+        border-bottom: 1px solid #ebebeb;
+      }
+      .body{
+        padding: 30px 10px 30px 30px;
+        .save{
+          width:130px;
+          height:44px;
+          background:rgba(76,132,255,1);
+          border:1px solid rgba(76,132,255,1);
+          border-radius:4px;
+          margin: 20px auto 0 auto;
+          line-height: 44px;
+          text-align: center;
+          color: #fff;
+          font-size: 20px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
 }

@@ -56,7 +56,7 @@
         }
       }
       .class-container{
-        text-align: center;
+        //text-align: center;
         .class{
           margin-top: 30px;
           width: 380px;
@@ -64,13 +64,17 @@
           background-color: #fff;
           //float:left;
           display: inline-block;
+          float: left;
           padding: 15px;
           margin-right: 60px;
           border: 1px solid #ddd;
           cursor: pointer;
           &:hover{
-            //box-shadow: 4px 4px 10px #ddd;
-            //border-top:3px solid #4C84FF;
+            box-shadow: 4px 4px 10px #ddd;
+            border-top:2px solid #4C84FF;
+          }
+          &.dan{
+            margin-left: 146px;
           }
           &.dou{
             background-image: url("./img/bg.png");
@@ -78,8 +82,13 @@
             border: none;
             background-color: transparent;
             &:hover{
-              //box-shadow: 4px 4px 10px #ddd;
+              //box-shadow: none;
               //border-top:3px solid #4C84FF;
+              border-bottom-right-radius: 18px;
+              border-bottom-left-radius: 18px;
+              background-image: url("./img/bgAct.png");
+              //background-size: 390px  auto;
+              //background-position: -10px -20px;
             }
           }
           //&.last{

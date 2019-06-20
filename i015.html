@@ -1,0 +1,44 @@
+<!--我的资料-->
+<div ng-include="'headNav.html'"></div>
+<div class="i015 container" style="width: 1180px;padding: 0">
+    <div class="breadcrumbs"><a href="#/i001">首页 ></a><a href="#/i002"> 学习中心 ></a><a href="#/i004"> 我的课程</a></div>
+    <div  ng-include="'subjectSide.html'"></div>
+    <div class="content clearfix">
+        <div class="clearfix">
+        <div ng-class="{'question':true,'last':i%3===2}" ng-repeat="(i,class) in errorList" ng-click="handleSelect(class)">
+            <div class="que" >
+                <div ng-bind-html="class.stem|showAsHtml"></div>
+            </div>
+            <div class="name">{{class.content_name}}</div>
+            <div class="time">{{class.dotime}}</div>
+        </div>
+        </div>
+        <div id="i015page" class="pull-right"></div>
+    </div>
+
+    <div class="detail" ng-if="visible">
+
+        <div class="bg"></div>
+        <div class="anModal">
+            <div class="" ><img style="position: absolute;right: 10px;top:10px;width: 32px;z-index: 101;cursor: pointer" ng-click="hidden()" src="./img/close.png" alt=""></div>
+            <div class="name" style="position: absolute;width: 100%;line-height: 44px;text-align: center;top:0;z-index: 100;background-color: #fff">错题详情</div>
+            <div style="position: relative;max-height: 720px;padding: 20px 46px 40px 46px;overflow-y: scroll;overflow-x: hidden">
+
+            <div class="item" style="margin-top: 30px">
+                <div class="question">
+                    <div ng-bind-html="question.stem|showAsHtml"></div>
+                </div>
+                <div class="analysis">
+                    <div ng-bind-html="question.analysis|showAsHtml"></div>
+                </div>
+                <div class="right">正确答案：{{question.answer}} &nbsp;&nbsp;&nbsp;&nbsp; 我的答案：{{question.input}}
+                    <img style="margin-left: 16px" ng-if="question.answer===question.input" src="./img/dui.png" alt="">
+                    <img style="margin-left: 16px" ng-if="question.answer!==question.input" src="./img/cuo.png" alt="">
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-include="'i100footer.html'"></div>

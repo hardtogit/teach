@@ -102,6 +102,14 @@ iweb.config(['$routeProvider',
                 templateUrl: 'i014.html',//我的优惠券
                 controller: 'i014'
             }).
+            when('/i015', {
+                templateUrl: 'i015.html',//错题本
+                controller: 'i015'
+            }).
+            when('/i016', {
+                templateUrl: 'i016.html',//搜索结果
+                controller: 'i016'
+            }).
       		otherwise({
     			redirectTo: '/i203'
       		});
@@ -114,6 +122,7 @@ var callBackFn={}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function goto_view(v) {
+    $(window).scrollTop(0);
   	var baseUrl = window.location.href;
 	baseUrl = (baseUrl.indexOf('#') > 0 ? baseUrl.substr(0, baseUrl.indexOf('#')) : baseUrl);
 	window.location.href = baseUrl + "#/" + v;

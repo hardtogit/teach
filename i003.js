@@ -1,14 +1,26 @@
 iweb.controller('i003', function($scope,fileReader) {
     $scope.tabIndex=1
     $scope.header=''
+    $scope.visible=false,
     $scope.userInfo={}
     $scope.classList=[]
+    $scope.address={}
     $scope.regionData={
         areaprovince:undefined,
         areacity:undefined,
         areacounty:undefined
     }
+    $scope.addressRegionData={
+        areaprovince:undefined,
+        areacity:undefined,
+        areacounty:undefined
+    }
     $scope.regionList= {
+        province: [],
+        city: [],
+        county: []
+    }
+    $scope.addressRegionList= {
         province: [],
         city: [],
         county: []
@@ -27,6 +39,30 @@ iweb.controller('i003', function($scope,fileReader) {
             })
         });
     };
+    $scope.show=function(){
+        $scope.visible=true
+    }
+    $scope.hidden=function(){
+        $scope.visible=false
+    }
+    $scope.save=function(){
+        var mobileReg = /^1[0-9]\d{9}$/; // 手机号
+        if(!mobileReg.test($scope.address.phone)){
+            layer.msg('请输入正确的手机号',{icon:0})
+            return
+        }
+        ajax(Object.assign($scope.address,{
+            province:$scope.addressRegionData.areaprovince,
+            city:$scope.addressRegionData.areacity,
+            county:$scope.addressRegionData.areacounty,
+            obj:'user',
+            act:'setaddress'
+        }),function () {
+            layer.msg('操作成功',{icon:1})
+            $scope.visible=false
+            $scope.getData()
+        })
+    }
     $scope.formatRegion=function(type,parameter,action){
         if(type==='province') {
             ajax({
@@ -73,10 +109,54 @@ iweb.controller('i003', function($scope,fileReader) {
                  }
              })
          }
-
-
-
         }
+    $scope.formatAddressRegion=function(type,parameter,action){
+        if(type==='province') {
+            ajax({
+                obj: 'user',
+                act: 'provincecity',
+                type:type,
+                parameter:parameter
+
+            }, function (data) {
+                $scope.addressRegionList.province = data.info
+                $scope.addressRegionList.city=[]
+                $scope.addressRegionList.county=[]
+
+            })
+        }
+        if(type==='city'){
+            ajax({
+                obj: 'user',
+                act: 'provincecity',
+                type:type,
+                parameter:parameter
+            },function (data) {
+                $scope.addressRegionList.city=data.info
+                if(action){
+                    $scope.addressRegionList.areacity=undefined
+                    $scope.addressRegionList.areacounty=undefined
+                }
+
+                $scope.addressRegionList.county=[]
+
+            })
+        }
+        if(type==='county'){
+            ajax({
+                obj:'user',
+                act:'provincecity',
+                type:type,
+                parameter:parameter
+
+            },function (data) {
+                $scope.addressRegionList.county=data.info
+                if(action){
+                    $scope.addressRegionList.areacounty=undefined
+                }
+            })
+        }
+    }
     $scope.setClass=function(id){
         $scope.userInfo.class_id=id
     }
@@ -86,6 +166,16 @@ iweb.controller('i003', function($scope,fileReader) {
                 obj:'user',
                 act:'readmyinfo',
             },function (data) {
+                $scope.address=angular.copy(data.info.address)
+                $scope.addressRegionData={
+                    areaprovince:$scope.address.province,
+                    areacity:$scope.address.city,
+                    areacounty:$scope.address.county
+                }
+                if(data.info.address.province){
+                    $scope.formatAddressRegion('city',$scope.address.province)
+                    $scope.formatAddressRegion('county',$scope.address.city)
+                }
                 $scope.userInfo=data.info
                 if(data.info.areaprovince){
                     $scope.formatRegion('city',data.info.areaprovince)
@@ -104,6 +194,7 @@ iweb.controller('i003', function($scope,fileReader) {
                 $scope.classList=data.info
             })
             $scope.formatRegion('province','province')
+            $scope.formatAddressRegion('province','province')
         // }
     }
     $scope.setData=function(){

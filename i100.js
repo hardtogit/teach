@@ -30,18 +30,41 @@ iweb.controller('i100', function($scope) {
             showCalendarAndItems(daylist,today);
         }
       }
-	$(function(){	
+	$(function(){
 		panelRightCalendar();
 	})
-	$scope.toLive =function(url,talk,status){
-	  /*var liveUrl = "#/i101?gid=o15598664532377779483&u=rtmp://dev.pull.live.121tongbu.com/live/XtbjfRaUg49D2kWcR2&s=true";
-*/
-	var liveUrl = "#/i101?gid="+talk+"&u="+url+"&s="+status;
-		
-	window.open(liveUrl,'_blank');
+    $scope.toLive =function(url,talk,status,live,entity){
+        if(status==='false'){
+            if(live){
+                layer.msg('开课前10分钟开放课堂',{icon:0})
+            }else{
+                layer.msg('视频未上传',{icon:0})
+            }
+            return
+        }
+        if (live){
+            url=url.replace('rtmp://','http://')
+            url=url.split('?')[0]+'.m3u8&'+url.split('?')[1]
+
+            window.open('#/i101?m3u8='+url+'&talk='+talk+'&live=true&courseid='+entity.courseid+'&watchid='+entity.watchid,'_blank');
+        }else{
+            window.open('#/i101?mp4='+url+'&talk='+talk+'&live=false','_blank');
+        }
+        // var liveUrl = "#/i101?gid=o15598664532377779483&u=rtmp://dev.pull.live.121tongbu.com/live/XtbjfRaUg49D2kWcR2&s=true";
+        // window.open(liveUrl,'_blank');
+    }
+    $scope.toExam=function (item) {
+        if(item.watchexam==='false'){
+            layer.msg('练习未布置',{icon:0})
+            return
+        }
+        goto_view('i008?id='+item.watchexamid)
+    }
+    $scope.goSelectClass=function(){
+	 	goto_view('i002')
 	}
 	$("#i100-menu-list p").click(function(){
-		$("#i100-menu-list p").removeClass("i100-menu-active");	
+		$("#i100-menu-list p").removeClass("i100-menu-active");
 		$(this).addClass("i100-menu-active");
 	})
 	$(".i100-calendar-content").on("click",".i100-date-item",function(){
@@ -55,7 +78,7 @@ iweb.controller('i100', function($scope) {
 		daytem = daytime;
 		daytem.week = week_text[new Date(daytem.year,daytem.month,daytem.day).getDay()];
 		panelRightCalendar();
-		
+
 		$(".i100-date-item").find(".i100-date").removeClass("i100-select-day");
 		$(this).find(".i100-date").addClass("i100-select-day");
 	});
@@ -79,10 +102,12 @@ iweb.controller('i100', function($scope) {
 			$(".i100-days-day-week").removeClass("i100-show-days-week");
 			$(".i100-days").removeClass("i100-show-week-days");
 		}
-		
+
 		showCalendarAndItems(month_list,daytem);
-		
+
 	});
+
+
 	function showCalendarAndItems(daylist,date){
 		var days = []
             for (var i = 0; i < daylist.length; i++) {
@@ -144,10 +169,10 @@ iweb.controller('i100', function($scope) {
 			month_list = getMonthList(prev());
 		}
 		showCalendarAndItems(month_list,daytem);
-		
+
 		panelRightCalendar();
-		
-		
+
+
 	}
 	$scope.nxt = function(){
 		var month_list = [];
@@ -184,10 +209,10 @@ iweb.controller('i100', function($scope) {
 			if(day.day){
 				var data;
 				if(today.day == day.day && day.month == today.month && day.year == today.year){
-					data = $("<div class='i100-date'>今</div>")	
+					data = $("<div class='i100-date'>今</div>")
 				}else{
 					if(day.day < 10){
-						data = $("<div class='i100-date'>0"+day.day+"</div>")	
+						data = $("<div class='i100-date'>0"+day.day+"</div>")
 					}else{
 						data = $("<div class='i100-date'>"+day.day+"</div>")
 					}
@@ -197,22 +222,22 @@ iweb.controller('i100', function($scope) {
 					$(data).addClass("i100-is-mark");
 					$(data).data("isMark",true);
 				}
-				
+
 				if(day.select){
 					$(data).addClass("i100-select-day");
 				}
 				$(item).data("month",day.month);
 				$(item).data("year",day.year);
 				$(item).data("day",day.day);
-				
+
 				$(item).append($(data));
 			}
-			
+
 			$(".i100-calendar-content").append($(item));
 		}
-		
+
 	}
-	
+
 	function prev() {
 		if(isWeek) {
 			for(var i = 0; i < 7; i++) {
@@ -390,4 +415,9 @@ iweb.controller('i100', function($scope) {
 
 		return result;
 	}
+})
+iweb.filter('showAsHtml',function ($sce) {
+    return function (input) {
+        return $sce.trustAsHtml(input);
+    }
 })

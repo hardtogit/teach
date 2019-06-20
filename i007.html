@@ -17,8 +17,8 @@
         <div class="content">
             <div>收货人：{{order.address.name}}</div>
             <div>手机号码：{{order.address.phone}}</div>
-            <div>收货地址：{{order.address.address}}</div>
-            <div>物流信息：{{order.transfername+ '' +order.transferid}}</div>
+            <div>收货地址：{{order.address.province+order.address.city+order.address.county+order.address.address}}</div>
+            <div ng-if="order.transferid">物流信息：{{order.transfername+ '' +order.transferid}}</div>
         </div>
     </div>
     <div class="item">

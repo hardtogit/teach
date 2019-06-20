@@ -35,6 +35,9 @@ iweb.controller('i004', function($scope) {
             $scope.subjectListAll=data.info
         })
     }
+    $scope.goSelectClass=function(){
+        goto_view('i002')
+    }
     setTimeout(function(){
         $scope.getData('全部')
     },500)

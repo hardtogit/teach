@@ -1,8 +1,9 @@
-iweb.controller('subjectSide', function($scope,$route) {
+iweb.controller('subjectSide', function($scope,$rootScope,$route,$routeParams) {
    $scope.path=$route.current.$$route.originalPath
         $scope.objInfo={}
         $scope.loginName=''
         $scope.code=''
+        $scope.searchKey=$routeParams.searchKey
         $scope.loginFlag=false
         $scope.time='发送验证码'
         $scope.getData=function () {
@@ -13,11 +14,29 @@ iweb.controller('subjectSide', function($scope,$route) {
                 })
             }
         }
-        $scope.showLogin=function(){
+        $scope.goStudy=function(){
+         $rootScope.validateLogin(function () {
+             goto_view("i100")
+         })
+        }
+        $scope.goSearch=function(e){
+            if(e.charCode===13){
+                goto_view('i016?searchKey='+$scope.searchKey)
+            }
+        }
+        $rootScope.showLogin=function(){
            $scope.loginFlag=true
         }
-        $scope.hiddenLogin=function(){
+
+        $rootScope.hiddenLogin=function(){
            $scope.loginFlag=false
+        }
+        $rootScope.validateLogin=function(callBack){
+            if(apiconn.conn_state==='IN_SESSION'){
+                callBack()
+            }else{
+                $rootScope.showLogin()
+            }
         }
         $scope.count=function(){
             if($('#sendCode').html()!=='发送验证码'){
@@ -73,4 +92,12 @@ iweb.controller('subjectSide', function($scope,$route) {
 
         }
     });
+    $(function () {
+        $('#heardDown').popover({
+            trigger:'hover',
+            content:'<div><div style="display: inline-block;margin-right: 20px"><img src="./qr.png" width="77px" height="77px"/><div class="text-center">安卓下载</div></div><div style="display: inline-block;"><img src="./qr.png" width="77px" height="77px"/><div class="text-center">IOS下载</div></div></div>',
+            html:true,
+            placement:'bottom'
+        })
+    })
 })

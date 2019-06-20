@@ -63,8 +63,8 @@
         <div><span class="unit">￥</span><span class="price">{{courseDetail.price}}</span><span class="disaccount">￥{{courseDetail.disaccount}}</span></div>
         <div class="request">已报名{{courseDetail.request}}</div>
         <div class="coupons" >优惠卷：
-            <div class="coupon" ng-repeat="(i,coupon) in couponlist" ng-if="i<2" ng-click="acceptCoupon(coupon.discoupon_id)">满90减5</div>
-            <div class="pull-right more" ng-if="couponlist.length>2" ng-click="show()">更多</div>
+            <div class="coupon" ng-click="show()" ng-repeat="(i,coupon) in courseDetail.discoupon" ng-if="i<2">{{coupon}}</div>
+            <div class="pull-right more" ng-click="show()" >更多</div>
             <div class="modalList" ng-if="visible">
                 <div class="close" ng-click="hidden()"><img src="./img/close.png" alt=""></div>
                 <div class="title">优惠券</div>
@@ -98,9 +98,11 @@
 
         </div>
         <div class="btns">
+            <a style="font-size: 18px;text-decoration: none" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=3610764024&site=qq&menu=yes">
             <div class="consult">
-                <i class="fa "></i>咨询
+                <i class="fa fa-qq"></i>咨询
             </div>
+            </a>
             <div class="apply" ng-click="apply()">
                 立即报名
             </div>

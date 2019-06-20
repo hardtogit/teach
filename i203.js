@@ -38,6 +38,13 @@ iweb.controller('i203', function($scope) {
             $scope.chargeList=data.info
         })
     }
+    $scope.bannerGo=function(value){
+        if(value.linktype==='extenal'){
+            window.open(value.link,'_blank')
+        }else{
+            goto_view('i010?id='+value.link)
+        }
+    }
     $scope.goDetail=function(item){
         if(item.number>1){
             goto_view('i009?name='+item.name+'&classid='+$scope.classCurrent+'&id='+item.id)

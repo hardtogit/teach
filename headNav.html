@@ -1,16 +1,16 @@
 <div class="blog-masthead headerNav" ng-controller="subjectSide">
     <nav class="blog-nav">
-        <a class="blog-nav-item blank" href="#/i203">121大讲堂</a>
+        <a class="blog-nav-item blank" href="#/i203">爱致学堂</a>
         <span class="blog-nav-item">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
         <a class="blog-nav-item" href="#/i002">选课中心</a>
-        <a class="blog-nav-item" href="#/i004">学习中心</a>
-        <a class="blog-nav-item" href="#">121大讲堂</a>
-        <a class="blog-nav-item" href="#">APP下载</a>
+        <a class="blog-nav-item" ng-click="goStudy()">学习中心</a>
+        <a class="blog-nav-item" target="_blank" href="http://www.121tongbu.com/about/">爱致学堂</a>
+        <a class="blog-nav-item" id="heardDown" style="cursor: pointer">APP下载</a>
 
         <form class="navbar-form navbar-right" style="margin-bottom: 0px;">
-            <input type="text"  class="form-control input-sm input" >
+            <input type="text" ng-model="searchKey" ng-keypress="goSearch($event)"  class="form-control input-sm input" >
             <div class="logins" ng-if="!objInfo.phone">
-            <a class="btns left" ng-click="showLogin()">登录</a><a class="btns" ng-click="showLogin()">注册</a>
+            <a class="btns" ng-click="showLogin()">登录</a>
             </div>
             <div class="dropdown" ng-if="objInfo.phone">
                 <span  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">

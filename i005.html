@@ -32,7 +32,7 @@
                     </div>
                 </div>
             </div>
-            <div class="class clearfix" ng-repeat="class in subject.finish" ng-show="tabIndex===1">
+            <div class="class clearfix" ng-repeat="class in subject.wait" ng-show="tabIndex===1">
                 <div class="left">
                 <div class="title">{{class.title}}</div>
                 <div class="time">{{class.during}}</div>
@@ -40,27 +40,40 @@
                 <div class="items clearfix">
                     <div class="item">
                         <div class="labels">直播</div>
-                        <div class="status" ng-click="toLive(class.pullurl,class.watchgroupid,class.watchjoin)">未开始</div>
+                        <div class="status" style="cursor: pointer;margin-top: 4px" ng-click="toLive(class.pullurl,class.watchgroupid,class.watchjoin,true,class)">
+                           <span ng-if="class.watchjoin!=='true'" style="color:#aaa">进入课堂</span>
+                            <span ng-if="class.watchjoin==='true'" style="color:#4C84FF">进入课堂</span>
+                        </div>
                     </div>
                     <div class="item">
                         <div class="labels">练习</div>
-                        <div>{{class.watchexam?'查看':'未布置'}}</div>
+                        <div style="cursor: pointer;margin-top: 4px" ng-click="toExam(class)">
+                            <span ng-if="class.watchexam!=='true'" style="color:#aaa">未布置</span>
+                            <span ng-if="class.watchexam==='true'" style="color:#4C84FF">开始练习</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="class clearfix" ng-repeat="class in subject.wait" ng-show="tabIndex===2">
+            <div class="class clearfix" ng-repeat="class in subject.finish" ng-show="tabIndex===2">
                 <div class="left">
                 <div class="title">{{class.title}}</div>
                 <div class="time">{{class.during}}</div>
                 </div>
                 <div class="items clearfix">
                     <div class="item">
-                        <div class="labels">直播</div>
-                        <div class="status" ng-click="toLive(class.pullurl,class.watchgroupid,class.watchjoin)">未开始</div>
+                        <div class="labels">视频</div>
+                        <div class="status" style="cursor: pointer;margin-top: 4px" ng-click="toLive(class.pullurl,class.watchgroupid,class.watchjoin,false,{})">
+                            <!--{{class.watchjoin==='true'?'看回放':'暂无视频'}}-->
+                            <span ng-if="class.watchjoin!=='true'" style="color:#aaa">未上传</span>
+                            <span ng-if="class.watchjoin==='true'" style="color:#4C84FF">看回放</span>
+                        </div>
                     </div>
                     <div class="item">
                         <div class="labels">练习</div>
-                        <div class="status">{{class.watchexam?'查看':'未布置'}}</div>
+                        <div class="status" style="cursor: pointer;margin-top: 4px" ng-click="toExam(class)">
+                            <span ng-if="class.watchexam!=='true'" style="color:#aaa">未布置</span>
+                            <span ng-if="class.watchexam==='true'" style="color:#4C84FF">开始练习</span>
+                        </div>
                     </div>
                 </div>
             </div>

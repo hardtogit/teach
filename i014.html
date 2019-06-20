@@ -13,7 +13,7 @@
             </ul>
             <div class="dis" ng-if="tabIndex===1">
                 <div class="class-container clearfix">
-                    <div ng-if="i<6" ng-class="{'class':true,'last':i%3===2,'dou':class.number>1}" ng-repeat="(i,class) in teacherDetail.datas" ng-click="goDetail(class)">
+                    <div ng-if="i<6" ng-class="{'class':true,'last':i%3===2,'dan':i%2===0}" ng-repeat="(i,class) in teacherDetail.datas" ng-click="goDetail(class)">
                         <h4><span class="tag one">{{class.season}}</span><span class="tag two">{{class.subject}}</span>{{class.name}}</h4>
                         <div class="teacher">
                             <image class="tou" src='http://39.108.219.7/cgi-bin/download.pl?proj=znyx&fid={{class.mainheadFid}}'/>
@@ -21,7 +21,7 @@
                         </div>
                         <div class="describe">
                             <div class="col-xs-6" style="padding: 0">
-                                <small>共{{class.contentnumber}}节课 {{class.number}}个班级可选</small>
+                                <small>共{{class.number}}节课 </small>
                                 <p><small>{{class.request}}人已报名</small></p>
                             </div>
                             <div class="col-xs-6">
@@ -48,3 +48,4 @@
 
     </div>
 </div>
+<div ng-include="'i100footer.html'"></div>

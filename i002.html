@@ -40,7 +40,7 @@
     </div>
 
     <div class="class-container clearfix">
-        <div ng-class="{'class':true,'last':i%3===2}" ng-repeat="(i,class) in classData" ng-click="goDetail(class)" >
+        <div ng-class="{'class':true,'last':i%3===2,'dou':class.number>1}"  ng-repeat="(i,class) in classData" ng-click="goDetail(class)" >
             <h4><span class="tag one">{{class.season}}</span><span class="tag two">{{class.subject}}</span>{{class.name}}</h4>
             <div class="teacher">
                 <image class="tou" src='http://39.108.219.7/cgi-bin/download.pl?proj=znyx&fid={{class.headFid}}'/>
@@ -59,3 +59,4 @@
         </div>
     </div>
 </div>
+<div ng-include="'i100footer.html'"></div>

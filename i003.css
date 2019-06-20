@@ -66,4 +66,62 @@
 .i003 .form-group {
   margin-bottom: 20px;
 }
+.i003 .addAddress .bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000;
+  opacity: 0.4;
+  z-index: 99;
+}
+.i003 .addAddress .adModal {
+  width: 616px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 100;
+  transform: translate3d(-50%, -50%, 0);
+  background-color: #fff;
+  border: 1px solid #ddd;
+  color: #818A92;
+}
+.i003 .addAddress .adModal .form-group {
+  margin-bottom: 20px;
+}
+.i003 .addAddress .adModal label {
+  font-weight: normal;
+}
+.i003 .addAddress .adModal .close img {
+  width: 32px;
+  height: 32px;
+  position: relative;
+  right: 6px;
+  top: 6px;
+}
+.i003 .addAddress .adModal .title {
+  font-size: 18px;
+  color: #000;
+  text-align: center;
+  height: 57px;
+  line-height: 57px;
+  border-bottom: 1px solid #ebebeb;
+}
+.i003 .addAddress .adModal .body {
+  padding: 30px 10px 30px 30px;
+}
+.i003 .addAddress .adModal .body .save {
+  width: 130px;
+  height: 44px;
+  background: #4c84ff;
+  border: 1px solid #4c84ff;
+  border-radius: 4px;
+  margin: 20px auto 0 auto;
+  line-height: 44px;
+  text-align: center;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
 /*# sourceMappingURL=i003.css.map */

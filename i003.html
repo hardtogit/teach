@@ -4,12 +4,12 @@
     <div class="breadcrumbs"><a href="#/i001">首页 ></a><a href="#/i002"> 学习中心 ></a><a href="#/i003">个人中心</a></div>
     <div  ng-include="'side.html'"></div>
     <div class="content">
-        <ul class="nav">
+        <ul class="nav" style="border-bottom: 1px solid #ddd">
             <li ng-class="{'active':tabIndex===1}" ng-click="changeTab(1)">基本信息</li>
             <!--<li ng-class="{'active':tabIndex===2}" ng-click="changeTab(2)">修改密码</li>-->
-            <!--<li ng-class="{'active':tabIndex===3}" ng-click="changeTab(3)">收货地址</li>-->
+            <li ng-class="{'active':tabIndex===3}" ng-click="changeTab(3)">收货地址</li>
         </ul>
-        <div class="panel">
+        <div class="panel" ng-if="tabIndex===1">
             <form class="form-horizontal">
                 <img class="header" src="http://39.108.219.7/cgi-bin/download.pl?proj=znyx&fid={{userInfo.headfid}}" alt="">
                 <div class="upText" ng-click="uploadImage('headfid')">更换头像
@@ -83,6 +83,74 @@
             </form>
             <div class="submit" ng-click="setData()">
                 保存
+            </div>
+        </div>
+        <div class="panel" ng-if="tabIndex===3">
+            <div class="address" ng-if="userInfo.address.phone" style="width: 768px;height: 227px;background-color: #F5F5F5;position: relative; padding: 20px 40px">
+                <div class="acepter">收货人：{{userInfo.address.name}}  </div>
+                <div style="margin-top: 10px">手机号：{{userInfo.address.phone}}</div>
+                <div style="margin-top: 10px" class="detail">所在地区：{{userInfo.address.province}} {{userInfo.address.city}} {{userInfo.address.county}}</div>
+                <div style="margin-top: 10px">详细地址：{{userInfo.address.address}}</div>
+                <span class="pull-right" style="cursor: pointer;position: absolute;color:#4C84FF;bottom: 20px;right: 40px" ng-click="show()"><i class="fa fa-edit"></i>修改</span>
+            </div>
+            <div class="no" ng-if="!userInfo.address.phone">
+                <img src="./img/noaddress.png" ng-click="show()" style="display: block;margin: 20px auto;width: 68px;cursor: pointer" alt="">
+                <div class="text-center">添加收货地址</div>
+
+            </div>
+
+
+            <div class="addAddress" ng-if="visible">
+                <div class="bg"></div>
+                <div class="adModal">
+                    <div class="close" ng-click="hidden()"><img src="./img/close.png" alt=""></div>
+                    <div class="title">收货地址</div>
+                    <form class="form-horizontal body">
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label">收货人</label>
+                            <div class="col-sm-6" >
+                                <input class="form-control" ng-model="address.name" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label">手机号码</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="address.phone" class="form-control" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label">所在区域</label>
+                            <div class="col-sm-3">
+                                <select placeholder="请选择" class="form-control" ng-change="formatAddressRegion('city',addressRegionData.areaprovince,true)" ng-model="addressRegionData.areaprovince" >
+                                    <option value="" disabled>请选择</option>
+                                    <option ng-selected="addressRegionData.areaprovince===province.province_ch" ng-repeat="province in addressRegionList.province" ng-value="province.province_ch">{{province.province_ch}}</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-3">
+                                <select placeholder="请选择" class="form-control" ng-change="formatAddressRegion('county',addressRegionData.areacity,true)" ng-model="addressRegionData.areacity">
+                                    <option value="" disabled>请选择</option>
+                                    <option ng-selected="addressRegionData.areacity===city.city_ch" ng-repeat="city in addressRegionList.city" ng-value="city.city_ch">{{city.city_ch}}</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-3">
+                                <select placeholder="请选择" class="form-control"  ng-model="addressRegionData.areacounty">
+                                    <option value="" disabled>请选择</option>
+                                    <option ng-selected="addressRegionData.areacounty===city.city_ch" ng-repeat="city in addressRegionList.county" ng-value="city.city_ch">{{city.city_ch}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label">详细地址</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" ng-model="address.address"  rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="save" ng-click="save()">保存</div>
+
+                    </form>
+
+
+                </div>
             </div>
         </div>
     </div>
